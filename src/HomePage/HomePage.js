@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
+import Navbar from '../Navbar/Navbar'
 import Footer from './Footer'
 import Header from './Header'
 import Process from './Process'
