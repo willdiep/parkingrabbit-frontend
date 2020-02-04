@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Header from './Header'
+import Process from './Process'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import mapMarkerIcon from './images/map-marker-alt-solid.svg'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import mapMarkerIcon from './images/map-marker-alt-solid.svg'
 
 
 class HomePage extends Component {
@@ -21,7 +22,9 @@ class HomePage extends Component {
 
           <Header className='homepage__header'/>
 
-          <Footer className='homepage__footer' />
+          <Process className='homepage__process' />
+
+          {/* <Footer className='homepage__footer' /> */}
         </div>
       </div>
     )

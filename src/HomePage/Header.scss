@@ -46,7 +46,7 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: var(--header-black-color);
+    color: var(--primary-color);
     margin-bottom: 0;
   }
 
@@ -60,7 +60,7 @@
     font-style: normal;
     line-height: 1.33;
     letter-spacing: normal;
-    color: var(--header-gray-color);
+    color: var(--secondary-color);
   }
 
   &__CTA {
@@ -89,12 +89,12 @@
     width: 81px;
     height: 75px;
     border-radius: 37.5px;
-    background-color: var(--black);
+    background-color: var(--primary-color);
   }
 
   &__parkingnearme {
     width: 176px;
-    height: 22px;
+    // height: 22px;
     // font-family: Helvetica;
     font-size: 18px;
     font-weight: normal;

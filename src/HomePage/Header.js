@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import heroimage from './images/hero-image.png'
+import heroimage from '../images/hero-image.png'
 import './Header.scss'
 
 class Header extends Component {

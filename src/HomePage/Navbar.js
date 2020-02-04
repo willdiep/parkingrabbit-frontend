@@ -11,7 +11,7 @@ class Navbar extends Component {
       <div>
         <header>
           <nav className='nav'>
-            <a className='nav__item nav__logo' href='#'>ParkingRabbit</a>
+            <a className='nav__item nav__logo' href='#'><strong>Parking</strong>Rabbit</a>
             <a className='nav__item nav__item--right nav__login ' href='#'>Login</a>
             <a className='nav__item nav__item--right nav__signup' href='#'>Sign Up</a>
           </nav>

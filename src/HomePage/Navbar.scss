@@ -1,17 +1,16 @@
 .nav {
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
   width: 100%;
-  height: 60px;
   background-color: lightgray;
   align-items: center;
   background-color: transparent;
   height: 110px;
-  margin-left: 15px;
-  margin-right: 15px;
+  // margin-left: 15px;
+  // margin-right: 15px;
 
   &__item {
     text-decoration: none;
@@ -23,11 +22,12 @@
 
   &__logo {
     margin-right: auto;
-    width: 258px;
+    margin-left: 100px;
+    // width: 258px;
     height: 47px;
     // font-family: Helvetica;
     font-size: 39px;
-    font-weight: bold;
+    // font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
