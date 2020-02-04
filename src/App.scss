@@ -3,4 +3,9 @@
   --header-black-color: #000000;
   --header-gray-color: #898989;
   --white-color: #ffffff;
+  --main-font: Helvetica;
+}
+
+body {
+  font-family: var(--main-font);
 }

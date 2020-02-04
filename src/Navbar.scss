@@ -1,0 +1,70 @@
+.nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 60px;
+  background-color: lightgray;
+  align-items: center;
+  background-color: transparent;
+  height: 110px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  &__item {
+    text-decoration: none;
+  }
+
+  &__item--right {
+    margin-right: 100px;
+  }
+
+  &__logo {
+    margin-right: auto;
+    width: 258px;
+    height: 47px;
+    // font-family: Helvetica;
+    font-size: 39px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  &__login {
+    color: var(--carrot-color);
+    height: 31px;
+    // font-family: Helvetica;
+    font-size: 26px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  &__signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 162px;
+    height: 57px;
+    border-radius: 28.5px;
+    background-color: var(--carrot-color);
+    color: white;
+    // font-family: Helvetica;
+    font-size: 26px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+
+}
