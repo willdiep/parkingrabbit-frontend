@@ -18,13 +18,13 @@ class Navbar extends Component {
 
 
             <Link exact to='/login' className='nav__item nav__item--right nav__login'>Login</Link>
+            
+            <Link exact to='/signup' className='nav__item nav__item--right nav__signup'>Sign Up</Link>
            
             {/* <a className='nav__item nav__item--right nav__login' 
             href='#'>Login</a> */}
 
-
-
-            <a className='nav__item nav__item--right nav__signup' href='#'>Sign Up</a>
+            {/* <a className='nav__item nav__item--right nav__signup' href='#'>Sign Up</a> */}
           </nav>
         </header>
       </div>
