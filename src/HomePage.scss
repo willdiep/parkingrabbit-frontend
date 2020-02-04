@@ -1,0 +1,109 @@
+.homepage {
+  &__container {
+    display: grid;
+    grid-template-areas:
+      'homepage__navbar'
+      'homepage__content'
+      'homepage__footer';
+  }
+
+  &__navbar {
+    grid-area: homepage__navbar;
+  }
+
+  &__content {
+    grid-area: homepage__content;
+  }
+
+  &__footer {
+    grid-area: homepage__footer;
+  }
+
+  &__carrotcar {
+    width: 100%;
+  }
+
+  &__heroimage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 561px;
+  }
+
+  &__text1 {
+    // height: 86px;
+    font-family: Helvetica;
+    font-size: 36px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--header-black-color);
+    margin-bottom: 0;
+  }
+
+  &__text2 {
+    width: 561px;
+    // height: 64px;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: var(--header-gray-color);
+  }
+
+  &__CTA {
+    position: relative;
+    // display: inline-flex;
+  }
+  &__input {
+    // width: 100%;
+    padding-left: 25px;
+    width: 480px;
+    height: 75px;
+    border-radius: 37.5px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #dfdfdf;
+    background-color: #ffffff;
+    // text-align: center;
+  }
+
+  &__btn {
+    position: absolute;
+    // margin-right: 40px;
+    // top: 0;
+    // right: 4px;
+    // left: ;
+    z-index: 100;
+    width: 81px;
+    height: 75px;
+    border-radius: 37.5px;
+    background-color: var(--black);
+  }
+
+  &__parkingnearme {
+    width: 176px;
+    height: 22px;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--carrot-color);
+    text-decoration: underline;
+  }
+
+}
