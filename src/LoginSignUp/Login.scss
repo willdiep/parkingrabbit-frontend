@@ -1,0 +1,52 @@
+.login {
+  display: flex;
+  justify-content: center;
+
+  &__modal {
+    width: 600px;
+    height: 800px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px 8px rgba(205, 203, 203, 0.5);
+  }
+
+  &__container {
+    margin: 0 60px;
+  }
+  &__header {
+    // margin-left: 60px;
+    // margin-right: 60px;
+    width: 117px;
+    height: 47px;
+    font-family: Helvetica;
+    font-size: 39px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--primary-color);
+  }
+
+  &__socialmedia {
+    text-align: center;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // width: 100%;
+  }
+
+  &__horizontalruler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__line {
+    width: 241px;
+    // height: 1px;
+    border: solid 2px var(--third-color);
+  }
+  &__line-text {
+    padding: 0 10px;
+  }
+}
