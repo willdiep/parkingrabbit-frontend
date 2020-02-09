@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import './Login.scss'
+// import './Signup.scss'
 
 class Signup extends Component {
-  constructor() {
-    super()
-  }
 
   render() {
     return (

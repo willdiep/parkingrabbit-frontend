@@ -3,10 +3,6 @@ import heroimage from '../images/hero-image.png'
 import './Header.scss'
 
 class Header extends Component {
-  constructor() {
-    super()
-  }
-
   render() {
     return (
       <div>
@@ -26,13 +22,20 @@ class Header extends Component {
                 Francisco and book them in seconds.
               </p>
 
-              <form className='header__CTA'>
+              <form className='header__CTA' onSubmit={this.props.setSubmitListingCollection}>
                 <input
                   type='text'
                   className='header__input'
-                  placeholder='Address, Business, or Venue'
+                  placeholder='Enter Address, Place, District, or Zipcode'
+                  value={this.props.stateLocation}
+                  onChange={this.props.setUserLocationInput}
                 />
                 {/* <button className='header__btn'></button> */}
+                <input
+                  type='submit'
+                  value='Submit'
+                  className='header__submit'
+                />
               </form>
 
               <p className='header__parkingnearme'>Find Parking Near Me</p>

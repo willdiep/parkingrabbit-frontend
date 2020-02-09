@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import './Login.scss'
+// import './Login.scss'
 import googleSigninBtn from '../images/sign-in-google.png'
 import facebookContinueBtn from '../images/continue-with-facebook-btn.png'
 
 class Login extends Component {
-  constructor() {
-    super()
-  }
+
 
   render() {
     return (
@@ -21,10 +19,10 @@ class Login extends Component {
             <br></br>
 
             <section className='login__socialmedia'>
-              <img className='login__google' src={googleSigninBtn} />
+              <img className='login__google' src={googleSigninBtn} alt='google sign in button' />
               <br></br>
               <br></br>
-              <img className='login__google' src={facebookContinueBtn} />
+              <img className='login__google' src={facebookContinueBtn} alt='continue with facebook button' />
             </section>
 
             <br></br>

@@ -5,10 +5,6 @@ import parkIcon from '../images/park-icon.png'
 import './Process.scss'
 
 class Process extends Component {
-  constructor() {
-    super()
-  }
-
   render() {
     return (
       <div>
@@ -17,6 +13,7 @@ class Process extends Component {
             <img
               className='process__icon process__icon-search'
               src={searchIcon}
+              alt='search icon'
             />
             <p className='process__header'>Search</p>
             <p className='process__text'>
@@ -25,7 +22,11 @@ class Process extends Component {
             </p>
           </section>
           <section className='process__item'>
-            <img className='process__icon process__icon-book' src={bookIcon} />
+            <img
+              className='process__icon process__icon-book'
+              src={bookIcon}
+              alt='book icon'
+            />
             <p className='process__header'>Book</p>
             <p className='process__text'>
               Prepay for your spot and get a parking pass instantly via text,
@@ -33,7 +34,11 @@ class Process extends Component {
             </p>
           </section>
           <section className='process__item'>
-            <img className='process__icon process__icon-park' src={parkIcon} />
+            <img
+              className='process__icon process__icon-park'
+              src={parkIcon}
+              alt='park icon'
+            />
             <p className='process__header'>Park</p>
             <p className='process__text'>
               Scan or show your mobile parking pass when you arrive and you’re
