@@ -16,10 +16,12 @@ class HomePage extends Component {
           <Navbar className='homepage__navbar' />
 
           <Header
-            stateLocation={this.props.stateLocation}
-            setUserLocationInput={this.props.setUserLocationInput}
-            setSubmitListingCollection={this.props.setSubmitListingCollection}
             className='homepage__header'
+            // stateLocation={this.props.stateLocation}
+            setUserLat={this.props.setUserLat}
+            setUserLng={this.props.setUserLng}
+            // setUserLocationInput={this.props.setUserLocationInput}
+            // setSubmitListingCollection={this.props.setSubmitListingCollection}
           />
 
           <Process className='homepage__process' />

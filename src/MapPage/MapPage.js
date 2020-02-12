@@ -10,8 +10,13 @@ styleLink.href =
   'https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css'
 document.head.appendChild(styleLink)
 
+// mine
 mapboxgl.accessToken =
   'pk.eyJ1Ijoid2lsbGQxMCIsImEiOiJjazVrZjgweGUwZGpiM2RucnB6ZW83cnF1In0.QuvhJzfhJrxg-dNfhVrJ7A'
+
+// https://github.com/alex3165/react-mapbox-gl
+  // mapboxgl.accessToken =
+  // 'pk.eyJ1IjoiZmFicmljOCIsImEiOiJjaWc5aTV1ZzUwMDJwdzJrb2w0dXRmc2d0In0.p6GGlfyV-WksaDV_KdN27A'
 
 class MapPage extends Component {
   constructor(props) {

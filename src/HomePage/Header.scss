@@ -107,3 +107,31 @@
   }
 
 }
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+/*   visibility: hidden; */
+  display: none;
+}
+
+.geocoder {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  top: 20px;
+}
+.mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+}

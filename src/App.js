@@ -14,29 +14,49 @@ class App extends Component {
     super()
 
     this.state = {
-      userLocationInput: '',
+      userLat: null,
+      userLng: null,
+      // userLocationInput: '',
       listingCollection: {}
     }
   }
 
-  handleSetLocationInput = e => {
-    // console.log(e)
+  // handleSetLocationInput = e => {
+  //   // console.log(e)
+  //   this.setState({
+  //     userLocationInput: e.target.value
+  //   })
+  // }
+
+  // handleSubmitListingCollection = e => {
+    // e.preventDefault()
+    // fetch('http://localhost:3000/listings')
+    //   .then(resp => resp.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     this.setState({
+    //       listingCollection: data
+    //     })
+    //   })
+    //   this.props.history.push('/mappage')
+  // }
+
+  handleSetLat = (lat) => {
+    // console.log('App: from handleSetLat')
+    // console.log(lat)
     this.setState({
-      userLocationInput: e.target.value
+      userLat: lat
     })
+    this.props.history.push('/mappage')
   }
 
-  handleSubmitListingCollection = e => {
-    e.preventDefault()
-    fetch('http://localhost:3000/listings')
-      .then(resp => resp.json())
-      .then(data => {
-        console.log(data)
-        this.setState({
-          listingCollection: data
-        })
-      })
-      this.props.history.push('/mappage')
+  handleSetLng = (lng) => {
+    // console.log('App: from handleSetLng')
+    // console.log(lng)
+    this.setState({
+      userLng: lng
+    })
+    this.props.history.push('/mappage')
   }
 
   render() {
@@ -52,11 +72,13 @@ class App extends Component {
               render={props => (
                 <HomePage
                   {...props}
-                  stateLocation={this.state.userLocationInput}
-                  setUserLocationInput={this.handleSetLocationInput}
-                  setSubmitListingCollection={
-                    this.handleSubmitListingCollection
-                  }
+                  // stateLocation={this.state.userLocationInput}
+                  setUserLat={this.handleSetLat}
+                  setUserLng={this.handleSetLng}
+                  // setUserLocationInput={this.handleSetLocationInput}
+                  // setSubmitListingCollection={
+                    // this.handleSubmitListingCollection
+                  // }
                 />
               )}
             />
