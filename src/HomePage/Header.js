@@ -30,9 +30,10 @@ class Header extends Component {
   // }
 
   handleChange = coordinatesArr => {
+    // console.log(coordinatesArr.constructor.name)
     // console.log(coordinatesArr)
-    this.props.setUserLat(coordinatesArr[0])
-    this.props.setUserLng(coordinatesArr[1])
+    this.props.handleSetLatLng(coordinatesArr)
+    // this.props.handleSetLng(coordinatesArr[1])
   }
 
   render() {

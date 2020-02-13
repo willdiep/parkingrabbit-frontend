@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter
+} from 'react-router-dom'
 // import { withRouter } from 'react-router-dom'
 // import Navbar from './Navbar/Navbar'
 // import logo from './logo.svg';
@@ -29,63 +34,76 @@ class App extends Component {
   // }
 
   // handleSubmitListingCollection = e => {
-    // e.preventDefault()
-    // fetch('http://localhost:3000/listings')
-    //   .then(resp => resp.json())
-    //   .then(data => {
-    //     console.log(data)
-    //     this.setState({
-    //       listingCollection: data
-    //     })
-    //   })
-    //   this.props.history.push('/mappage')
+  // e.preventDefault()
+  // fetch('http://localhost:3000/listings')
+  //   .then(resp => resp.json())
+  //   .then(data => {
+  //     console.log(data)
+  //     this.setState({
+  //       listingCollection: data
+  //     })
+  //   })
+  //   this.props.history.push('/mappage')
   // }
 
-  handleSetLat = (lat) => {
+  handleSetLatLng = coordinatesArr => {
     // console.log('App: from handleSetLat')
     // console.log(lat)
     this.setState({
-      userLat: lat
-    })
-    this.props.history.push('/mappage')
+      userLat: coordinatesArr[0],
+      userLng: coordinatesArr[1]
+    }, () => {this.props.history.push('/mappage')})
+    
+    // MATT
+    // Promise.resolve(this.setState({
+    //   userLat: coordinatesArr[0],
+    //   userLng: coordinatesArr[1]
+    // })).then((setStateResult) => {
+    //   console.log(setStateResult)
+    //   this.props.history.push('/mappage')
+    // })
   }
 
-  handleSetLng = (lng) => {
-    // console.log('App: from handleSetLng')
-    // console.log(lng)
-    this.setState({
-      userLng: lng
-    })
-    this.props.history.push('/mappage')
-  }
+  // handleSetLng = lng => {
+  //   // console.log('App: from handleSetLng')
+  //   // co  nsole.log(lng)
+  //   this.setState({
+  //     userLng: lng
+  //   })
+  //   this.props.history.push('/mappage')
+  // }
 
   render() {
     return (
       <div className='app'>
         {/* <main className="grid-container"></main> */}
         {/* <Router> */}
-          {/* <Navbar /> */}
-          <Switch>
-            <Route
-              exact
-              path='/'
-              render={props => (
-                <HomePage
-                  {...props}
-                  // stateLocation={this.state.userLocationInput}
-                  setUserLat={this.handleSetLat}
-                  setUserLng={this.handleSetLng}
-                  // setUserLocationInput={this.handleSetLocationInput}
-                  // setSubmitListingCollection={
-                    // this.handleSubmitListingCollection
-                  // }
-                />
-              )}
-            />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={Signup} />
-            <Route exact path='/mappage' component={MapPage} />
-          </Switch>
+        {/* <Navbar /> */}
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={props => (
+              <HomePage
+                {...props}
+                // stateLocation={this.state.userLocationInput}
+                handleSetLatLng={this.handleSetLatLng}
+                
+                // setUserLocationInput={this.handleSetLocationInput}
+                // setSubmitListingCollection={
+                // this.handleSubmitListingCollection
+                // }
+              />
+            )}
+          />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
+          <Route
+            exact
+            path='/mappage'
+            render={props => <MapPage {...props} setLng={this.state.userLng} setLat={this.state.userLat} />}
+          />
+        </Switch>
         {/* </Router> */}
       </div>
     )

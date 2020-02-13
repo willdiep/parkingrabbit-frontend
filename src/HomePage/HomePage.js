@@ -18,8 +18,8 @@ class HomePage extends Component {
           <Header
             className='homepage__header'
             // stateLocation={this.props.stateLocation}
-            setUserLat={this.props.setUserLat}
-            setUserLng={this.props.setUserLng}
+            handleSetLatLng={this.props.handleSetLatLng}
+            // handleSetLng={this.props.handleSetLng}
             // setUserLocationInput={this.props.setUserLocationInput}
             // setSubmitListingCollection={this.props.setSubmitListingCollection}
           />
