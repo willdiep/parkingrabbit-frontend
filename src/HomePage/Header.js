@@ -20,14 +20,24 @@ import './Header.scss'
 //   'pk.eyJ1Ijoid2lsbGQxMCIsImEiOiJjazVrZjgweGUwZGpiM2RucnB6ZW83cnF1In0.QuvhJzfhJrxg-dNfhVrJ7A'
 
 class Header extends Component {
-  // componentDidMount() {
-  //   var map = new mapboxgl.Map({
-  //     container: 'map',
-  //     style: 'mapbox://styles/mapbox/streets-v11',
-  //     center: [-79.4512, 43.6568],
-  //     zoom: 13
-  //   })
-  // }
+
+
+  findUserCurrentLocation = () => {
+    const self = this
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(displayLocationInfo)
+    }
+
+    function displayLocationInfo(position) {
+      // console.log(self)
+      const lng = position.coords.longitude
+      const lat = position.coords.latitude
+
+      // console.log(`longitude: ${lng} | latitude: ${lat}`)
+      self.props.handleSetLatLng([lat, lng])
+      console.log([lat, lng])
+    }
+  }
 
   handleChange = coordinatesArr => {
     // console.log(coordinatesArr.constructor.name)
@@ -78,7 +88,7 @@ class Header extends Component {
               </form> */}
 
               <AlgoliaPlaces
-                placeholder='Write an address here'
+                placeholder='Search Address, Place, District, or Zipcode'
                 options={{
                   appId: 'plFF2HVFCYHZ',
                   apiKey: '0b5007eeca59b12374f402743f853d98',
@@ -86,6 +96,7 @@ class Header extends Component {
                   countries: ['us'],
                   aroundLatLng: '37.773972, -122.431297',
                   aroundRadius: 10000
+                  // useDeviceLocation: true
                   // type: 'city'
                   // Other options from https://community.algolia.com/places/documentation.html#options
                 }}
@@ -130,7 +141,7 @@ class Header extends Component {
                 }
               />
 
-              <p className='header__parkingnearme'>Find Parking Near Me</p>
+              <p className='header__parkingnearme'onClick={this.findUserCurrentLocation}>Find Parking Near Me</p>
             </section>
           </article>
         </main>

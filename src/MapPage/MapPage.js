@@ -11,8 +11,8 @@ styleLink.href =
 document.head.appendChild(styleLink)
 
 
-mapboxgl.accessToken =
-  'pk.eyJ1Ijoid2lsbGQxMCIsImEiOiJjazVrZjgweGUwZGpiM2RucnB6ZW83cnF1In0.QuvhJzfhJrxg-dNfhVrJ7A'
+mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API_KEY}`
+
 
 class MapPage extends Component {
   constructor(props) {
@@ -22,10 +22,10 @@ class MapPage extends Component {
 
     this.state = {
       active: '',
-      lng: props.setLng,
-      lat: props.setLat,
-      // lng: -77.034084142948,
-      // lat: 38.909671288923,
+      // LONGER WAY
+      // lng: props.setLng,
+      // lat: props.setLat,
+
       zoom: 9,
       stores: {
         type: 'FeatureCollection',
@@ -252,8 +252,11 @@ class MapPage extends Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [this.state.lng, this.state.lat],
-      // center: [this.props.setLng, this.props.setLat],
+      // PASSING DOWN PROPS IS EASIER THAN PASSING DOWN PROPS TO STATE ON THIS COMPONENTS
+      center: [this.props.setLng, this.props.setLat],
+
+      // LONGER WAY
+      // center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
     })
 
