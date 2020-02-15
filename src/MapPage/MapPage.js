@@ -10,9 +10,7 @@ styleLink.href =
   'https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css'
 document.head.appendChild(styleLink)
 
-
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API_KEY}`
-
 
 class MapPage extends Component {
   constructor(props) {
@@ -25,230 +23,254 @@ class MapPage extends Component {
       // LONGER WAY
       // lng: props.setLng,
       // lat: props.setLat,
-
-      zoom: 9,
+      zoom: 15,
       stores: {
         type: 'FeatureCollection',
-        features: [
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.034084142948, 38.909671288923]
-            },
-            properties: {
-              phoneFormatted: '(202) 234-7336',
-              phone: '2022347336',
-              address: '1471 P St NW',
-              city: 'Washington DC',
-              country: 'United States',
-              crossStreet: 'at 15th St NW',
-              postalCode: '20005',
-              state: 'D.C.',
-              price: 10
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.049766, 38.900772]
-            },
-            properties: {
-              phoneFormatted: '(202) 507-8357',
-              phone: '2025078357',
-              address: '2221 I St NW',
-              city: 'Washington DC',
-              country: 'United States',
-              crossStreet: 'at 22nd St NW',
-              postalCode: '20037',
-              state: 'D.C.',
-              price: 20
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.043929, 38.910525]
-            },
-            properties: {
-              phoneFormatted: '(202) 387-9338',
-              phone: '2023879338',
-              address: '1512 Connecticut Ave NW',
-              city: 'Washington DC',
-              country: 'United States',
-              crossStreet: 'at Dupont Circle',
-              postalCode: '20036',
-              state: 'D.C.',
-              price: 30
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.0672, 38.90516896]
-            },
-            properties: {
-              phoneFormatted: '(202) 337-9338',
-              phone: '2023379338',
-              address: '3333 M St NW',
-              city: 'Washington DC',
-              country: 'United States',
-              crossStreet: 'at 34th St NW',
-              postalCode: '20007',
-              state: 'D.C.',
-              price: 40
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.002583742142, 38.887041080933]
-            },
-            properties: {
-              phoneFormatted: '(202) 547-9338',
-              phone: '2025479338',
-              address: '221 Pennsylvania Ave SE',
-              city: 'Washington DC',
-              country: 'United States',
-              crossStreet: 'btwn 2nd & 3rd Sts. SE',
-              postalCode: '20003',
-              state: 'D.C.',
-              price: 50
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-76.933492720127, 38.99225245786]
-            },
-            properties: {
-              address: '8204 Baltimore Ave',
-              city: 'College Park',
-              country: 'United States',
-              postalCode: '20740',
-              state: 'MD',
-              price: 60
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.097083330154, 38.980979]
-            },
-            properties: {
-              phoneFormatted: '(301) 654-7336',
-              phone: '3016547336',
-              address: '4831 Bethesda Ave',
-              cc: 'US',
-              city: 'Bethesda',
-              country: 'United States',
-              postalCode: '20814',
-              state: 'MD',
-              price: 70
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.359425054188, 38.958058116661]
-            },
-            properties: {
-              phoneFormatted: '(571) 203-0082',
-              phone: '5712030082',
-              address: '11935 Democracy Dr',
-              city: 'Reston',
-              country: 'United States',
-              crossStreet: 'btw Explorer & Library',
-              postalCode: '20190',
-              state: 'VA',
-              price: 80
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.10853099823, 38.880100922392]
-            },
-            properties: {
-              phoneFormatted: '(703) 522-2016',
-              phone: '7035222016',
-              address: '4075 Wilson Blvd',
-              city: 'Arlington',
-              country: 'United States',
-              crossStreet: 'at N Randolph St.',
-              postalCode: '22203',
-              state: 'VA',
-              price: 90
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-75.28784, 40.008008]
-            },
-            properties: {
-              phoneFormatted: '(610) 642-9400',
-              phone: '6106429400',
-              address: '68 Coulter Ave',
-              city: 'Ardmore',
-              country: 'United States',
-              postalCode: '19003',
-              state: 'PA',
-              price: 100
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-75.20121216774, 39.954030175164]
-            },
-            properties: {
-              phoneFormatted: '(215) 386-1365',
-              phone: '2153861365',
-              address: '3925 Walnut St',
-              city: 'Philadelphia',
-              country: 'United States',
-              postalCode: '19104',
-              state: 'PA',
-              price: 110
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [-77.043959498405, 38.903883387232]
-            },
-            properties: {
-              phoneFormatted: '(202) 331-3355',
-              phone: '2023313355',
-              address: '1901 L St. NW',
-              city: 'Washington DC',
-              country: 'United States',
-              crossStreet: 'at 19th St',
-              postalCode: '20036',
-              state: 'D.C.',
-              price: 120
-            }
-          }
-        ]
+        features: []
       }
+      // stores: {
+      //   type: 'FeatureCollection',
+      //   features: [
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.034084142948, 38.909671288923]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(202) 234-7336',
+      //         phone: '2022347336',
+      //         address: '1471 P St NW',
+      //         city: 'Washington DC',
+      //         country: 'United States',
+      //         crossStreet: 'at 15th St NW',
+      //         postalCode: '20005',
+      //         state: 'D.C.',
+      //         price: 10
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.049766, 38.900772]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(202) 507-8357',
+      //         phone: '2025078357',
+      //         address: '2221 I St NW',
+      //         city: 'Washington DC',
+      //         country: 'United States',
+      //         crossStreet: 'at 22nd St NW',
+      //         postalCode: '20037',
+      //         state: 'D.C.',
+      //         price: 20
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.043929, 38.910525]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(202) 387-9338',
+      //         phone: '2023879338',
+      //         address: '1512 Connecticut Ave NW',
+      //         city: 'Washington DC',
+      //         country: 'United States',
+      //         crossStreet: 'at Dupont Circle',
+      //         postalCode: '20036',
+      //         state: 'D.C.',
+      //         price: 30
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.0672, 38.90516896]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(202) 337-9338',
+      //         phone: '2023379338',
+      //         address: '3333 M St NW',
+      //         city: 'Washington DC',
+      //         country: 'United States',
+      //         crossStreet: 'at 34th St NW',
+      //         postalCode: '20007',
+      //         state: 'D.C.',
+      //         price: 40
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.002583742142, 38.887041080933]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(202) 547-9338',
+      //         phone: '2025479338',
+      //         address: '221 Pennsylvania Ave SE',
+      //         city: 'Washington DC',
+      //         country: 'United States',
+      //         crossStreet: 'btwn 2nd & 3rd Sts. SE',
+      //         postalCode: '20003',
+      //         state: 'D.C.',
+      //         price: 50
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-76.933492720127, 38.99225245786]
+      //       },
+      //       properties: {
+      //         address: '8204 Baltimore Ave',
+      //         city: 'College Park',
+      //         country: 'United States',
+      //         postalCode: '20740',
+      //         state: 'MD',
+      //         price: 60
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.097083330154, 38.980979]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(301) 654-7336',
+      //         phone: '3016547336',
+      //         address: '4831 Bethesda Ave',
+      //         cc: 'US',
+      //         city: 'Bethesda',
+      //         country: 'United States',
+      //         postalCode: '20814',
+      //         state: 'MD',
+      //         price: 70
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.359425054188, 38.958058116661]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(571) 203-0082',
+      //         phone: '5712030082',
+      //         address: '11935 Democracy Dr',
+      //         city: 'Reston',
+      //         country: 'United States',
+      //         crossStreet: 'btw Explorer & Library',
+      //         postalCode: '20190',
+      //         state: 'VA',
+      //         price: 80
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.10853099823, 38.880100922392]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(703) 522-2016',
+      //         phone: '7035222016',
+      //         address: '4075 Wilson Blvd',
+      //         city: 'Arlington',
+      //         country: 'United States',
+      //         crossStreet: 'at N Randolph St.',
+      //         postalCode: '22203',
+      //         state: 'VA',
+      //         price: 90
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-75.28784, 40.008008]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(610) 642-9400',
+      //         phone: '6106429400',
+      //         address: '68 Coulter Ave',
+      //         city: 'Ardmore',
+      //         country: 'United States',
+      //         postalCode: '19003',
+      //         state: 'PA',
+      //         price: 100
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-75.20121216774, 39.954030175164]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(215) 386-1365',
+      //         phone: '2153861365',
+      //         address: '3925 Walnut St',
+      //         city: 'Philadelphia',
+      //         country: 'United States',
+      //         postalCode: '19104',
+      //         state: 'PA',
+      //         price: 110
+      //       }
+      //     },
+      //     {
+      //       type: 'Feature',
+      //       geometry: {
+      //         type: 'Point',
+      //         coordinates: [-77.043959498405, 38.903883387232]
+      //       },
+      //       properties: {
+      //         phoneFormatted: '(202) 331-3355',
+      //         phone: '2023313355',
+      //         address: '1901 L St. NW',
+      //         city: 'Washington DC',
+      //         country: 'United States',
+      //         crossStreet: 'at 19th St',
+      //         postalCode: '20036',
+      //         state: 'D.C.',
+      //         price: 120
+      //       }
+      //     }
+      //   ]
+      // }
     }
   }
 
   componentDidMount() {
-    // console.log(`MapPage lng ${this.state.setLng}`)
-    // console.log(`MapPage lat ${this.state.setLat}`)
+    const listingsUrl = 'http://localhost:3000/listings'
+    fetch(listingsUrl)
+      .then(response => response.json())
+      .then(result => {
+        // console.log(result)
+
+        let stores = {
+          type: 'FeatureCollection',
+          features: []
+        }
+
+        result.data.forEach(listing => {
+          // console.log(listing)
+          stores.features.push(this.convertJSONToGEOJSON(listing))
+        })
+
+        // console.log(stores)
+
+        this.setState({
+          stores: stores
+        })
+      })
+
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -284,6 +306,28 @@ class MapPage extends Component {
     //   console.log("from this.map.on 'click'")
     // })
   } // end of componentDidMount()
+
+  convertJSONToGEOJSON = listing => {
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [listing.attributes.long, listing.attributes.lat]
+      },
+      properties: {
+        id: +listing.id, // converts id to a number
+        name: listing.attributes.name,
+        address: listing.attributes.address,
+        city: listing.attributes.city,
+        zipcode: listing.attributes.zipcode,
+        description: listing.attributes.description,
+        hourly_price: listing.attributes.hourly_price,
+        monthly_price: listing.attributes.monthly_price,
+        available_start: listing.attributes.available_start,
+        available_end: listing.attributes.available_end
+      }
+    }
+  }
 
   flyToStore = currentFeature => {
     console.log('from flyToStore')
@@ -321,7 +365,8 @@ class MapPage extends Component {
       el.id = 'marker-' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
       el.className = 'marker'
-      el.textContent = `$${marker.properties.price}`
+      // console.log(marker.properties)
+      el.textContent = `$${marker.properties.hourly_price}`
 
       /**
        * Create a marker using the div element
@@ -338,7 +383,8 @@ class MapPage extends Component {
     console.log('from handleClick in parent component')
     // console.log(this.state)
     this.flyToStore(storeInfo)
-    this.createPopUp(storeInfo)
+    // DISABLE POP-UP. RE-RENDER SIDEBAR INFO INSTEAD
+    // this.createPopUp(storeInfo)
     this.setState({
       active: `listing -${id}`
     })
@@ -365,13 +411,13 @@ class MapPage extends Component {
             <div id='listings' className='listings'>
               {/* MAP THROUGH LISTINGCARD HERE */}
 
-              {this.state.stores.features.map((store, i) => {
+              {this.state.stores.features.map((listing, i) => {
                 // console.log(store)
                 return (
                   <ListingCard
                     key={i}
                     id={i}
-                    store={store}
+                    listing={listing}
                     handleClick={this.handleClick}
                   />
                 )

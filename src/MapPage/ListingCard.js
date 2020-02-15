@@ -4,16 +4,25 @@ import React from 'react'
 const ListingCard = props => {
   return (
     <div id={`listing-${props.id}`} className="item"> 
-      {/* {console.log(props.store)} */}
+    {/* {console.log(props.listing.properties)} */}
+
       {/* eslint-disable-next-line */} 
-      <a href="#" id={`link-${props.id}`} className="title" onClick={() => {props.handleClick(props.store, props.id)}}>
-        {props.store.properties.address}
+      <a href="#" id={`link-${props.id}`} className="title" onClick={() => {props.handleClick(props.listing, props.id)}}>
+        {props.listing.properties.name}
       </a> 
       <div>
-        {props.store.properties.city}
-        {props.store.properties.phone ? ' · ' + props.store.properties.phoneFormatted: null}
+      <br></br>
+      {props.listing.properties.address}
         <br></br>
-        {`$${props.store.properties.price}`}  
+        {props.listing.properties.city}
+        <span>, CA</span>
+        <span> {props.listing.properties.zipcode}</span>
+        <br></br>
+        {/* {props.listing.properties.phone ? ' · ' + props.listing.properties.phoneFormatted: null} */}
+        <br></br>
+        {`Hourly Rate: $${props.listing.properties.hourly_price}`}  
+        <br></br>
+        {`Monthly Rate: $${props.listing.properties.monthly_price}`}  
       </div>
     </div>
   )
