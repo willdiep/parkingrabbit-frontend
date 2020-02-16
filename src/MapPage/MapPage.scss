@@ -117,7 +117,8 @@ a:hover {
 //   cursor: pointer;
 //   height: 56px;
 //   width: 56px;
-//   background-image: url(./images/marker.png);
+//   background-image: url(./images/map-marker-alt-solid.svg);
+//   // background-image: url(./images/marker.png);
 //   background-color: rgba(0, 0, 0, 0);
 //   z-index: 1;
 //   color: red;
@@ -126,7 +127,7 @@ a:hover {
 //   align-items: center;
 // }
 
-.marker {
+.marker__listing {
   width: 0;
   height: 0;
   display: flex;
