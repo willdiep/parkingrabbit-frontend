@@ -23,7 +23,7 @@ class MapPage extends Component {
       // LONGER WAY
       // lng: props.setLng,
       // lat: props.setLat,
-      zoom: 15,
+      zoom: 13,
       stores: {
         type: 'FeatureCollection',
         features: []
@@ -70,7 +70,7 @@ class MapPage extends Component {
       /* Add the data to your map as a layer */
       this.map.addLayer({
         id: 'locations',
-        // type: 'symbol',
+        type: 'symbol',
         /* Add a GeoJSON source containing place coordinates and information. */
         source: {
           type: 'geojson',
@@ -78,16 +78,18 @@ class MapPage extends Component {
         },
         layout: {
           // 'icon-image': 'restaurant-15',
-          // 'icon-allow-overlap': true
+          'icon-allow-overlap': true
         }
       })
-      this.addMarkers()
+      this.addCurrentLocationMarker()
+      this.addListingMarkers()
     })
 
     // DO WE NEED THIS?
     // this.map.on('click', function(e) {
     //   console.log("from this.map.on 'click'")
     // })
+
   } // end of componentDidMount()
 
   convertJSONToGEOJSON = listing => {
@@ -128,7 +130,8 @@ class MapPage extends Component {
     // /** Check if there is already a popup on the map and if so, remove it */
     if (popUps[0]) popUps[0].remove()
 
-    var popup = new mapboxgl.Popup({ closeOnClick: false })
+    // var popup = new mapboxgl.Popup({ closeOnClick: false })
+    new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
         '<h3>Sweetgreen</h3>' +
@@ -139,13 +142,23 @@ class MapPage extends Component {
       .addTo(this.map)
   }
 
-  addMarkers = myComp => {
+  addCurrentLocationMarker = e => {
+    // console.log(e)
+    const el = document.createElement('div')
+    el.className = 'marker__location'
+
+    new mapboxgl.Marker(el)
+    .setLngLat([this.props.setLng, this.props.setLat])
+    .addTo(this.map)
+  }
+
+  addListingMarkers = myComp => {
     /* For each feature in the GeoJSON object above: */
     this.state.stores.features.forEach(marker => {
       /* Create a div element for the marker. */
-      var el = document.createElement('div')
+      const el = document.createElement('div')
       /* Assign a unique `id` to the marker. */
-      el.id = 'marker-' + marker.properties.id
+      el.id = 'marker__listing--' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
       el.className = 'marker__listing'
       // console.log(marker.properties)
@@ -156,6 +169,7 @@ class MapPage extends Component {
        * defined above and add it to the map.
        **/
       //  console.log(myComp)
+      // console.log(marker.geometry.coordinates)
       new mapboxgl.Marker(el) // { offset: [0, -23] }
         .setLngLat(marker.geometry.coordinates)
         .addTo(this.map)
@@ -173,14 +187,14 @@ class MapPage extends Component {
     })
 
     var activeItem = document.getElementsByClassName('active')
-    console.log(`activeItem: ${activeItem[0]}`)
+    // console.log(`activeItem: ${activeItem[0]}`)
     if (activeItem[0]) {
       activeItem[0].classList.remove('active')
-      console.log(activeItem.length)
+      // console.log(activeItem.length)
     }
     document.querySelector(`#listing-${id}`).classList.add('active')
     // this.parentNode.classList.add('active')
-    console.log(document.querySelector(`#listing-${id}`).classList)
+    // console.log(document.querySelector(`#listing-${id}`).classList)
   }
 
   render() {

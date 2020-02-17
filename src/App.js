@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Route,
   Switch,
   withRouter
@@ -19,8 +19,9 @@ class App extends Component {
     super()
 
     this.state = {
-      userLat: null,
-      userLng: null,
+      // DEFAULT COORDINATES
+      userLat: 37.763286,
+      userLng: -122.435791,
       // userLocationInput: '',
       listingCollection: {}
     }
