@@ -48,7 +48,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <div className='header'>
         <main className='header__content'>
           <article className='header__heroimage'>
             <section>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import ReactDOM from 'react-dom'
 import mapboxgl from 'mapbox-gl'
+import Filter from './Filter'
 import ListingCard from './ListingCard'
 import './MapPage.scss'
 
@@ -89,7 +90,6 @@ class MapPage extends Component {
     // this.map.on('click', function(e) {
     //   console.log("from this.map.on 'click'")
     // })
-
   } // end of componentDidMount()
 
   convertJSONToGEOJSON = listing => {
@@ -148,8 +148,8 @@ class MapPage extends Component {
     el.className = 'marker__location'
 
     new mapboxgl.Marker(el)
-    .setLngLat([this.props.setLng, this.props.setLat])
-    .addTo(this.map)
+      .setLngLat([this.props.setLng, this.props.setLat])
+      .addTo(this.map)
   }
 
   addListingMarkers = myComp => {
@@ -199,32 +199,38 @@ class MapPage extends Component {
 
   render() {
     return (
-      <div className='map'>
-        <main className='map__container'>
-          <section className='sidebar'>
-            <div className='heading'>
-              <h1>Listings</h1>
-            </div>
-            <div id='listings' className='listings'>
-              {/* MAP THROUGH LISTINGCARD HERE */}
+      <div className='Map'>
+        <main className='Map__container'>
+          <article className='Map__filter'>
+            <Filter />
+          </article>
 
-              {this.state.stores.features.map((listing, i) => {
-                // console.log(store)
-                return (
-                  <ListingCard
-                    key={i}
-                    id={i}
-                    listing={listing}
-                    handleClick={this.handleClick}
-                  />
-                )
-              })}
-            </div>
-          </section>
-          <section
-            ref={el => (this.mapContainer = el)}
-            className='map-area'
-          ></section>
+          <article className='Map__content'>
+            <aside className='Map__sidebar'>
+              <div className='Map__header'>
+                <h1 className='Map__headerText'>Listings</h1>
+              </div>
+              <div id='listings' className='Map__listings'>
+                {/* MAP THROUGH LISTINGCARD HERE */}
+
+                {this.state.stores.features.map((listing, i) => {
+                  // console.log(store)
+                  return (
+                    <ListingCard
+                      key={i}
+                      id={i}
+                      listing={listing}
+                      handleClick={this.handleClick}
+                    />
+                  )
+                })}
+              </div>
+            </aside>
+            <section
+              className='Map__canvas'
+              ref={el => (this.mapContainer = el)}
+            ></section>
+          </article>
         </main>
       </div>
     )
