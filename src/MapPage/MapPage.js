@@ -14,8 +14,8 @@ document.head.appendChild(styleLink)
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API_KEY}`
 
 class MapPage extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.map = undefined
 
