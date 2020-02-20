@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-// import mapboxgl from 'mapbox-gl'
-import AlgoliaPlaces from 'algolia-places-react'
-
+// import AlgoliaPlaces from 'algolia-places-react'
+import SearchBtn from '../SearchBtn/SearchBtn'
 import heroimage from '../images/hero-image.png'
 import './Header.scss'
 
@@ -39,12 +38,12 @@ class Header extends Component {
     }
   }
 
-  handleChange = coordinatesArr => {
-    // console.log(coordinatesArr.constructor.name)
-    // console.log(coordinatesArr)
-    this.props.handleSetLatLng(coordinatesArr)
-    // this.props.handleSetLng(coordinatesArr[1])
-  }
+  // handleChange = coordinatesArr => {
+  //   // console.log(coordinatesArr.constructor.name)
+  //   // console.log(coordinatesArr)
+  //   this.props.handleSetLatLng(coordinatesArr)
+  //   // this.props.handleSetLng(coordinatesArr[1])
+  // }
 
   render() {
     return (
@@ -87,7 +86,10 @@ class Header extends Component {
                 />
               </form> */}
 
-              <AlgoliaPlaces
+              <SearchBtn handleSetLatLng={this.props.handleSetLatLng} />
+
+
+              {/* <AlgoliaPlaces
                 placeholder='Search Address, Place, District, or Zipcode'
                 options={{
                   appId: 'plFF2HVFCYHZ',
@@ -139,7 +141,7 @@ class Header extends Component {
                     'Fired when we could not make the request to Algolia Places servers for any reason but reaching your rate limit.'
                   )
                 }
-              />
+              /> */}
 
               <p className='header__parkingnearme'onClick={this.findUserCurrentLocation}>Find Parking Near Me</p>
             </section>

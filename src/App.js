@@ -23,7 +23,7 @@ class App extends Component {
       userLat: 37.763286,
       userLng: -122.435791,
       // userLocationInput: '',
-      listingCollection: {}
+      // listingCollection: {}
     }
   }
 
@@ -50,12 +50,17 @@ class App extends Component {
   handleSetLatLng = coordinatesArr => {
     // console.log('App: from handleSetLat')
     // console.log(lat)
-    this.setState({
-      userLat: coordinatesArr[0],
-      userLng: coordinatesArr[1]
-    }, () => {this.props.history.push('/mappage')})
-    
-    // MATT
+    this.setState(
+      {
+        userLat: coordinatesArr[0],
+        userLng: coordinatesArr[1]
+      },
+      () => {
+        this.props.history.push('/mappage')
+      }
+    )
+
+    // MATT's ALTERNATIVE
     // Promise.resolve(this.setState({
     //   userLat: coordinatesArr[0],
     //   userLng: coordinatesArr[1]
@@ -89,7 +94,7 @@ class App extends Component {
                 {...props}
                 // stateLocation={this.state.userLocationInput}
                 handleSetLatLng={this.handleSetLatLng}
-                
+
                 // setUserLocationInput={this.handleSetLocationInput}
                 // setSubmitListingCollection={
                 // this.handleSubmitListingCollection
@@ -102,7 +107,14 @@ class App extends Component {
           <Route
             exact
             path='/mappage'
-            render={props => <MapPage {...props} setLng={this.state.userLng} setLat={this.state.userLat} />}
+            render={props => (
+              <MapPage
+                {...props}
+                setLng={this.state.userLng}
+                setLat={this.state.userLat}
+                handleSetLatLng={this.handleSetLatLng}
+              />
+            )}
           />
         </Switch>
         {/* </Router> */}

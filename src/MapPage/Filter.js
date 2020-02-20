@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FilterMonthly from './FilterMonthly'
 import './Filter.scss'
+import SearchBtn from '../SearchBtn/SearchBtn';
 
 class Filter extends Component {
 
@@ -9,6 +10,7 @@ class Filter extends Component {
       <div className='Filter'>
         <h4>Hourly</h4>
         <h4>Monthly</h4>
+        <SearchBtn handleSetLatLng={this.props.handleSetLatLng} />
         <FilterMonthly />
       </div>
     )

@@ -63,7 +63,8 @@ class MapPage extends Component {
       center: [this.props.setLng, this.props.setLat],
 
       // LONGER WAY
-      // center: [this.state.lng, this.state.lat],
+      // center: [this.state.lng, this.state.lat]
+
       zoom: this.state.zoom
     })
 
@@ -82,7 +83,7 @@ class MapPage extends Component {
           'icon-allow-overlap': true
         }
       })
-      this.addCurrentLocationMarker()
+      // this.addCurrentLocationMarker()
       this.addListingMarkers()
     })
 
@@ -91,6 +92,19 @@ class MapPage extends Component {
     //   console.log("from this.map.on 'click'")
     // })
   } // end of componentDidMount()
+
+
+  componentDidUpdate() {
+    const removeLocationMarker = document.querySelector('.marker__location')
+    
+    if (removeLocationMarker) {
+      removeLocationMarker.remove()
+    }
+
+    this.addCurrentLocationMarker()
+  }
+
+
 
   convertJSONToGEOJSON = listing => {
     return {
@@ -116,10 +130,10 @@ class MapPage extends Component {
 
   flyToStore = currentFeature => {
     console.log('from flyToStore')
-    // console.log(currentFeature)
+    console.log(currentFeature)
     this.map.flyTo({
       center: currentFeature.geometry.coordinates,
-      zoom: 10
+      zoom: 13
     })
   }
 
@@ -146,6 +160,7 @@ class MapPage extends Component {
     // console.log(e)
     const el = document.createElement('div')
     el.className = 'marker__location'
+
 
     new mapboxgl.Marker(el)
       .setLngLat([this.props.setLng, this.props.setLat])
@@ -202,7 +217,7 @@ class MapPage extends Component {
       <div className='Map'>
         <main className='Map__container'>
           <article className='Map__filter'>
-            <Filter />
+            <Filter handleSetLatLng={this.props.handleSetLatLng} />
           </article>
 
           <article className='Map__content'>
@@ -212,7 +227,6 @@ class MapPage extends Component {
               </div>
               <div id='listings' className='Map__listings'>
                 {/* MAP THROUGH LISTINGCARD HERE */}
-
                 {this.state.stores.features.map((listing, i) => {
                   // console.log(store)
                   return (
