@@ -28,7 +28,9 @@ class MapPage extends Component {
       stores: {
         type: 'FeatureCollection',
         features: []
-      }
+      },
+      // filter: 
+
     }
   }
 

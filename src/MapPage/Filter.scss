@@ -1,4 +1,22 @@
 .Filter {
   display: flex;
-  height: 70px;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  margin: 0 25px;
+  font-size: 1rem;
+
+  &__hourlyOnClick {
+    margin-right: 1rem;
+    // &:hover {
+    //   color: orange;
+    // }
+  }
+
+  &__monthlyOnClick {
+    margin-right: 1rem;
+    // &:hover {
+    //   color: orange;
+    // }
+  }
 }
