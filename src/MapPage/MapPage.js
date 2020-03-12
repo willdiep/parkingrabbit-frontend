@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import mapboxgl from 'mapbox-gl'
 import Filter from './Filter'
 import ListingCard from './ListingCard'
-import { ListingInfo } from './ListingInfo'
+import ListingInfo from './ListingInfo'
 import './MapPage.scss'
 
 const styleLink = document.createElement('link')
@@ -123,7 +123,12 @@ class MapPage extends Component {
         hourly_price: listing.attributes.hourly_price,
         monthly_price: listing.attributes.monthly_price,
         available_start: listing.attributes.available_start,
-        available_end: listing.attributes.available_end
+        available_end: listing.attributes.available_end,
+        parking_type: listing.attributes.parking_type,
+        contact_name: listing.attributes.contact_name,
+        contact_number: listing.attributes.contact_number,
+        contact_email: listing.attributes.contact_email,
+        rating: listing.attributes.rating
       }
     }
   }
