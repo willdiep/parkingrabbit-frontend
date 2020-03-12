@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import mapboxgl from 'mapbox-gl'
 import Filter from './Filter'
 import ListingCard from './ListingCard'
+import { ListingInfo } from './ListingInfo'
 import './MapPage.scss'
 
 const styleLink = document.createElement('link')
@@ -29,8 +30,8 @@ class MapPage extends Component {
         type: 'FeatureCollection',
         features: []
       },
-      // filter: 
-
+      filterListing: null,
+      currentListingInfo: null
     }
   }
 
@@ -95,18 +96,15 @@ class MapPage extends Component {
     // })
   } // end of componentDidMount()
 
-
   componentDidUpdate() {
     const removeLocationMarker = document.querySelector('.marker__location')
-    
+
     if (removeLocationMarker) {
       removeLocationMarker.remove()
     }
 
     this.addCurrentLocationMarker()
   }
-
-
 
   convertJSONToGEOJSON = listing => {
     return {
@@ -163,7 +161,6 @@ class MapPage extends Component {
     const el = document.createElement('div')
     el.className = 'marker__location'
 
-
     new mapboxgl.Marker(el)
       .setLngLat([this.props.setLng, this.props.setLat])
       .addTo(this.map)
@@ -193,7 +190,7 @@ class MapPage extends Component {
     })
   }
 
-  handleClick = (storeInfo, id) => {
+  handleMouseOver = (storeInfo, id) => {
     console.log('from handleClick in parent component')
     // console.log(this.state)
     this.flyToStore(storeInfo)
@@ -214,13 +211,28 @@ class MapPage extends Component {
     // console.log(document.querySelector(`#listing-${id}`).classList)
   }
 
+  handleListingCardDetails = listing => {
+    console.log(`listing `, listing)
+    // const listingIndex = this.state
+    // console.log(this.state.stores.features.findIndex(listing => listing.properties.id === clickedListingId))
+    this.setState({
+      currentListingInfo: listing
+    })
+  }
+
+  goBack = () => {
+    this.setState({
+      currentListingInfo: null
+    })
+  }
+
   render() {
     return (
       <div className='Map'>
         <main className='Map__container'>
-          <article className='Map__filter'>
+          {/* <article className='Map__filter'>
             <Filter handleSetLatLng={this.props.handleSetLatLng} />
-          </article>
+          </article> */}
 
           <article className='Map__content'>
             <aside className='Map__sidebar'>
@@ -229,17 +241,26 @@ class MapPage extends Component {
               </div>
               <div id='listings' className='Map__listings'>
                 {/* MAP THROUGH LISTINGCARD HERE */}
-                {this.state.stores.features.map((listing, i) => {
-                  // console.log(store)
-                  return (
-                    <ListingCard
-                      key={i}
-                      id={i}
-                      listing={listing}
-                      handleClick={this.handleClick}
-                    />
-                  )
-                })}
+
+                {this.state.currentListingInfo ? (
+                  <ListingInfo
+                    currentListing={this.state.currentListingInfo}
+                    goBack={this.goBack}
+                  />
+                ) : (
+                  this.state.stores.features.map(listing => {
+                    // console.log(store)
+                    return (
+                      <ListingCard
+                        key={listing.properties.id}
+                        id={listing.properties.id}
+                        listing={listing}
+                        handleMouseOver={this.handleMouseOver}
+                        handleListingCardDetails={this.handleListingCardDetails}
+                      />
+                    )
+                  })
+                )}
               </div>
             </aside>
             <section
