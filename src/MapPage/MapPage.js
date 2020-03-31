@@ -241,11 +241,10 @@ class MapPage extends Component {
 
           <article className='Map__content'>
             <aside className='Map__sidebar'>
-              <div className='Map__header'>
-                <h1 className='Map__headerText'>Listings</h1>
-              </div>
+              {/* <div className='Map__header'> */}
+                {/* <h1 className='Map__headerText'>Listings</h1> */}
+              {/* </div> */}
               <div id='listings' className='Map__listings'>
-                {/* MAP THROUGH LISTINGCARD HERE */}
 
                 {this.state.currentListingInfo ? (
                   <ListingInfo
