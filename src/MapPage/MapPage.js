@@ -235,9 +235,9 @@ class MapPage extends Component {
     return (
       <div className='Map'>
         <main className='Map__container'>
-          {/* <article className='Map__filter'>
+          <article className='Map__filter'>
             <Filter handleSetLatLng={this.props.handleSetLatLng} />
-          </article> */}
+          </article>
 
           <article className='Map__content'>
             <aside className='Map__sidebar'>
