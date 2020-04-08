@@ -1,9 +1,9 @@
 # Parking Rabbit
 
-### [Visit the live site](https://parkingrabbit.herokuapp.com/)
+## [Visit the live site](https://parkingrabbit.herokuapp.com/)
 
-## [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
-## [ParkingRabbit Back-end Repo](https://github.com/willdiep/parkingrabbit-backend)
+### [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
+### [ParkingRabbit Back-end Repo](https://github.com/willdiep/parkingrabbit-backend)
 
 <!-- SoloBnB is a single-page, full-stack web application modeled after Airbnb and geared toward solo travelers. It uses Ruby on Rails with a PostgresSQL database on the back-end, and React.js and Redux on the front-end. For image hosting, it utilizes Amazon Web Services. For live messaging, it uses Action Cable to integrate WebSockets with the rest of the Rails application. -->
 
