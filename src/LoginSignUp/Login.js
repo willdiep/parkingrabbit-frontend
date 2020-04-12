@@ -82,7 +82,7 @@ class Login extends Component {
 
             <section className='login__disclosure center'>
               <p className='login__disclosure-text'>
-                By clicking “Sign In” you agree to the <br></br>Terms &
+                By clicking “Login” you agree to the <br></br>Terms &
                 Conditions and Privacy Policy.
               </p>
             </section>

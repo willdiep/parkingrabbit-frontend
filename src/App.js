@@ -3,7 +3,7 @@ import {
   // BrowserRouter as Router,
   Route,
   Switch,
-  withRouter
+  withRouter,
 } from 'react-router-dom'
 // import { withRouter } from 'react-router-dom'
 // import Navbar from './Navbar/Navbar'
@@ -24,7 +24,29 @@ class App extends Component {
       userLng: -122.435791,
       // userLocationInput: '',
       // listingCollection: {}
+      user: null,
     }
+  }
+
+  handleSignUp = (signUpInfo) => {
+    // console.log(signUpInfo)
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: signUpInfo
+      }),
+    })
+      .then((response) => response.json())
+      .then((userInfo) => {
+        console.log(userInfo)
+        localStorage.setItem('jwt', userInfo.token)
+        this.setState({user: userInfo.user})
+      })
+      .then(() => { this.props.history.push('/mappage') })
   }
 
   // handleSetLocationInput = e => {
@@ -47,13 +69,13 @@ class App extends Component {
   //   this.props.history.push('/mappage')
   // }
 
-  handleSetLatLng = coordinatesArr => {
+  handleSetLatLng = (coordinatesArr) => {
     // console.log('App: from handleSetLat')
     // console.log(lat)
     this.setState(
       {
         userLat: coordinatesArr[0],
-        userLng: coordinatesArr[1]
+        userLng: coordinatesArr[1],
       },
       () => {
         this.props.history.push('/mappage')
@@ -80,6 +102,7 @@ class App extends Component {
   // }
 
   render() {
+    // console.log(this.props.history)
     return (
       <div className='app'>
         {/* <main className="grid-container"></main> */}
@@ -89,7 +112,7 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={props => (
+            render={(props) => (
               <HomePage
                 {...props}
                 // stateLocation={this.state.userLocationInput}
@@ -103,11 +126,18 @@ class App extends Component {
             )}
           />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Signup} />
+          <Route
+            exact
+            path='/signup'
+            render={(props) => (
+              <Signup {...props} handleSignUp={this.handleSignUp} />
+            )}
+          />
+
           <Route
             exact
             path='/mappage'
-            render={props => (
+            render={(props) => (
               <MapPage
                 {...props}
                 setLng={this.state.userLng}

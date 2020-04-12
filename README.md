@@ -37,7 +37,7 @@ And so, SoloBnB is not just a travel booking application. It's also an ode to th
 
 
 ## Key features
-#### [SoloBnB Design Documents](https://github.com/nian-hu/solobnb/wiki)
+#### [ParkingRabbit Design Documents](https://github.com/willdiep/parkingrabbit-frontend/wiki)
 
 #### User Authentication
 
