@@ -1,8 +1,10 @@
 .process {
+  height: 600px;
   margin: 0 200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 200px;
+  align-content: center;
 
   &__item {
     text-align: center;
@@ -19,13 +21,14 @@
   &__header {
     height: 34px;
     // font-family: Helvetica;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    // font-stretch: normal;
+    // font-style: normal;
+    // line-height: normal;
+    // letter-spacing: normal;
     text-align: center;
+    // margin-bottom: 0;
     color: var(--primary-color);
   }
 
@@ -33,12 +36,12 @@
     // width: 299px;
     // height: 97px;
     // font-family: Helvetica;
-    font-size: 24px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    font-size: 1.2rem;
+    // font-weight: normal;
+    // font-stretch: normal;
+    // font-style: normal;
+    // line-height: normal;
+    // letter-spacing: normal;
     text-align: center;
     color: var(--secondary-color);
   }

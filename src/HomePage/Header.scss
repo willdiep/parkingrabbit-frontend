@@ -4,7 +4,7 @@
   // align-items: center;
   justify-content: center;
   margin: auto;
-  width: 561px;
+  // width: 561px;
   
   // &__container {
   //   display: grid;
@@ -47,7 +47,7 @@
   &__text1 {
     // height: 86px;
     // font-family: Helvetica;
-    font-size: 36px;
+    font-size: 2.3rem;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -61,11 +61,11 @@
     // width: 561px;
     // height: 64px;
     // font-family: Helvetica;
-    font-size: 21px;
+    font-size: 1.4rem;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.33;
+    // line-height: 1.33;
     letter-spacing: normal;
     color: var(--secondary-color);
   }

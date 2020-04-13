@@ -3,11 +3,9 @@ import Navbar from '../Navbar/Navbar'
 // import Footer from './Footer'
 import Header from './Header'
 import Process from './Process'
+import MobileApp from './MobileApp'
 import heroimage from '../images/hero-image.png'
 import './HomePage.scss'
-
-
-
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -23,7 +21,11 @@ class HomePage extends Component {
           <article className='homepage__banner'>
             <section className='homepage__heroimage'>
               <figure className='homepage__figure'>
-                <img className='homepage__carrotcar' src={heroimage} alt='hero' />
+                <img
+                  className='homepage__carrotcar'
+                  src={heroimage}
+                  alt='hero'
+                />
               </figure>
 
               <Header
@@ -36,8 +38,10 @@ class HomePage extends Component {
               />
             </section>
           </article>
-
+    
           <Process className='homepage__process' />
+
+          <MobileApp />
 
           {/* <Footer className='homepage__footer' /> */}
         </div>
