@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AlgoliaPlaces from 'algolia-places-react'
+import './SearchBtn.scss'
 
 class SearchBtn extends Component {
   handleChange = coordinatesArr => {
@@ -10,8 +11,9 @@ class SearchBtn extends Component {
   }
   render() {
     return (
-      <div className='SearchBtn'>
+      <div className='search-btn'>
         <AlgoliaPlaces
+        className='search-btn__input'
           placeholder='Search Address, Place, District, or Zipcode'
           options={{
             appId: 'plFF2HVFCYHZ',

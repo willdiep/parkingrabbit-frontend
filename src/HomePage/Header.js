@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 // import AlgoliaPlaces from 'algolia-places-react'
 import SearchBtn from '../SearchBtn/SearchBtn'
-import heroimage from '../images/hero-image.png'
+import LineBreak from '../GLOBAL/LineBreak'
+// import heroimage from '../images/hero-image.png'
 import './Header.scss'
 
 // const styleLink = document.createElement('link')
@@ -19,8 +20,6 @@ import './Header.scss'
 //   'pk.eyJ1Ijoid2lsbGQxMCIsImEiOiJjazVrZjgweGUwZGpiM2RucnB6ZW83cnF1In0.QuvhJzfhJrxg-dNfhVrJ7A'
 
 class Header extends Component {
-
-
   findUserCurrentLocation = () => {
     const self = this
     if (navigator.geolocation) {
@@ -48,26 +47,22 @@ class Header extends Component {
   render() {
     return (
       <div className='header'>
-        <main className='header__content'>
-          <article className='header__heroimage'>
-            <section>
-              <img className='header__carrotcar' src={heroimage} alt='hero' />
-            </section>
+        {/* <section className='header__header'> */}
+        <p className='header__text1'>
+          Looking for parking doesn’t <br></br>have to be an easter egg hunt!
+        </p>
 
-            <section className='header__header'>
-              <p className='header__text1'>
-                Looking for parking doesn’t <br></br>have to be an easter egg
-                hunt!
-              </p>
-              <p className='header__text2'>
-                Choose from hundreds of available parking spaces <br></br>in San
-                Francisco and book them in seconds.
-              </p>
+        <LineBreak />
 
-              <div id='map'></div>
-              <div id='geocoder' className='geocoder'></div>
+        <p className='header__text2'>
+          Choose from hundreds of available parking spaces <br></br>in San
+          Francisco and book them in seconds.
+        </p>
 
-              {/* <form
+        <div id='map'></div>
+        <div id='geocoder' className='geocoder'></div>
+
+        {/* <form
                 className='header__CTA'
                 onSubmit={this.props.setSubmitListingCollection}
               >
@@ -86,67 +81,19 @@ class Header extends Component {
                 />
               </form> */}
 
-              <SearchBtn handleSetLatLng={this.props.handleSetLatLng} />
+        <SearchBtn handleSetLatLng={this.props.handleSetLatLng} />
 
+        <LineBreak />
+        <LineBreak />
 
-              {/* <AlgoliaPlaces
-                placeholder='Search Address, Place, District, or Zipcode'
-                options={{
-                  appId: 'plFF2HVFCYHZ',
-                  apiKey: '0b5007eeca59b12374f402743f853d98',
-                  language: 'en',
-                  countries: ['us'],
-                  aroundLatLng: '37.773972, -122.431297',
-                  aroundRadius: 10000
-                  // useDeviceLocation: true
-                  // type: 'city'
-                  // Other options from https://community.algolia.com/places/documentation.html#options
-                }}
-                onChange={({
-                  query,
-                  rawAnswer,
-                  suggestion,
-                  suggestionIndex
-                }) => {
-                  // console.log(
-                  //   'Fired when suggestion selected in the dropdown or hint was validated.'
-                  // )
-                  // console.log([suggestion.latlng.lat, suggestion.latlng.lng])
-                  this.handleChange([
-                    suggestion.latlng.lat,
-                    suggestion.latlng.lng
-                  ])
-                }}
-                onSuggestions={({ rawAnswer, query, suggestions }) =>
-                  console.log(
-                    'Fired when dropdown receives suggestions. You will receive the array of suggestions that are displayed.'
-                  )
-                }
-                onCursorChanged={({
-                  rawAnswer,
-                  query,
-                  suggestion,
-                  suggestonIndex
-                }) =>
-                  console.log(
-                    'Fired when arrows keys are used to navigate suggestions.'
-                  )
-                }
-                onClear={() => console.log('Fired when the input is cleared.')}
-                onLimit={({ message }) =>
-                  console.log('Fired when you reached your current rate limit.')
-                }
-                onError={({ message }) =>
-                  console.log(
-                    'Fired when we could not make the request to Algolia Places servers for any reason but reaching your rate limit.'
-                  )
-                }
-              /> */}
+        <p
+          className='header__parkingnearme'
+          onClick={this.findUserCurrentLocation}
+        >
+          Find Parking Near Me
+        </p>
 
-              <p className='header__parkingnearme'onClick={this.findUserCurrentLocation}>Find Parking Near Me</p>
-            </section>
-          </article>
-        </main>
+        {/* </section> */}
       </div>
     )
   }

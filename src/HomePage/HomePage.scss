@@ -1,0 +1,12 @@
+.homepage {
+  &__carrotcar {
+    width: 100%;
+  }
+
+  &__heroimage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  
+}
