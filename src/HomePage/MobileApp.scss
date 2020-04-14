@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 600px;
-  margin: 0 150px;
+  margin: 20px 150px 0 150px;
   grid-column-gap: 6rem;
 
   &__heading {
@@ -41,7 +41,7 @@
     font-size: 1.1em;
     border-radius: 0 37.5px 37.5px 0;
     color: var(--white-color);
-    background-color: var(--primary-color);
+    background-color: var(--almost-black);
   }
 
   &__links {
@@ -53,8 +53,13 @@
     width: 150px;
     margin-left: 70px;
   }
+  
+  &__phone-img {
+    z-index: -1;
+  }
 
   &__iphone-mockup {
     width: 85%;
-  } 
+    z-index: -100;
+  }
 }

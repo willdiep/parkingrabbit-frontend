@@ -6,6 +6,8 @@ import Process from './Process'
 import MobileApp from './MobileApp'
 import heroimage from '../images/hero-image.png'
 import './HomePage.scss'
+import Footer from './Footer'
+
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -43,7 +45,7 @@ class HomePage extends Component {
 
           <MobileApp />
 
-          {/* <Footer className='homepage__footer' /> */}
+          <Footer className='homepage__footer' />
         </div>
       </div>
     )
