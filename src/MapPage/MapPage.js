@@ -40,12 +40,13 @@ class MapPage extends Component {
     fetch(listingsUrl)
       .then(response => response.json())
       .then(result => {
-        // console.log(result)
+        console.log(result)
 
         let stores = {
           type: 'FeatureCollection',
           features: []
         }
+        
 
         result.data.forEach(listing => {
           // console.log(listing)

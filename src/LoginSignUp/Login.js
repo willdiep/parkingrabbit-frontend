@@ -4,6 +4,18 @@ import googleSigninBtn from '../images/sign-in-google.png'
 import facebookContinueBtn from '../images/continue-with-facebook-btn.png'
 
 class Login extends Component {
+
+  state = {
+    email: '',
+    password: ''
+  }
+
+  handleInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     return (
       <div className='login'>
@@ -46,13 +58,13 @@ class Login extends Component {
             <section className='login__form'>
               <form>
                 <label className='login__form-label'>Email</label>
-                <input className='login__form-input' type='text' />
+                <input className='login__form-input' type='text' name='email' value={this.state.email} onChange={this.handleInput}/>
 
                 <br></br>
                 <br></br>
 
                 <label className='login__form-label'>Password</label>
-                <input className='login__form-input' type='text' />
+                <input className='login__form-input' type='text' name='password' value={this.state.password} onChange={this.handleInput}/>
 
                 <br></br>
                 <br></br>
@@ -91,7 +103,7 @@ class Login extends Component {
 
             <div className='center'>
               <section className='login__login-btn'>
-                <div className='login__login-text'>Login</div>
+                <div className='login__login-text' onClick={() => this.props.handleLogin(this.state)}>Login</div>
               </section>
 
               <section className='login__register'></section>

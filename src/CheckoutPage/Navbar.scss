@@ -1,4 +1,4 @@
-.nav {
+.checkout-nav {
   display: flex;
   position: absolute;
   top: 0;
@@ -33,18 +33,18 @@
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    color: var(--white-color);
-  }
-
-  &__logo:hover, &__login:hover, &__signup:hover {
     color: var(--primary-color);
   }
-  
-  &__login {
+
+  &__logo:hover {
+    color: var(--primary-color);
+  }
+
+  &__reservations, &__myprofile {
     color: var(--carrot-color);
-    height: 31px;
+    // height: 31px;
     // font-family: Helvetica;
-    font-size: 26px;
+    font-size: 1.4rem;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -52,24 +52,21 @@
     letter-spacing: normal;
   }
 
-
-  &__signup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 162px;
-    height: 57px;
-    border-radius: 28.5px;
-    background-color: var(--carrot-color);
-    color: white;
-    // font-family: Helvetica;
-    font-size: 26px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-  }
-
-
+  // &__signup {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 162px;
+  //   height: 57px;
+  //   border-radius: 28.5px;
+  //   background-color: var(--carrot-color);
+  //   color: white;
+  //   // font-family: Helvetica;
+  //   font-size: 26px;
+  //   font-weight: normal;
+  //   font-stretch: normal;
+  //   font-style: normal;
+  //   line-height: normal;
+  //   letter-spacing: normal;
+  // }
 }
