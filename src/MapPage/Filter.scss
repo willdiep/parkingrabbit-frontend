@@ -6,17 +6,32 @@
   margin: 0 25px;
   font-size: 1rem;
 
-  &__hourlyOnClick {
+  &__HourlyOnClick {
     margin-right: 1rem;
     // &:hover {
     //   color: orange;
     // }
   }
 
-  &__monthlyOnClick {
+  &__MonthlyOnClick {
     margin-right: 1rem;
     // &:hover {
     //   color: orange;
     // }
+  }
+
+  &__Hourly {
+    display: inherit;
+    margin: 2rem;
+  }
+
+  &__HourlyTo {
+    margin-left: 3rem;
+  }
+
+  &__HourlySearchBtn {
+    // display: inherit;
+    margin-left: 3rem;
+
   }
 }

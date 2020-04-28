@@ -30,34 +30,30 @@ class Filter extends Component {
 
   render() {
     return (
-      <div className='Filter'>
+      <article className='Filter'>
         <button
           onClick={this.handleRenderFilterHourly}
-          className='Filter__hourlyOnClick'
+          className='Filter__HourlyOnClick'
         >
           Hourly
         </button>
 
         <button
           onClick={this.handleRenderFilterMonthly}
-          className='Filter__monthlyOnClick'
+          className='Filter__HonthlyOnClick'
         >
           Monthly
         </button>
 
         <SearchBtn
-          className='Filter__searchBtn'
+          className='Filter__SearchBtn'
           handleSetLatLng={this.props.handleSetLatLng}
         />
-        {/* 
-        <h4 className='Filter__monthlyStartingHeader'>
-          Monthly Parking Starting
-        </h4> */}
 
         {this.state.renderFilterHourly ? <FilterHourly /> : null}
 
         {this.state.renderFilterMonthly ? <FilterMonthly /> : null}
-      </div>
+      </article>
     )
   }
 }

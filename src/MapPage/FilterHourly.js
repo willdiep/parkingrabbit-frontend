@@ -1,80 +1,75 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { DatePicker } from 'antd'
+import { TimePicker } from 'antd'
+import './Filter.scss'
 
-class FilterHourly extends React.Component {
+class FilterHourly extends Component {
   state = {
-    startValue: null,
-    endValue: null,
-    endOpen: false
+    fromDateTime: null,
+    toDateTime: null,
   }
 
-  disabledStartDate = startValue => {
-    const { endValue } = this.state
-    if (!startValue || !endValue) {
-      return false
-    }
-    return startValue.valueOf() > endValue.valueOf()
+
+  handleFromDateTime(value, dateString) {
+    console.log('Selected Time: ', value)
+    console.log('Formatted Selected Time: ', dateString)
   }
 
-  disabledEndDate = endValue => {
-    const { startValue } = this.state
-    if (!endValue || !startValue) {
-      return false
-    }
-    return endValue.valueOf() <= startValue.valueOf()
-  }
-
-  onChange = (field, value) => {
-    console.log(`field ${field}`)
-    console.log(`value ${value.constructor.name}`)
-    // debugger;
+  handleOnOkFrom = (value) => {
+    // set state then converts momentjs object to unix time
+    console.log('handleOnOkFrom: ', value.unix())
     this.setState({
-      [field]: value
+      fromDateTime: value.unix()
+    })
+
+  }
+
+
+  handleToDateTime(value, dateString) {
+    console.log('Selected Time: ', value)
+    console.log('Formatted Selected Time: ', dateString)
+  }
+
+  handleOnOkTo = (value) => {
+    // set state then converts momentjs object to unix time
+    console.log('handleOnOkTo: ', value.unix())
+    this.setState({
+      toDateTime: value.unix()
     })
   }
 
-  onStartChange = value => {
-    this.onChange('startValue', value)
-  }
-
-  onEndChange = value => {
-    this.onChange('endValue', value)
-  }
-
-  handleStartOpenChange = open => {
-    if (!open) {
-      this.setState({ endOpen: true })
-    }
-  }
-
-  handleEndOpenChange = open => {
-    this.setState({ endOpen: open })
-  }
-
   render() {
-    const { startValue, endValue, endOpen } = this.state
     return (
-      <div>
-        <DatePicker
-          disabledDate={this.disabledStartDate}
-          showTime
-          format='YYYY-MM-DD HH:mm:ss'
-          value={startValue}
-          placeholder='Start'
-          onChange={this.onStartChange}
-          onOpenChange={this.handleStartOpenChange}
-        />
-        <DatePicker
-          disabledDate={this.disabledEndDate}
-          showTime
-          format='YYYY-MM-DD HH:mm:ss'
-          value={endValue}
-          placeholder='End'
-          onChange={this.onEndChange}
-          open={endOpen}
-          onOpenChange={this.handleEndOpenChange}
-        />
-      </div>
+      <section className='Filter__Hourly'>
+        <div className='Filter__HourlyFrom'>
+          FROM
+          <DatePicker
+            showTime
+            minuteStep={15}
+            use12Hours
+            placeholder='Select Date and Time'
+            onChange={this.handleFromDateTime}
+            onOk={this.handleOnOkFrom}
+          />
+
+        </div>
+
+        <div className='Filter__HourlyTo'>
+          TO
+          <DatePicker
+            showTime
+            minuteStep={15}
+            use12Hours
+            placeholder='Select Date and Time'
+            onChange={this.handleToDateTime}
+            onOk={this.handleOnOkTo}
+          />
+        </div>
+
+        <div className='Filter__HourlySearchBtn'>
+          <button>Update Search</button>
+        </div>
+      </section>
     )
   }
 }
