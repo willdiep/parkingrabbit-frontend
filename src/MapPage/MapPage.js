@@ -26,42 +26,62 @@ class MapPage extends Component {
       // lng: props.setLng,
       // lat: props.setLat,
       zoom: 13,
-      stores: {
+      allStores: {
         type: 'FeatureCollection',
-        features: []
+        features: [],
       },
       // ?filterListing: null,
       currentListingInfo: null,
 
-      filterListings: []
+      filterListings: [],
     }
   }
 
   componentDidMount() {
+    this.fetchListings()
+
+    this.loadMapAndMarkers()
+  }
+
+  componentDidUpdate() {
+    this.removeLocationMarker()
+  }
+
+
+
+  fetchListings = () => {
     const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
-      .then(response => response.json())
-      .then(result => {
+      .then((response) => response.json())
+      .then((result) => {
         // console.log(result)
 
-        let stores = {
+        let allStores = {
           type: 'FeatureCollection',
-          features: []
+          features: [],
         }
-        
 
-        result.data.forEach(listing => {
+        result.data.forEach((listing) => {
           // console.log(listing)
-          stores.features.push(this.convertJSONToGEOJSON(listing))
+          allStores.features.push(this.convertJSONToGEOJSON(listing))
         })
 
-        // console.log(stores)
+        // console.log(allStores)
 
-        this.setState({
-          stores: stores
-        }, () => console.log(Date.parse(this.state.stores.features[0].properties.available_start)))
+        this.setState(
+          {
+            allStores: allStores,
+          },
+          () =>
+            console.log(
+              'TEST first listing available start: ' +
+                this.state.allStores.features[0].properties.available_start
+            )
+        )
       })
+  }
 
+  loadMapAndMarkers = () => {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -71,10 +91,10 @@ class MapPage extends Component {
       // LONGER WAY
       // center: [this.state.lng, this.state.lat]
 
-      zoom: this.state.zoom
+      zoom: this.state.zoom,
     })
 
-    this.map.on('load', e => {
+    this.map.on('load', (e) => {
       /* Add the data to your map as a layer */
       this.map.addLayer({
         id: 'locations',
@@ -82,12 +102,12 @@ class MapPage extends Component {
         /* Add a GeoJSON source containing place coordinates and information. */
         source: {
           type: 'geojson',
-          data: this.state.stores
+          data: this.state.allStores,
         },
         layout: {
           // 'icon-image': 'restaurant-15',
-          'icon-allow-overlap': true
-        }
+          'icon-allow-overlap': true,
+        },
       })
       // this.addCurrentLocationMarker()
       this.addListingMarkers()
@@ -97,24 +117,14 @@ class MapPage extends Component {
     // this.map.on('click', function(e) {
     //   console.log("from this.map.on 'click'")
     // })
-  } // end of componentDidMount()
-
-  componentDidUpdate() {
-    const removeLocationMarker = document.querySelector('.marker__location')
-
-    if (removeLocationMarker) {
-      removeLocationMarker.remove()
-    }
-
-    this.addCurrentLocationMarker()
   }
 
-  convertJSONToGEOJSON = listing => {
+  convertJSONToGEOJSON = (listing) => {
     return {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [listing.attributes.long, listing.attributes.lat]
+        coordinates: [listing.attributes.long, listing.attributes.lat],
       },
       properties: {
         id: +listing.id, // converts id to a number
@@ -131,21 +141,25 @@ class MapPage extends Component {
         contact_name: listing.attributes.contact_name,
         contact_number: listing.attributes.contact_number,
         contact_email: listing.attributes.contact_email,
-        rating: listing.attributes.rating
-      }
+        rating: listing.attributes.rating,
+      },
     }
   }
 
-  flyToStore = currentFeature => {
+  /* ----------------------------------
+   *   MAPBOX
+  ------------------------------------*/
+
+  flyToStore = (currentFeature) => {
     // console.log('from flyToStore')
     // console.log(currentFeature)
     this.map.flyTo({
       center: currentFeature.geometry.coordinates,
-      zoom: 13
+      zoom: 13,
     })
   }
 
-  createPopUp = currentFeature => {
+  createPopUp = (currentFeature) => {
     // console.log('from createPopUp')
     var popUps = document.getElementsByClassName('mapboxgl-popup')
     // console.log(popUps)
@@ -164,7 +178,7 @@ class MapPage extends Component {
       .addTo(this.map)
   }
 
-  addCurrentLocationMarker = e => {
+  addCurrentLocationMarker = (e) => {
     // console.log(e)
     const el = document.createElement('div')
     el.className = 'marker__location'
@@ -174,9 +188,9 @@ class MapPage extends Component {
       .addTo(this.map)
   }
 
-  addListingMarkers = myComp => {
+  addListingMarkers = (myComp) => {
     /* For each feature in the GeoJSON object above: */
-    this.state.stores.features.forEach(marker => {
+    this.state.allStores.features.forEach((marker) => {
       /* Create a div element for the marker. */
       const el = document.createElement('div')
       /* Assign a unique `id` to the marker. */
@@ -198,6 +212,16 @@ class MapPage extends Component {
     })
   }
 
+  removeLocationMarker = () => {
+    const locationMarker = document.querySelector('.marker__location')
+
+    if (locationMarker) {
+      locationMarker.remove()
+    }
+
+    this.addCurrentLocationMarker()
+  }
+
   handleMouseOver = (storeInfo, id) => {
     // console.log('from handleClick in parent component')
     // console.log(this.state)
@@ -205,7 +229,7 @@ class MapPage extends Component {
     // DISABLE POP-UP. RE-RENDER SIDEBAR INFO INSTEAD
     // this.createPopUp(storeInfo)
     this.setState({
-      active: `listing -${id}`
+      active: `listing -${id}`,
     })
 
     var activeItem = document.getElementsByClassName('active')
@@ -219,18 +243,22 @@ class MapPage extends Component {
     // console.log(document.querySelector(`#listing-${id}`).classList)
   }
 
-  handleListingCardDetails = listing => {
+  /* ----------------------------------
+   *   LISTING
+  ------------------------------------*/
+
+  handleListingCardDetails = (listing) => {
     // console.log(`listing `, listing)
     // const listingIndex = this.state
-    // console.log(this.state.stores.features.findIndex(listing => listing.properties.id === clickedListingId))
+    // console.log(this.state.allStores.features.findIndex(listing => listing.properties.id === clickedListingId))
     this.setState({
-      currentListingInfo: listing
+      currentListingInfo: listing,
     })
   }
 
   goBack = () => {
     this.setState({
-      currentListingInfo: null
+      currentListingInfo: null,
     })
   }
 
@@ -245,17 +273,16 @@ class MapPage extends Component {
           <article className='Map__content'>
             <aside className='Map__sidebar'>
               {/* <div className='Map__header'> */}
-                {/* <h1 className='Map__headerText'>Listings</h1> */}
+              {/* <h1 className='Map__headerText'>Listings</h1> */}
               {/* </div> */}
               <div id='listings' className='Map__listings'>
-
                 {this.state.currentListingInfo ? (
                   <ListingInfo
                     currentListing={this.state.currentListingInfo}
                     goBack={this.goBack}
                   />
                 ) : (
-                  this.state.stores.features.map(listing => {
+                  this.state.allStores.features.map((listing) => {
                     // console.log(store)
                     return (
                       <ListingCard
@@ -272,7 +299,7 @@ class MapPage extends Component {
             </aside>
             <section
               className='Map__canvas'
-              ref={el => (this.mapContainer = el)}
+              ref={(el) => (this.mapContainer = el)}
             ></section>
           </article>
         </main>
