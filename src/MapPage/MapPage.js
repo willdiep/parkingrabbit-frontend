@@ -30,6 +30,10 @@ class MapPage extends Component {
         type: 'FeatureCollection',
         features: [],
       },
+      displayStores: {
+        type: 'FeatureCollection',
+        features: [],
+      },
       // ?filterListing: null,
       currentListingInfo: null,
 
@@ -47,8 +51,6 @@ class MapPage extends Component {
     this.removeLocationMarker()
   }
 
-
-
   fetchListings = () => {
     const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
@@ -56,21 +58,24 @@ class MapPage extends Component {
       .then((result) => {
         // console.log(result)
 
-        let allStores = {
+        let stores = {
           type: 'FeatureCollection',
           features: [],
         }
 
+
         result.data.forEach((listing) => {
           // console.log(listing)
-          allStores.features.push(this.convertJSONToGEOJSON(listing))
+          stores.features.push(this.convertJSONToGEOJSON(listing))
+
         })
 
         // console.log(allStores)
 
         this.setState(
           {
-            allStores: allStores,
+            allStores: stores,
+            displayStores: stores,
           },
           () =>
             console.log(
@@ -102,7 +107,7 @@ class MapPage extends Component {
         /* Add a GeoJSON source containing place coordinates and information. */
         source: {
           type: 'geojson',
-          data: this.state.allStores,
+          data: this.state.displayStores,
         },
         layout: {
           // 'icon-image': 'restaurant-15',
@@ -145,6 +150,12 @@ class MapPage extends Component {
       },
     }
   }
+
+
+filterHourlyDateTime = () => {
+  
+}
+
 
   /* ----------------------------------
    *   MAPBOX
