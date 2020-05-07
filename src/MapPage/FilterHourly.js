@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { DatePicker } from 'antd'
-import { TimePicker } from 'antd'
 import './Filter.scss'
 
 class FilterHourly extends Component {
   state = {
-    fromDateTime: null,
-    toDateTime: null,
+    fromDateTimeInput: null,
+    toDateTimeInput: null,
   }
-
 
   handleFromDateTime(value, dateString) {
     console.log('Selected Time: ', value)
@@ -16,14 +14,13 @@ class FilterHourly extends Component {
   }
 
   handleOnOkFrom = (value) => {
-    // set state then converts momentjs object to unix time
-    console.log('handleOnOkFrom: ', value.unix())
+    // set state then converts momentjs object to
+    //  unix time in milliseconds by using valueOf()
+    console.log('handleOnOkFrom: ', value.valueOf())
     this.setState({
-      fromDateTime: value.unix()
+      fromDateTimeInput: value.valueOf(),
     })
-
   }
-
 
   handleToDateTime(value, dateString) {
     console.log('Selected Time: ', value)
@@ -32,43 +29,44 @@ class FilterHourly extends Component {
 
   handleOnOkTo = (value) => {
     // set state then converts momentjs object to unix time
-    console.log('handleOnOkTo: ', value.unix())
+    console.log('handleOnOkTo: ', value.valueOf())
     this.setState({
-      toDateTime: value.unix()
+      toDateTimeInput: value.valueOf(),
     })
   }
 
   render() {
     return (
       <section className='Filter__Hourly'>
-        <div className='Filter__HourlyFrom'>
-          FROM
-          <DatePicker
-            showTime
-            minuteStep={15}
-            use12Hours
-            placeholder='Select Date and Time'
-            onChange={this.handleFromDateTime}
-            onOk={this.handleOnOkFrom}
-          />
+        {/* <form> */}
+          <div className='Filter__HourlyFrom'>
+            FROM
+            <DatePicker
+              showTime
+              minuteStep={15}
+              use12Hours
+              placeholder='Select Date and Time'
+              onChange={this.handleFromDateTime}
+              onOk={this.handleOnOkFrom}
+            />
+          </div>
 
-        </div>
+          <div className='Filter__HourlyTo'>
+            TO
+            <DatePicker
+              showTime
+              minuteStep={15}
+              use12Hours
+              placeholder='Select Date and Time'
+              onChange={this.handleToDateTime}
+              onOk={this.handleOnOkTo}
+            />
+          </div>
 
-        <div className='Filter__HourlyTo'>
-          TO
-          <DatePicker
-            showTime
-            minuteStep={15}
-            use12Hours
-            placeholder='Select Date and Time'
-            onChange={this.handleToDateTime}
-            onOk={this.handleOnOkTo}
-          />
-        </div>
-
-        <div className='Filter__HourlySearchBtn'>
-          <button>Update Search</button>
-        </div>
+          <div className='Filter__HourlySearchBtn'>
+            <button >Update Search</button>
+          </div>
+        {/* </form> */}
       </section>
     )
   }

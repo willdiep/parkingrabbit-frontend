@@ -30,8 +30,10 @@ class MapPage extends Component {
         type: 'FeatureCollection',
         features: []
       },
-      filterListing: null,
-      currentListingInfo: null
+      // ?filterListing: null,
+      currentListingInfo: null,
+
+      filterListings: []
     }
   }
 
@@ -40,7 +42,7 @@ class MapPage extends Component {
     fetch(listingsUrl)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
 
         let stores = {
           type: 'FeatureCollection',
@@ -57,7 +59,7 @@ class MapPage extends Component {
 
         this.setState({
           stores: stores
-        })
+        }, () => console.log(Date.parse(this.state.stores.features[0].properties.available_start)))
       })
 
     this.map = new mapboxgl.Map({
@@ -123,8 +125,8 @@ class MapPage extends Component {
         description: listing.attributes.description,
         hourly_price: listing.attributes.hourly_price,
         monthly_price: listing.attributes.monthly_price,
-        available_start: listing.attributes.available_start,
-        available_end: listing.attributes.available_end,
+        available_start: Date.parse(listing.attributes.available_start),
+        available_end: Date.parse(listing.attributes.available_end),
         parking_type: listing.attributes.parking_type,
         contact_name: listing.attributes.contact_name,
         contact_number: listing.attributes.contact_number,
@@ -135,8 +137,8 @@ class MapPage extends Component {
   }
 
   flyToStore = currentFeature => {
-    console.log('from flyToStore')
-    console.log(currentFeature)
+    // console.log('from flyToStore')
+    // console.log(currentFeature)
     this.map.flyTo({
       center: currentFeature.geometry.coordinates,
       zoom: 13
@@ -144,7 +146,7 @@ class MapPage extends Component {
   }
 
   createPopUp = currentFeature => {
-    console.log('from createPopUp')
+    // console.log('from createPopUp')
     var popUps = document.getElementsByClassName('mapboxgl-popup')
     // console.log(popUps)
     // /** Check if there is already a popup on the map and if so, remove it */
@@ -197,7 +199,7 @@ class MapPage extends Component {
   }
 
   handleMouseOver = (storeInfo, id) => {
-    console.log('from handleClick in parent component')
+    // console.log('from handleClick in parent component')
     // console.log(this.state)
     this.flyToStore(storeInfo)
     // DISABLE POP-UP. RE-RENDER SIDEBAR INFO INSTEAD
@@ -218,7 +220,7 @@ class MapPage extends Component {
   }
 
   handleListingCardDetails = listing => {
-    console.log(`listing `, listing)
+    // console.log(`listing `, listing)
     // const listingIndex = this.state
     // console.log(this.state.stores.features.findIndex(listing => listing.properties.id === clickedListingId))
     this.setState({

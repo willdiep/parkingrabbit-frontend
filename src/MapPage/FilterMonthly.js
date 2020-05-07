@@ -5,14 +5,20 @@ import 'antd/dist/antd.css'
 const { MonthPicker } = DatePicker
 
 class FilterMonthly extends Component {
-  onChange = (date, dateString) => {
-    console.log(date, dateString)
+
+  state = {
+    monthInput: null
+  }
+  handleMonth = (date, dateString) => {
+    console.log('Formatted Selected Time: ', dateString)
+    console.log(date.unix())
+
   }
 
   render() {
     return (
       <div>
-        <MonthPicker onChange={this.onChange} placeholder='Select month' />
+        <MonthPicker onChange={this.handleMonth} placeholder='Select month' />
       </div>
     )
   }
