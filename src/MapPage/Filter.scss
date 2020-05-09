@@ -31,7 +31,11 @@
 
   &__HourlySearchBtn {
     // display: inherit;
-    margin-left: 3rem;
-
+    // margin-left: 3rem;
+    width: 81px;
+    height: 75px;
+    border-radius: 37.5px;
+    color: white;
+    background-color: #000000;
   }
 }

@@ -10,21 +10,21 @@ class Filter extends Component {
 
     this.state = {
       renderFilterHourly: false,
-      renderFilterMonthly: false
+      renderFilterMonthly: false,
     }
   }
 
-  handleRenderFilterHourly = e => {
+  handleRenderFilterHourly = (e) => {
     this.setState({
       renderFilterHourly: true,
-      renderFilterMonthly: false
+      renderFilterMonthly: false,
     })
   }
 
-  handleRenderFilterMonthly = e => {
+  handleRenderFilterMonthly = (e) => {
     this.setState({
       renderFilterHourly: false,
-      renderFilterMonthly: true
+      renderFilterMonthly: true,
     })
   }
 
@@ -50,7 +50,19 @@ class Filter extends Component {
           handleSetLatLng={this.props.handleSetLatLng}
         />
 
-        {this.state.renderFilterHourly ? <FilterHourly /> : null}
+        {this.state.renderFilterHourly ? (
+          <FilterHourly
+            handleFilterHourlyFromDatetime={
+              this.props.handleFilterHourlyFromDatetime
+            }
+            handleFilterHourlyToDateTime={
+              this.props.handleFilterHourlyToDateTime
+            }
+            filterAndRenderHourlyDateTime={
+              this.props.filterAndRenderHourlyDateTime
+            }
+          />
+        ) : null}
 
         {this.state.renderFilterMonthly ? <FilterMonthly /> : null}
       </article>

@@ -37,7 +37,10 @@ class MapPage extends Component {
       // ?filterListing: null,
       currentListingInfo: null,
 
-      filterListings: [],
+      filterHourlyFromDateTime: null,
+      filterHourlyToDateTime: null,
+
+      // filterMonthly: null
     }
   }
 
@@ -49,6 +52,7 @@ class MapPage extends Component {
 
   componentDidUpdate() {
     this.removeLocationMarker()
+    
   }
 
   fetchListings = () => {
@@ -63,11 +67,9 @@ class MapPage extends Component {
           features: [],
         }
 
-
         result.data.forEach((listing) => {
           // console.log(listing)
           stores.features.push(this.convertJSONToGEOJSON(listing))
-
         })
 
         // console.log(allStores)
@@ -77,11 +79,61 @@ class MapPage extends Component {
             allStores: stores,
             displayStores: stores,
           },
-          () =>
-            console.log(
-              'TEST first listing available start: ' +
-                this.state.allStores.features[0].properties.available_start
-            )
+          () => {
+            const unixTimeinMs = this.state.allStores.features[0].properties
+              .available_start
+
+            const dateObject = new Date(unixTimeinMs)
+
+            // const humanDateFormat = dateObject.toLocaleString()
+
+            const monthName = dateObject.toLocaleString('en-US', {
+              month: 'long',
+            })
+            let monthNum
+            switch (monthName) {
+              case 'January':
+                monthNum = 1
+                break
+              case 'February':
+                monthNum = 2
+                break
+              case 'March':
+                monthNum = 3
+                break
+              case 'April':
+                monthNum = 4
+                break
+              case 'May':
+                monthNum = 5
+                break
+              case 'June':
+                monthNum = 6
+                break
+              case 'July':
+                monthNum = 7
+                break
+              case 'August':
+                monthNum = 8
+                break
+              case 'September':
+                monthNum = 9
+                break
+              case 'October':
+                monthNum = 10
+                break
+              case 'November':
+                monthNum = 11
+                break
+              case 'December':
+                monthNum = 12
+                break
+              default:
+                console.log(`Wrong month`)
+            }
+
+            console.log(monthNum)
+          }
         )
       })
   }
@@ -151,11 +203,54 @@ class MapPage extends Component {
     }
   }
 
+  /* ----------------------------------
+   * FTILER HOUYLY
+  ------------------------------------*/
+  handleFilterHourlyFromDatetime = (value) => {
+    // set state then converts momentjs object to
+    //  unix time in milliseconds by using valueOf()
+    console.log('handleFilterHourlyFromDatetime: ', value.valueOf())
+    this.setState({
+      filterHourlyFromDateTime: value.valueOf(),
+    })
+  }
 
-filterHourlyDateTime = () => {
-  
-}
+  handleFilterHourlyToDateTime = (value) => {
+    // set state then converts momentjs object to unix time
+    console.log('handleFilterHourlyToDateTime: ', value.valueOf())
+    this.setState({
+      filterHourlyToDateTime: value.valueOf(),
+    })
+  }
 
+  filterAndRenderHourlyDateTime = () => {
+    // console.log('from filterAndRenderHourlyDateTime')
+
+    const filterHourlyListings = this.state.allStores.features.filter(
+      (listing) => {
+        return (
+          this.state.filterHourlyFromDateTime >=
+            listing.properties.available_start &&
+          this.state.filterHourlyToDateTime <= listing.properties.available_end
+        )
+      }
+    )
+
+    this.setState(
+      {
+        displayStores: filterHourlyListings,
+      },
+      this.loadMapAndMarkers()
+    )
+
+    console.log(filterHourlyListings)
+  }
+
+
+
+  /* ----------------------------------
+   * FTILER MONTHLY
+  ------------------------------------*/
 
   /* ----------------------------------
    *   MAPBOX
@@ -278,7 +373,14 @@ filterHourlyDateTime = () => {
       <div className='Map'>
         <main className='Map__container'>
           <article className='Map__filter'>
-            <Filter handleSetLatLng={this.props.handleSetLatLng} />
+            <Filter
+              handleSetLatLng={this.props.handleSetLatLng}
+              handleFilterHourlyFromDatetime={
+                this.handleFilterHourlyFromDatetime
+              }
+              handleFilterHourlyToDateTime={this.handleFilterHourlyToDateTime}
+              filterAndRenderHourlyDateTime={this.filterAndRenderHourlyDateTime}
+            />
           </article>
 
           <article className='Map__content'>

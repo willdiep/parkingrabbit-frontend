@@ -11,7 +11,7 @@ class FilterMonthly extends Component {
   }
   handleMonth = (date, dateString) => {
     console.log('Formatted Selected Time: ', dateString)
-    console.log(date.unix())
+    console.log(date.month() + 1)
 
   }
 
