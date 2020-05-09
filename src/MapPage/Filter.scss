@@ -1,32 +1,56 @@
 .Filter {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 200px;
-  margin: 0 25px;
+  // justify-content: center;
+  // height: 150px;
+  margin: 0 2rem 2rem 2rem;
   font-size: 1rem;
 
-  &__HourlyOnClick {
+  // &__SearchBtn {
+  //   width: 561px;
+  //   height: 75px;
+  //   border-radius: 37.5px;
+  //   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
+  //   border: solid 1px var(--very-light-pink);
+  //   background-color: #ffffff;
+  // }
+
+  &__HourlyOnClick,
+  &__MonthlyOnClick {
     margin-right: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 37.5px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px var(--very-light-pink);
+    background-color: white;
     // &:hover {
     //   color: orange;
     // }
   }
 
-  &__MonthlyOnClick {
-    margin-right: 1rem;
-    // &:hover {
-    //   color: orange;
-    // }
-  }
+  // &__MonthlyOnClick {
+  // margin-right: 1rem;
+  // &:hover {
+  //   color: orange;
+  // }
+  // }
 
   &__Hourly {
     display: inherit;
-    margin: 2rem;
+    // margin: 2rem;
   }
 
-  &__HourlyTo {
-    margin-left: 3rem;
+  &__HourlyText {
+    margin-right: 1rem;
+    font-weight: bold;
+
+  }
+
+  &__HourlyTo,
+  &__HourlyFrom {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
   }
 
   &__HourlySearchBtn {
@@ -36,6 +60,12 @@
     height: 75px;
     border-radius: 37.5px;
     color: white;
-    background-color: #000000;
+    background-color: var(--primary-color);
+    margin-left: 2rem;
   }
+}
+
+.SearchBtn {
+  width: 500px;
+  margin-left: 2rem;
 }

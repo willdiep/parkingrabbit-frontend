@@ -11,9 +11,9 @@ class SearchBtn extends Component {
   }
   render() {
     return (
-      <div className='search-btn'>
+      <div className='SearchBtn'>
         <AlgoliaPlaces
-        className='search-btn__input'
+        className='SearchBtn__Input'
           placeholder='Search Address, Place, District, or Zipcode'
           options={{
             appId: 'plFF2HVFCYHZ',

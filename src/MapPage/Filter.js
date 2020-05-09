@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import FilterHourly from './FilterHourly'
 import FilterMonthly from './FilterMonthly'
 import SearchBtn from '../SearchBtn/SearchBtn'
 import './Filter.scss'
-import FilterHourly from './FilterHourly'
 
 class Filter extends Component {
   constructor() {
@@ -40,7 +40,7 @@ class Filter extends Component {
 
         <button
           onClick={this.handleRenderFilterMonthly}
-          className='Filter__HonthlyOnClick'
+          className='Filter__MonthlyOnClick'
         >
           Monthly
         </button>

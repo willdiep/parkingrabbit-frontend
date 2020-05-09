@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 import { DatePicker } from 'antd'
 import './Filter.scss'
 
@@ -40,7 +44,7 @@ class FilterHourly extends Component {
       <section className='Filter__Hourly'>
         {/* <form> */}
         <div className='Filter__HourlyFrom'>
-          FROM
+          <div className='Filter__HourlyText'>From</div>
           <DatePicker
             showTime
             minuteStep={15}
@@ -52,7 +56,7 @@ class FilterHourly extends Component {
         </div>
 
         <div className='Filter__HourlyTo'>
-          TO
+          <div className='Filter__HourlyText'>To</div>
           <DatePicker
             showTime
             minuteStep={15}
@@ -68,9 +72,12 @@ class FilterHourly extends Component {
             className='Filter__HourlySearchBtn'
             onClick={this.props.filterAndRenderHourlyDateTime}
           >
-            Update Search
+            <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
+
+        
+
         {/* </form> */}
       </section>
     )

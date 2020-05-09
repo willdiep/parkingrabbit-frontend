@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import ReactDOM from 'react-dom'
+import NavBar from '../Navbar/Navbar'
 import mapboxgl from 'mapbox-gl'
 import Filter from './Filter'
 import ListingCard from './ListingCard'
@@ -52,7 +53,6 @@ class MapPage extends Component {
 
   componentDidUpdate() {
     this.removeLocationMarker()
-    
   }
 
   fetchListings = () => {
@@ -239,14 +239,12 @@ class MapPage extends Component {
     this.setState(
       {
         displayStores: filterHourlyListings,
-      },
-      this.loadMapAndMarkers()
+      }
+      // this.loadMapAndMarkers()
     )
 
     console.log(filterHourlyListings)
   }
-
-
 
   /* ----------------------------------
    * FTILER MONTHLY
@@ -372,6 +370,7 @@ class MapPage extends Component {
     return (
       <div className='Map'>
         <main className='Map__container'>
+          <NavBar mapPage={true} />
           <article className='Map__filter'>
             <Filter
               handleSetLatLng={this.props.handleSetLatLng}
