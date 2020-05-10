@@ -1,0 +1,81 @@
+.ListingCard {
+  // display: block;
+  // border-bottom: 1px solid #eee;
+  padding: 1rem 1rem 0 1rem;
+  // text-decoration: none;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+  box-shadow: 0 3px 10px 1px rgba(199, 199, 199, 0.5);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  // width: 200px;
+
+  &__AddressAndParkingType {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__Address {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  &__ImgFigure {
+    // LARGE IMAGE WILL SCALE BY ITSELF & FILL
+    // UP CONTAINER BASED ON IMG'S WIDTH 100%
+    // width: 500px;
+    // height: 500px;
+  }
+
+  &__Img {
+    // LARGE IMAGE WILL SCALE BY ITSELF & FILL
+    // UP CONTAINER BASED ON IMG'S WIDTH 100%
+    // width: 500px;
+    // height: 500px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 1rem;
+  }
+
+  &__BookingBtn {
+    width: 150px;
+    height: 40px;
+    border-radius: 28.5px;
+    border: solid 1px var(--very-light-pink);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+
+  &__BookingAndDetails {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+  }
+
+  &__ParkingTypeBtn {
+    padding: 4px 15px 1px 15px;
+    border-radius: 2px;
+  }
+
+  &__ParkingTypeLot {
+    border: 1px solid purple;
+    color: purple;
+  }
+
+  &__ParkingTypeGarage {
+    border: 1px solid blue;
+    color: blue;
+  }
+
+  &__ParkingTypeValet {
+    border: 1px solid green;
+    color: green;
+  }
+
+  &__ParkingTypeResident {
+    border: 1px solid red;
+    color: red;
+  }
+}

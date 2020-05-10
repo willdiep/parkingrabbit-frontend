@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import { Rate } from 'antd'
 
 class ListingInfo extends Component {
-  constructor() {
-    super()
 
-    this.state = {}
-  }
+  state = {}
 
   render() {
     return (

@@ -382,6 +382,8 @@ class MapPage extends Component {
             />
           </article>
 
+          <div className='Map__Divider'></div>
+
           <article className='Map__content'>
             <aside className='Map__sidebar'>
               {/* <div className='Map__header'> */}
