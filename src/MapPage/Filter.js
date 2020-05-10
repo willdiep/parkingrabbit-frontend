@@ -5,41 +5,37 @@ import SearchBtn from '../SearchBtn/SearchBtn'
 import './Filter.scss'
 
 class Filter extends Component {
-  constructor() {
-    super()
+  // state = {
+  //   renderFilterHourly: false,
+  //   renderFilterMonthly: false,
+  // }
 
-    this.state = {
-      renderFilterHourly: false,
-      renderFilterMonthly: false,
-    }
-  }
+  // handleRenderFilterHourly = (e) => {
+  //   this.setState({
+  //     renderFilterHourly: true,
+  //     renderFilterMonthly: false,
+  //   })
+  // }
 
-  handleRenderFilterHourly = (e) => {
-    this.setState({
-      renderFilterHourly: true,
-      renderFilterMonthly: false,
-    })
-  }
-
-  handleRenderFilterMonthly = (e) => {
-    this.setState({
-      renderFilterHourly: false,
-      renderFilterMonthly: true,
-    })
-  }
+  // handleRenderFilterMonthly = (e) => {
+  //   this.setState({
+  //     renderFilterHourly: false,
+  //     renderFilterMonthly: true,
+  //   })
+  // }
 
   render() {
     return (
       <article className='Filter'>
         <button
-          onClick={this.handleRenderFilterHourly}
+          onClick={this.props.handleRenderFilterHourly}
           className='Filter__HourlyOnClick'
         >
           Hourly
         </button>
 
         <button
-          onClick={this.handleRenderFilterMonthly}
+          onClick={this.props.handleRenderFilterMonthly}
           className='Filter__MonthlyOnClick'
         >
           Monthly
@@ -50,7 +46,7 @@ class Filter extends Component {
           handleSetLatLng={this.props.handleSetLatLng}
         />
 
-        {this.state.renderFilterHourly ? (
+        {this.props.filterHourlyState ? (
           <FilterHourly
             handleFilterHourlyFromDatetime={
               this.props.handleFilterHourlyFromDatetime
@@ -64,7 +60,8 @@ class Filter extends Component {
           />
         ) : null}
 
-        {this.state.renderFilterMonthly ? <FilterMonthly /> : null}
+        {this.props.filterMonthlyState ? <FilterMonthly /> : null}
+        
       </article>
     )
   }

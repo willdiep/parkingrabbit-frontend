@@ -41,7 +41,10 @@ class MapPage extends Component {
       filterHourlyFromDateTime: null,
       filterHourlyToDateTime: null,
 
-      // filterMonthly: null
+      // filterMonthly: null,
+
+      renderFilterHourly: false,
+      renderFilterMonthly: false,
     }
   }
 
@@ -206,6 +209,29 @@ class MapPage extends Component {
       },
     }
   }
+
+  /* ----------------------------------
+   * RENDER FILTER HOURLY AND MONTHLY
+  ------------------------------------*/
+  handleRenderFilterHourly = (e) => {
+    this.setState({
+      renderFilterHourly: true,
+      renderFilterMonthly: false,
+    })
+  }
+
+  handleRenderFilterMonthly = (e) => {
+    this.setState({
+      renderFilterHourly: false,
+      renderFilterMonthly: true,
+    })
+  }
+
+
+
+
+
+
 
   /* ----------------------------------
    * FTILER HOUYLY
@@ -381,8 +407,14 @@ class MapPage extends Component {
               handleFilterHourlyFromDatetime={
                 this.handleFilterHourlyFromDatetime
               }
+              
               handleFilterHourlyToDateTime={this.handleFilterHourlyToDateTime}
               filterAndRenderHourlyDateTime={this.filterAndRenderHourlyDateTime}
+             
+              handleRenderFilterHourly={this.handleRenderFilterHourly}
+              handleRenderFilterMonthly={this.handleRenderFilterMonthly}
+              filterHourlyState = {this.state.renderFilterHourly}
+              filterMonthlyState = {this.state.renderFilterMonthly}
             />
           </article>
 
