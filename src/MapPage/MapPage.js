@@ -166,6 +166,10 @@ class MapPage extends Component {
           'icon-allow-overlap': true,
         },
       })
+
+      // Add zoom and rotation controls to the map.
+      this.map.addControl(new mapboxgl.NavigationControl())
+
       // this.addCurrentLocationMarker()
       this.addListingMarkers()
     })
