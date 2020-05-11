@@ -38,16 +38,18 @@ class App extends Component {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        auth: loginInfo
+        auth: loginInfo,
       }),
     })
       .then((response) => response.json())
       .then((userInfo) => {
         console.log(userInfo)
         localStorage.setItem('jwt', userInfo.token)
-        this.setState({user: userInfo.user})
+        this.setState({ user: userInfo.user })
       })
-      .then(() => { this.props.history.push('/mappage') })
+      .then(() => {
+        this.props.history.push('/mappage')
+      })
   }
 
   handleSignUp = (signUpInfo) => {
@@ -59,16 +61,18 @@ class App extends Component {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        user: signUpInfo
+        user: signUpInfo,
       }),
     })
       .then((response) => response.json())
       .then((userInfo) => {
         console.log(userInfo)
         localStorage.setItem('jwt', userInfo.token)
-        this.setState({user: userInfo.user})
+        this.setState({ user: userInfo.user })
       })
-      .then(() => { this.props.history.push('/mappage') })
+      .then(() => {
+        this.props.history.push('/mappage')
+      })
   }
 
   // handleSetLocationInput = e => {
@@ -124,14 +128,10 @@ class App extends Component {
   // }
 
   handleSetLocationText = (locationName) => {
-    this.setState(
-      {
-        userLocationText: locationName,
-      },
-      console.log('userLocationText setState completed')
-    )
+    this.setState({
+      userLocationText: locationName,
+    })
   }
-
 
   render() {
     // console.log(this.props.history)
@@ -149,8 +149,7 @@ class App extends Component {
                 {...props}
                 // stateLocation={this.state.userLocationInput}
                 handleSetLatLng={this.handleSetLatLng}
-                handleSetLocationText={
-                  this.handleSetLocationText}
+                handleSetLocationText={this.handleSetLocationText}
 
                 // setUserLocationInput={this.handleSetLocationInput}
                 // setSubmitListingCollection={
@@ -159,9 +158,13 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path='/login' render={(props) => (
+          <Route
+            exact
+            path='/login'
+            render={(props) => (
               <Login {...props} handleLogin={this.handleLogin} />
-            )} />
+            )}
+          />
           <Route
             exact
             path='/signup'
@@ -185,11 +188,8 @@ class App extends Component {
             )}
           />
 
-        {/* TEMPORARY CHECKOUTPAGE ROUTE */}
+          {/* TEMPORARY CHECKOUTPAGE ROUTE */}
           <Route exact path='/checkout' component={CheckoutPage} />
-
-
-
         </Switch>
         {/* </Router> */}
       </div>
