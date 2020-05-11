@@ -10,7 +10,7 @@
   grid-template-columns: 40% 60%;
   // width: 200px;
 
-  &__AddressAndParkingType {
+  &__AddressParkingType {
     display: flex;
     justify-content: space-between;
   }
@@ -20,12 +20,12 @@
     font-weight: bold;
   }
 
-  &__ImgFigure {
+  // &__ImgFigure {
     // LARGE IMAGE WILL SCALE BY ITSELF & FILL
     // UP CONTAINER BASED ON IMG'S WIDTH 100%
     // width: 500px;
     // height: 500px;
-  }
+  // }
 
   &__Img {
     // LARGE IMAGE WILL SCALE BY ITSELF & FILL
@@ -48,10 +48,33 @@
     color: var(--white-color);
   }
 
-  &__BookingAndDetails {
+  &__BookingDetailsRate {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__BookingDetails {
     display: flex;
     align-items: center;
     // justify-content: space-between;
+  }
+
+  &__Details {
+    margin-left: 1rem;
+    text-decoration: underline;
+    color: var(--carrot-color);
+  }
+
+&__Content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+  &__ListingPrice {
+    font-size: 1.25rem;
   }
 
   &__ParkingTypeBtn {
@@ -75,7 +98,7 @@
   }
 
   &__ParkingTypeResident {
-    border: 1px solid red;
-    color: red;
+    border: 1px solid orange;
+    color: orange;
   }
 }

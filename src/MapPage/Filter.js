@@ -30,6 +30,11 @@ class Filter extends Component {
         <button
           onClick={this.props.handleRenderFilterHourly}
           className='Filter__HourlyOnClick'
+          className={
+            this.props.filterHourlyState
+              ? 'Filter__HourlyOnClick Filter__HourlyOnClick--isActive'
+              : 'Filter__HourlyOnClick'
+          }
         >
           Hourly
         </button>
@@ -37,6 +42,11 @@ class Filter extends Component {
         <button
           onClick={this.props.handleRenderFilterMonthly}
           className='Filter__MonthlyOnClick'
+          className={
+            this.props.filterMonthlyState
+              ? 'Filter__MonthlyOnClick Filter__MonthlyOnClick--isActive'
+              : 'Filter__MonthlyOnClick'
+          }
         >
           Monthly
         </button>
@@ -61,7 +71,6 @@ class Filter extends Component {
         ) : null}
 
         {this.props.filterMonthlyState ? <FilterMonthly /> : null}
-        
       </article>
     )
   }

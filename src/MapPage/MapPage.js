@@ -43,7 +43,7 @@ class MapPage extends Component {
 
       // filterMonthly: null,
 
-      renderFilterHourly: false,
+      renderFilterHourly: true, // set default to true to render first
       renderFilterMonthly: false,
     }
   }
@@ -441,6 +441,9 @@ class MapPage extends Component {
                         listing={listing}
                         handleMouseOver={this.handleMouseOver}
                         handleListingCardDetails={this.handleListingCardDetails}
+
+                        filterHourlyState = {this.state.renderFilterHourly}
+                        filterMonthlyState = {this.state.renderFilterMonthly}
                       />
                     )
                   })
