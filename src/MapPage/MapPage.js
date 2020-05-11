@@ -36,7 +36,6 @@ class MapPage extends Component {
         type: 'FeatureCollection',
         features: [],
       },
-      // ?filterListing: null,
       currentListingInfo: null,
 
       filterHourlyFromDateTime: null,
@@ -46,6 +45,7 @@ class MapPage extends Component {
 
       renderFilterHourly: true, // set default to true to render first
       renderFilterMonthly: false,
+
     }
   }
 
@@ -275,6 +275,8 @@ class MapPage extends Component {
    * FTILER MONTHLY
   ------------------------------------*/
 
+
+
   /* ----------------------------------
    *   MAPBOX
   ------------------------------------*/
@@ -375,7 +377,6 @@ class MapPage extends Component {
   /* ----------------------------------
    *   LISTING
   ------------------------------------*/
-
   handleListingCardDetails = (listing) => {
     // console.log(`listing `, listing)
     // const listingIndex = this.state
@@ -408,6 +409,7 @@ class MapPage extends Component {
               handleRenderFilterMonthly={this.handleRenderFilterMonthly}
               filterHourlyState={this.state.renderFilterHourly}
               filterMonthlyState={this.state.renderFilterMonthly}
+              handleSetLocationText={this.props.handleSetLocationText}
             />
           </article>
 
@@ -425,7 +427,10 @@ class MapPage extends Component {
                     goBack={this.goBack}
                   />
                 ) : (
-                  <ListingContainer>
+                  <ListingContainer
+                    spotsAvailable={this.state.displayStores.features.length}
+                    parkingSpotsNear={this.props.parkingSpotsNear}
+                  >
                     {this.state.allStores.features.map((listing) => {
                       return (
                         <ListingCard

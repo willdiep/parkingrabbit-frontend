@@ -4,7 +4,9 @@ import ListingHeader from './ListingHeader'
 function ListingContainer(props) {
   return (
     <article class='ListingContainer'>
-      <ListingHeader />
+      <ListingHeader spotsAvailable={props.spotsAvailable}
+      parkingSpotsNear={props.parkingSpotsNear}
+      />
       {props.children}
     </article>
   )

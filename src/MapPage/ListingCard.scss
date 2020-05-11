@@ -18,6 +18,7 @@
   &__Address {
     font-size: 1.25rem;
     font-weight: bold;
+    color: var(--almost-black);
   }
 
   // &__ImgFigure {
@@ -75,6 +76,11 @@
 
   &__ListingPrice {
     font-size: 1.25rem;
+    color: var(--almost-black);
+  }
+
+  &__MilesAway {
+    color: var(--third-color);
   }
 
   &__ParkingTypeBtn {

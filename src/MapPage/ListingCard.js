@@ -70,7 +70,7 @@ class ListingCard extends Component {
               defaultValue={this.props.listing.properties.rating}
             />
 
-            <div>0.2 miles away</div>
+            <div className='ListingCard__MilesAway'>0.2 miles away</div>
           </div>
 
           {/* <br></br> */}

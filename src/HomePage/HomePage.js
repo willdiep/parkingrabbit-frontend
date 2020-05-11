@@ -37,6 +37,9 @@ class HomePage extends Component {
                   // handleSetLng={this.props.handleSetLng}
                   // setUserLocationInput={this.props.setUserLocationInput}
                   // setSubmitListingCollection={this.props.setSubmitListingCollection}
+                  handleSetLocationText={
+                    this.props.handleSetLocationText}
+
                 />
               </section>
             </article>

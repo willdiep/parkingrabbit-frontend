@@ -1,15 +1,22 @@
 .ListingHeader {
   padding: 1rem;
 
-&__SortByDistance {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+  &__SortByDistance {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 
-&__CaretDownIcon {
-  margin-left: 0.5rem;
-}
+  &__CaretDownIcon {
+    margin-left: 0.5rem;
+  }
+
+  &__LocationInput,
+  &__SpotsAvailable,
+  &__SortByDistance {
+    color: var(--secondary-color);
+    font-size: 1rem;
+  }
 
   &__Divider {
     margin-top: 0.5rem;

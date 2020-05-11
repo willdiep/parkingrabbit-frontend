@@ -26,6 +26,7 @@ class App extends Component {
       // userLocationInput: '',
       // listingCollection: {}
       user: null,
+      userLocationText: '',
     }
   }
 
@@ -122,6 +123,16 @@ class App extends Component {
   //   this.props.history.push('/mappage')
   // }
 
+  handleSetLocationText = (locationName) => {
+    this.setState(
+      {
+        userLocationText: locationName,
+      },
+      console.log('userLocationText setState completed')
+    )
+  }
+
+
   render() {
     // console.log(this.props.history)
     return (
@@ -138,6 +149,8 @@ class App extends Component {
                 {...props}
                 // stateLocation={this.state.userLocationInput}
                 handleSetLatLng={this.handleSetLatLng}
+                handleSetLocationText={
+                  this.handleSetLocationText}
 
                 // setUserLocationInput={this.handleSetLocationInput}
                 // setSubmitListingCollection={
@@ -166,6 +179,8 @@ class App extends Component {
                 setLng={this.state.userLng}
                 setLat={this.state.userLat}
                 handleSetLatLng={this.handleSetLatLng}
+                handleSetLocationText={this.handleSetLocationText}
+                parkingSpotsNear={this.state.userLocationText}
               />
             )}
           />

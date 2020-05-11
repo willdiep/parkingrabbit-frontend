@@ -33,7 +33,7 @@ class Header extends Component {
 
       // console.log(`longitude: ${lng} | latitude: ${lat}`)
       self.props.handleSetLatLng([lat, lng])
-      console.log([lat, lng])
+      // console.log([lat, lng])
     }
   }
 
@@ -81,7 +81,12 @@ class Header extends Component {
                 />
               </form> */}
 
-        <SearchBtn handleSetLatLng={this.props.handleSetLatLng} />
+        <SearchBtn
+          handleSetLatLng={this.props.handleSetLatLng}
+          handleSetLocationText={
+            this.props.handleSetLocationText
+          }
+        />
 
         <LineBreak />
         <LineBreak />

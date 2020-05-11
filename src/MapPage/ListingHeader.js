@@ -9,18 +9,19 @@ class ListingHeader extends Component {
     return (
       <section className='ListingHeader'>
         <div className='ListingHeader__LocationInput'>
-          Parking Spots Near: 1460 Mission St.
+          <strong>Parking Spots Near: </strong>{this.props.parkingSpotsNear}
         </div>
         <div className='ListingHeader__SpotsAvailable'>
-          (40 Spots Available)
+          ({this.props.spotsAvailable} Spots Available)
         </div>
 
-<br></br>
-<br></br>
 
         <div className='ListingHeader__SortByDistance'>
           Sort by: Distance
-          <FontAwesomeIcon className='ListingHeader__CaretDownIcon' icon={faCaretDown} />
+          <FontAwesomeIcon
+            className='ListingHeader__CaretDownIcon'
+            icon={faCaretDown}
+          />
         </div>
 
         <div className='ListingHeader__Divider'></div>

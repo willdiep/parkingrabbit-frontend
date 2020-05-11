@@ -3,12 +3,18 @@ import AlgoliaPlaces from 'algolia-places-react'
 import './SearchBtn.scss'
 
 class SearchBtn extends Component {
-  handleChange = coordinatesArr => {
+
+  handleCoordinates = coordinatesArr => {
     // console.log(coordinatesArr.constructor.name)
     // console.log(coordinatesArr)
     this.props.handleSetLatLng(coordinatesArr)
     // this.props.handleSetLng(coordinatesArr[1])
   }
+
+  handleLocation = locationName => {
+    this.props.handleSetLocationText(locationName)
+  }
+
   render() {
     return (
       <div className='SearchBtn'>
@@ -31,7 +37,10 @@ class SearchBtn extends Component {
             //   'Fired when suggestion selected in the dropdown or hint was validated.'
             // )
             // console.log([suggestion.latlng.lat, suggestion.latlng.lng])
-            this.handleChange([suggestion.latlng.lat, suggestion.latlng.lng])
+            this.handleCoordinates([suggestion.latlng.lat, suggestion.latlng.lng])
+            
+            // console.log(suggestion.name)
+            this.handleLocation(suggestion.name)
           }}
           // onSuggestions={({ rawAnswer, query, suggestions }) =>
           //   console.log(

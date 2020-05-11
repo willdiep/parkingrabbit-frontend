@@ -54,6 +54,9 @@ class Filter extends Component {
         <SearchBtn
           className='Filter__SearchBtn'
           handleSetLatLng={this.props.handleSetLatLng}
+          handleSetLocationText={
+            this.props.handleSetLocationText
+          }
         />
 
         {this.props.filterHourlyState ? (
