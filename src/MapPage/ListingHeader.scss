@@ -1,0 +1,19 @@
+.ListingHeader {
+  padding: 1rem;
+
+&__SortByDistance {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+&__CaretDownIcon {
+  margin-left: 0.5rem;
+}
+
+  &__Divider {
+    margin-top: 0.5rem;
+    height: 1px;
+    border: solid 1px var(--light-grey);
+  }
+}

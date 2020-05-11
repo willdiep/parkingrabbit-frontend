@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 // import ReactDOM from 'react-dom'
 import NavBar from '../Navbar/Navbar'
-import mapboxgl from 'mapbox-gl'
 import Filter from './Filter'
 import ListingCard from './ListingCard'
 import ListingInfo from './ListingInfo'
+import ListingContainer from './ListingContainer'
+import mapboxgl from 'mapbox-gl'
 import './MapPage.scss'
 
 const styleLink = document.createElement('link')
@@ -227,12 +228,6 @@ class MapPage extends Component {
     })
   }
 
-
-
-
-
-
-
   /* ----------------------------------
    * FTILER HOUYLY
   ------------------------------------*/
@@ -407,14 +402,12 @@ class MapPage extends Component {
               handleFilterHourlyFromDatetime={
                 this.handleFilterHourlyFromDatetime
               }
-              
               handleFilterHourlyToDateTime={this.handleFilterHourlyToDateTime}
               filterAndRenderHourlyDateTime={this.filterAndRenderHourlyDateTime}
-             
               handleRenderFilterHourly={this.handleRenderFilterHourly}
               handleRenderFilterMonthly={this.handleRenderFilterMonthly}
-              filterHourlyState = {this.state.renderFilterHourly}
-              filterMonthlyState = {this.state.renderFilterMonthly}
+              filterHourlyState={this.state.renderFilterHourly}
+              filterMonthlyState={this.state.renderFilterMonthly}
             />
           </article>
 
@@ -432,21 +425,23 @@ class MapPage extends Component {
                     goBack={this.goBack}
                   />
                 ) : (
-                  this.state.allStores.features.map((listing) => {
-                    // console.log(store)
-                    return (
-                      <ListingCard
-                        key={listing.properties.id}
-                        id={listing.properties.id}
-                        listing={listing}
-                        handleMouseOver={this.handleMouseOver}
-                        handleListingCardDetails={this.handleListingCardDetails}
-
-                        filterHourlyState = {this.state.renderFilterHourly}
-                        filterMonthlyState = {this.state.renderFilterMonthly}
-                      />
-                    )
-                  })
+                  <ListingContainer>
+                    {this.state.allStores.features.map((listing) => {
+                      return (
+                        <ListingCard
+                          key={listing.properties.id}
+                          id={listing.properties.id}
+                          listing={listing}
+                          handleMouseOver={this.handleMouseOver}
+                          handleListingCardDetails={
+                            this.handleListingCardDetails
+                          }
+                          filterHourlyState={this.state.renderFilterHourly}
+                          filterMonthlyState={this.state.renderFilterMonthly}
+                        />
+                      )
+                    })}
+                  </ListingContainer>
                 )}
               </div>
             </aside>
