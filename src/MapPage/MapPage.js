@@ -72,7 +72,7 @@ class MapPage extends Component {
         }
 
         result.data.forEach((listing) => {
-          // console.log(listing)
+          console.log(listing)
           stores.features.push(this.convertJSONToGEOJSON(listing))
         })
 
@@ -89,7 +89,7 @@ class MapPage extends Component {
 
             const dateObject = new Date(unixTimeinMs)
 
-            // const humanDateFormat = dateObject.toLocaleString()
+            const humanDateFormat = dateObject.toLocaleString()
 
             const monthName = dateObject.toLocaleString('en-US', {
               month: 'long',
@@ -207,6 +207,7 @@ class MapPage extends Component {
         contact_number: listing.attributes.contact_number,
         contact_email: listing.attributes.contact_email,
         rating: listing.attributes.rating,
+        features: listing.attributes.features
       },
     }
   }

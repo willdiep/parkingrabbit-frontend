@@ -22,10 +22,10 @@
   }
 
   // &__ImgFigure {
-    // LARGE IMAGE WILL SCALE BY ITSELF & FILL
-    // UP CONTAINER BASED ON IMG'S WIDTH 100%
-    // width: 500px;
-    // height: 500px;
+  // LARGE IMAGE WILL SCALE BY ITSELF & FILL
+  // UP CONTAINER BASED ON IMG'S WIDTH 100%
+  // width: 500px;
+  // height: 500px;
   // }
 
   &__Img {
@@ -41,6 +41,9 @@
   }
 
   &__BookingBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 150px;
     height: 40px;
     border-radius: 28.5px;
@@ -67,12 +70,12 @@
     color: var(--carrot-color);
   }
 
-&__Content{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
+  &__Overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
 
   &__ListingPrice {
     font-size: 1.25rem;

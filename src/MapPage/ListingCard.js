@@ -49,7 +49,7 @@ class ListingCard extends Component {
           </figure>
         </section>
 
-        <section className='ListingCard__Content'>
+        <section className='ListingCard__Overview'>
           <div className='ListingCard__AddressParkingTypeRate'>
             <div className='ListingCard__AddressParkingType'>
               <div id={`link-${this.props.id}`} className='ListingCard_Address'>

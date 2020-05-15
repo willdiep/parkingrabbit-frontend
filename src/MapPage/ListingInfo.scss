@@ -1,0 +1,52 @@
+.ListingInfo {
+  &__Summary {
+    // border: 2px solid orange;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 2rem 1rem;
+  }
+
+  &__ImgContainer {
+    // margin: 1rem;
+  }
+
+  &__ImgFigure {
+    margin: 0;
+  }
+
+  &__Img {
+    width: 100%;
+  }
+
+  &__Overview {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__AddressParkingType {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__Divider {
+    height: 1px;
+    border: solid 1px var(--light-grey);
+  }
+
+  &__AddressContact {
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__Features {
+    margin: 2rem 1rem;
+  }
+
+  &__Reviews {
+    margin: 2rem 1rem;
+
+  }
+}

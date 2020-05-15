@@ -1,45 +1,101 @@
 import React, { Component } from 'react'
+import CommentTextBox from './CommentTextBox'
 import { Rate } from 'antd'
+import './ListingInfo.scss'
 
 class ListingInfo extends Component {
-
   state = {}
 
   render() {
     return (
-      <div>
-        <h4 onClick={this.props.goBack}>Back to Parking Listing</h4>
+      <article className='ListingInfo'>
+        <section className='ListingInfo__Summary'>
+          <div className='ListingInfo__ImgContainer'>
+            <figure className='ListingInfo__ImgFigure'>
+              <img
+                className='ListingInfo__Img'
+                src='https://via.placeholder.com/500x350'
+                alt=''
+              />
+            </figure>
+          </div>
 
-        <p>{this.props.currentListing.properties.name}</p>
-        
-        <Rate allowHalf disabled defaultValue={this.props.currentListing.properties.rating} />
-        {/* <p>{this.props.currentListing.properties.rating}</p> */}
+          <div className='ListingInfo__Overview'>
+            <div>
+              <div onClick={this.props.goBack}>Back to Parking Listing</div>
 
-        <p>{this.props.currentListing.properties.parking_type}</p>
+              <br></br>
+              <div className='ListingInfo__AddressParkingType'>
+                <div>{this.props.currentListing.properties.address}</div>
+                <div>{this.props.currentListing.properties.parking_type}</div>
+              </div>
 
-        <p>
-          <strong>Address</strong>
-        </p>
-        <p>{this.props.currentListing.properties.address}</p>
-        <p>{this.props.currentListing.properties.city}</p>
-        <p>{this.props.currentListing.properties.zipcode}</p>
+              <Rate
+                allowHalf
+                disabled
+                defaultValue={this.props.currentListing.properties.rating}
+              />
 
-        <p>
-          <strong>Contact</strong>
-        </p>
-        <p>{this.props.currentListing.properties.contact_name}</p>
-        <p>{this.props.currentListing.properties.contact_number}</p>
-        <p>{this.props.currentListing.properties.contact_email}</p>
+              <div className='ListingCard__MilesAway'>0.2 miles away</div>
+            </div>
 
-        <p>
-          <strong>Features</strong>
-        </p>
+            <button className='ListingCard__BookingBtn'>Book My Spot</button>
+          </div>
+        </section>
 
-        <p>
-          <strong>Reviews</strong>
-        </p>
-        <p>Please Login to leave a review</p>
-      </div>
+        <div className='ListingInfo__Divider'></div>
+
+        <section className='ListingInfo__AddressContact'>
+          <div className='ListingInfo__AddressContainer'>
+            <div>
+              <strong>Address</strong>
+            </div>
+            <br></br>
+            <div>{this.props.currentListing.properties.address}</div>
+            <div>{this.props.currentListing.properties.city}</div>
+            <div>{this.props.currentListing.properties.zipcode}</div>
+          </div>
+
+          <div className='ListingInfo__ContactContainer'>
+            <div>
+              <strong>Contact</strong>
+            </div>
+            <br></br>
+            <div>{this.props.currentListing.properties.contact_name}</div>
+            <div>{this.props.currentListing.properties.contact_number}</div>
+            <div>{this.props.currentListing.properties.contact_email}</div>
+          </div>
+        </section>
+
+        <div className='ListingInfo__Divider'></div>
+
+        <section className='ListingInfo__Features'>
+          <p>
+            <strong>Features</strong>
+          </p>
+          <ul>
+            {this.props.currentListing.properties.features.map((feature) => {
+              return <li>{feature}</li>
+            })}
+          </ul>
+        </section>
+
+        <div className='ListingInfo__Divider'></div>
+
+        <section className='ListingInfo__Reviews'>
+          <div>
+            <strong>Reviews</strong>
+          </div>
+          <Rate
+            allowHalf
+            disabled
+            defaultValue={this.props.currentListing.properties.rating}
+          />
+          <p>Please Login to leave a review</p>
+
+          <CommentTextBox />
+        </section>
+      </article>
     )
   }
 }
