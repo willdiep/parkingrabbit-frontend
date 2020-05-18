@@ -48,7 +48,7 @@
     height: 40px;
     border-radius: 28.5px;
     border: solid 1px var(--very-light-pink);
-    background-color: var(--primary-color);
+    background-color: var(--almost-black);
     color: var(--white-color);
   }
 
@@ -68,6 +68,9 @@
     margin-left: 1rem;
     text-decoration: underline;
     color: var(--carrot-color);
+    &:hover {
+      color: var(--almost-black);
+    }
   }
 
   &__Overview {

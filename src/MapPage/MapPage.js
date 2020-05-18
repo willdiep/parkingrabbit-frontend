@@ -45,7 +45,6 @@ class MapPage extends Component {
 
       renderFilterHourly: true, // set default to true to render first
       renderFilterMonthly: false,
-
     }
   }
 
@@ -207,7 +206,8 @@ class MapPage extends Component {
         contact_number: listing.attributes.contact_number,
         contact_email: listing.attributes.contact_email,
         rating: listing.attributes.rating,
-        features: listing.attributes.features
+        listing_image: listing.attributes.listing_image,
+        features: listing.attributes.features,
       },
     }
   }
@@ -275,8 +275,6 @@ class MapPage extends Component {
   /* ----------------------------------
    * FTILER MONTHLY
   ------------------------------------*/
-
-
 
   /* ----------------------------------
    *   MAPBOX
@@ -426,6 +424,8 @@ class MapPage extends Component {
                   <ListingInfo
                     currentListing={this.state.currentListingInfo}
                     goBack={this.goBack}
+                    filterHourlyState={this.state.renderFilterHourly}
+                    filterMonthlyState={this.state.renderFilterMonthly}
                   />
                 ) : (
                   <ListingContainer

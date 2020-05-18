@@ -30,6 +30,34 @@
     justify-content: space-between;
   }
 
+  &__Address {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  &__MilesAway {
+    color: var(--third-color);
+  }
+
+  &__ListingPrice {
+    font-size: 1.25rem;
+    color: var(--almost-black);
+  }
+
+  &__BackToParkingListing,
+  &__LoginLink,
+  &__ContactEmail {
+    color: var(--carrot-color);
+    text-decoration: underline;
+    &:hover {
+      color: var(--almost-black);
+    }
+  }
+
+  &__ArrowLeftIcon {
+    margin-right: 0.25rem;
+  }
+
   &__Divider {
     height: 1px;
     border: solid 1px var(--light-grey);
@@ -41,7 +69,30 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  &__Features {
+  &__AddressLabel,
+  &__ContactLabel,
+  &__FeaturesLabel,
+  &__ReviewsLabel {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  &__HostInfo,
+  &__LoginToReview {
+    font-size: 1rem;
+    color: var(--third-color);
+  }
+
+  &__LoginToReview {
+    margin-top: 1rem;
+  }
+
+  &__ContactEmail {
+    color: var(--carrot-color);
+    text-decoration: underline;
+  }
+
+  &__FeaturesContainer {
     margin: 2rem 1rem;
   }
 
@@ -51,9 +102,58 @@
 
   &__ParkingFeatureItem {
     list-style: none;
+    color: var(--third-color);
+    font-size: 1rem;
   }
 
-  &__Reviews {
+  &__ParkingIcon {
+    margin-right: 0.5rem;
+  }
+
+  &__ReviewsContainer {
     margin: 2rem 1rem;
+  }
+
+  &__BookingBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 28.5px;
+    border: solid 1px var(--very-light-pink);
+    background-color: var(--almost-black);
+    color: var(--white-color);
+  }
+
+  &__BookingBtnAndListingPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__ParkingTypeBtn {
+    padding: 4px 15px 1px 15px;
+    border-radius: 2px;
+  }
+
+  &__ParkingTypeLot {
+    border: 1px solid purple;
+    color: purple;
+  }
+
+  &__ParkingTypeGarage {
+    border: 1px solid var(--watermelon-color);
+    color: var(--watermelon-color);
+  }
+
+  &__ParkingTypeValet {
+    border: 1px solid green;
+    color: green;
+  }
+
+  &__ParkingTypeResident {
+    border: 1px solid orange;
+    color: orange;
   }
 }
