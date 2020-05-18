@@ -2,10 +2,18 @@ import React, { Component } from 'react'
 import CommentTextBox from './CommentTextBox'
 import { Rate } from 'antd'
 import './ListingInfo.scss'
+import evChargingIcon from '../assets/parking-features-icons/ev-charging.png'
+import handicapIcon from '../assets/parking-features-icons/handicap.png'
+import inAndOutIcon from '../assets/parking-features-icons/in-and-out.png'
+import indoorsParkingIcon from '../assets/parking-features-icons/indoors-parking.png'
+import onsiteStaffIcon from '../assets/parking-features-icons/onsite-staff.png'
+import outdoorsParkingIcon from '../assets/parking-features-icons/outdoors-parking.png'
+import pavedRoadicon from '../assets/parking-features-icons/paved-road.png'
+import roofedIcon from '../assets/parking-features-icons/roofed.png'
+import selfParkIcon from '../assets/parking-features-icons/selfpark.png'
+import valetIcon from '../assets/parking-features-icons/valet.png'
 
 class ListingInfo extends Component {
-  state = {}
-
   render() {
     return (
       <article className='ListingInfo'>
@@ -52,7 +60,8 @@ class ListingInfo extends Component {
             </div>
             <br></br>
             <div>{this.props.currentListing.properties.address}</div>
-            <div>{this.props.currentListing.properties.city}</div>
+            {/* <div>{this.props.currentListing.properties.city}</div> */}
+            <div>San Francisco, CA</div>
             <div>{this.props.currentListing.properties.zipcode}</div>
           </div>
 
@@ -73,9 +82,38 @@ class ListingInfo extends Component {
           <p>
             <strong>Features</strong>
           </p>
-          <ul>
+          <ul className='ListingInfo__ParkingFreatureList'>
             {this.props.currentListing.properties.features.map((feature) => {
-              return <li>{feature}</li>
+              let parkingIcon
+
+              if (feature === 'EV Charging Available') {
+                parkingIcon = evChargingIcon
+              } else if (feature === 'Handicap Accessible') {
+                parkingIcon = handicapIcon
+              } else if (feature === 'Indoors Parking') {
+                parkingIcon = indoorsParkingIcon
+              } else if (feature === 'Paved Road') {
+                parkingIcon = pavedRoadicon
+              } else if (feature === 'On-Site Staff') {
+                parkingIcon = onsiteStaffIcon
+              } else if (feature === 'Self-Park') {
+                parkingIcon = selfParkIcon
+              } else if (feature === 'Outdoors Parking') {
+                parkingIcon = outdoorsParkingIcon
+              } else if (feature === 'Roofed') {
+                parkingIcon = roofedIcon
+              } else if (feature === 'In & Out Allowed') {
+                parkingIcon = inAndOutIcon
+              } else if (feature === 'Valet') {
+                parkingIcon = valetIcon
+              }
+
+              return (
+                <li className='ListingInfo__ParkingFeatureItem'>
+                  <img src={parkingIcon} alt='' />
+                  {feature}
+                </li>
+              )
             })}
           </ul>
         </section>

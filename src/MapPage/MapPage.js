@@ -72,7 +72,7 @@ class MapPage extends Component {
         }
 
         result.data.forEach((listing) => {
-          console.log(listing)
+          // console.log(listing)
           stores.features.push(this.convertJSONToGEOJSON(listing))
         })
 

@@ -45,8 +45,15 @@
     margin: 2rem 1rem;
   }
 
+  &__ParkingFreatureList {
+    padding-left: 0;
+  }
+
+  &__ParkingFeatureItem {
+    list-style: none;
+  }
+
   &__Reviews {
     margin: 2rem 1rem;
-
   }
 }
