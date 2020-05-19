@@ -5,7 +5,11 @@
   // text-decoration: none;
   margin-bottom: 1.5rem;
   border-radius: 2px;
-  box-shadow: 0 3px 10px 1px rgba(199, 199, 199, 0.5);
+  border: solid 1px var(--light-grey);
+  &:hover {
+    box-shadow: 0 3px 10px 1px rgba(199, 199, 199, 0.5);
+  }
+
   display: grid;
   grid-template-columns: 40% 60%;
   // width: 200px;

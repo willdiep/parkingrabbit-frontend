@@ -15,9 +15,16 @@
   //   background-color: #ffffff;
   // }
 
+  &__HourlyOnClick {
+    margin-right: 1rem;
+  }
+
+  &__MonthlyOnClick {
+    margin-right: 2rem;
+  }
+
   &__HourlyOnClick,
   &__MonthlyOnClick {
-    margin-right: 1rem;
     padding: 0.75rem 1rem;
     border-radius: 37.5px;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
@@ -28,7 +35,8 @@
     // }
   }
 
-  &__HourlyOnClick--isActive, &__MonthlyOnClick--isActive {
+  &__HourlyOnClick--isActive,
+  &__MonthlyOnClick--isActive {
     color: var(--white-color);
     background-color: var(--primary-color);
   }
@@ -40,24 +48,29 @@
   // }
   // }
 
-  &__Hourly {
+  &__Hourly,
+  &__Monthly {
     display: inherit;
     // margin: 2rem;
   }
 
-  &__HourlyText {
+  &__HourlyText,
+  &__MonthlyText {
     margin-right: 1rem;
     font-weight: bold;
   }
 
+  &__HourlyFrom,
   &__HourlyTo,
-  &__HourlyFrom {
+  &__MonthlyFrom,
+  &__MonthlyTo {
     display: flex;
     align-items: center;
     margin-left: 2rem;
   }
 
-  &__HourlySearchBtn {
+  &__HourlySearchBtn,
+  &__MonthlySearchBtn {
     // display: inherit;
     // margin-left: 3rem;
     width: 60px;
@@ -68,8 +81,13 @@
     margin-left: 2rem;
   }
 
-  &__Monthly {
-    margin-left: 2rem;
-  }
+  // &__Monthly {
+  //   margin-left: 2rem;
+  // }
+}
+
+.ant-calendar-picker-input, .ant-input {
+  width: 13rem !important;
+  color: red;
 }
 

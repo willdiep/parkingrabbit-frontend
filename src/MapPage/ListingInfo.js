@@ -17,6 +17,7 @@ import selfParkIcon from '../assets/parking-features-icons/selfpark.png'
 import valetIcon from '../assets/parking-features-icons/valet.png'
 
 class ListingInfo extends Component {
+  
   render() {
     const parkingTypeProp = this.props.currentListing.properties.parking_type
     let parkingTypeClass
