@@ -43,7 +43,6 @@ class ListingCard extends Component {
           <figure className='ListingCard__ImgFigure'>
             <img
               className='ListingCard__Img'
-              // src='https://via.placeholder.com/500x350'
               src={this.props.listing.properties.listing_image}
               alt=''
             />
