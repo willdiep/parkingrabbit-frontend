@@ -21,12 +21,12 @@ class FilterMonthly extends Component {
       <div className='Filter__Monthly'>
         <div className='Filter__MonthlyFrom'>
           <div className='Filter__MonthlyText'>From</div>
-          <MonthPicker onChange={this.handleMonth} placeholder='Select month' />
+          <MonthPicker onChange={this.handleMonth} placeholder='Select Month' />
         </div>
 
         <div className='Filter__MonthlyTo'>
           <div className='Filter__MonthlyText'>To</div>
-          <MonthPicker onChange={this.handleMonth} placeholder='Select month' />
+          <MonthPicker onChange={this.handleMonth} placeholder='Select Month' />
         </div>
 
         <div className='Filter__MonthlySearch'>

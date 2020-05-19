@@ -28,11 +28,12 @@
     padding: 0.75rem 1rem;
     border-radius: 37.5px;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
-    border: solid 1px var(--very-light-pink);
+    border: solid 1px var(--light-grey);
     background-color: var(--white-color);
-    // &:hover {
-    //   color: orange;
-    // }
+    &:hover {
+      color: var(--white-color);
+      background-color: var(--almost-black);
+    }
   }
 
   &__HourlyOnClick--isActive,
@@ -79,6 +80,10 @@
     color: var(--white-color);
     background-color: var(--primary-color);
     margin-left: 2rem;
+    // &:hover {
+    //   color: var(--white-color);
+    //   background-color: var(--carrot-color);
+    // }
   }
 
   // &__Monthly {
@@ -86,8 +91,7 @@
   // }
 }
 
-.ant-calendar-picker-input, .ant-input {
+.ant-calendar-picker-input {
   width: 13rem !important;
   color: red;
 }
-
