@@ -5,6 +5,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import './ListingHeader.scss'
 
 class ListingHeader extends Component {
+
   render() {
     return (
       <section className='ListingHeader'>

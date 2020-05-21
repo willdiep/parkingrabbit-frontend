@@ -164,7 +164,7 @@ class ListingInfo extends Component {
               }
 
               return (
-                <li className='ListingInfo__ParkingFeatureItem'>
+                <li key={feature} className='ListingInfo__ParkingFeatureItem'>
                   <img
                     className='ListingInfo__ParkingIcon'
                     src={parkingIcon}

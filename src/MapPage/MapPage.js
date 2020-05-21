@@ -38,8 +38,8 @@ class MapPage extends Component {
       },
       currentListingInfo: null,
 
-      filterHourlyFromDateTime: null,
-      filterHourlyToDateTime: null,
+      filterHourlyFromDateTime: '',
+      filterHourlyToDateTime: '',
 
       // filterMonthly: null,
 
@@ -264,12 +264,63 @@ class MapPage extends Component {
 
     this.setState(
       {
-        displayStores: filterHourlyListings,
-      }
-      // this.loadMapAndMarkers()
+        displayStores: {
+          type: 'FeatureCollection',
+          features: filterHourlyListings,
+        },
+      },
+      this.removeListingMarkers(),
+      this.addListingMarkers()
     )
-
     console.log(filterHourlyListings)
+  }
+
+  handleOnChangeHourlyFromDateTime = (value, dateString) => {
+    // console.log('Selected Time: ', value)
+    // console.log('Formatted Selected Time: ', dateString)
+    // console.log('typeof: ', typeof dateString)
+
+    // if the user clicks on the X cancel button, it will
+    // return a null
+    if (value === null) {
+      this.setState(
+        {
+          filterHourlyFromDateTime: '',
+        },
+        this.renderAllStores()
+      )
+    } else {
+      // set state then converts momentjs object to
+      //  unix time in milliseconds by using valueOf()
+      this.setState({
+        filterHourlyFromDateTime: value.valueOf(),
+      })
+    }
+  }
+
+
+
+  handleOnChangeHourlyToDateTime = (value, dateString) => {
+    // console.log('Selected Time: ', value)
+    // console.log('Formatted Selected Time: ', dateString)
+    // console.log('typeof: ', typeof dateString)
+
+    // if the user clicks on the X cancel button, it will
+    // return a null
+    if (value === null) {
+      this.setState(
+        {
+          filterHourlyToDateTime: '',
+        },
+        this.renderAllStores()
+      )
+    } else {
+      // set state then converts momentjs object to
+      //  unix time in milliseconds by using valueOf()
+      this.setState({
+        filterHourlyToDateTime: value.valueOf(),
+      })
+    }
   }
 
   /* ----------------------------------
@@ -308,17 +359,7 @@ class MapPage extends Component {
       .addTo(this.map)
   }
 
-  addCurrentLocationMarker = (e) => {
-    // console.log(e)
-    const el = document.createElement('div')
-    el.className = 'marker__location'
-
-    new mapboxgl.Marker(el)
-      .setLngLat([this.props.setLng, this.props.setLat])
-      .addTo(this.map)
-  }
-
-  addListingMarkers = (myComp) => {
+  renderAllStores = () => {
     /* For each feature in the GeoJSON object above: */
     this.state.allStores.features.forEach((marker) => {
       /* Create a div element for the marker. */
@@ -340,6 +381,48 @@ class MapPage extends Component {
         .setLngLat(marker.geometry.coordinates)
         .addTo(this.map)
     })
+  }
+
+  addCurrentLocationMarker = (e) => {
+    // console.log(e)
+    const el = document.createElement('div')
+    el.className = 'marker__location'
+
+    new mapboxgl.Marker(el)
+      .setLngLat([this.props.setLng, this.props.setLat])
+      .addTo(this.map)
+  }
+
+  addListingMarkers = (myComp) => {
+    /* For each feature in the GeoJSON object above: */
+    this.state.displayStores.features.forEach((marker) => {
+      /* Create a div element for the marker. */
+      const el = document.createElement('div')
+      /* Assign a unique `id` to the marker. */
+      el.id = 'marker__listing--' + marker.properties.id
+      /* Assign the `marker` class to each marker for styling. */
+      el.className = 'marker__listing'
+      // console.log(marker.properties)
+      el.textContent = `$${marker.properties.hourly_price}`
+
+      /**
+       * Create a marker using the div element
+       * defined above and add it to the map.
+       **/
+      //  console.log(myComp)
+      // console.log(marker.geometry.coordinates)
+      new mapboxgl.Marker(el) // { offset: [0, -23] }
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(this.map)
+    })
+  }
+
+  removeListingMarkers = () => {
+    const listingMarkers = document.querySelectorAll('.marker__listing')
+    // console.log(listingMarkers.length)
+    for (let i = 0; i < listingMarkers.length; i++) {
+      listingMarkers[i].remove()
+    }
   }
 
   removeLocationMarker = () => {
@@ -406,6 +489,9 @@ class MapPage extends Component {
               filterAndRenderHourlyDateTime={this.filterAndRenderHourlyDateTime}
               handleRenderFilterHourly={this.handleRenderFilterHourly}
               handleRenderFilterMonthly={this.handleRenderFilterMonthly}
+              handleOnChangeHourlyFromDateTime={this.handleOnChangeHourlyFromDateTime}
+              handleOnChangeHourlyToDateTime={this.handleOnChangeHourlyToDateTime}
+
               filterHourlyState={this.state.renderFilterHourly}
               filterMonthlyState={this.state.renderFilterMonthly}
               handleSetLocationText={this.props.handleSetLocationText}

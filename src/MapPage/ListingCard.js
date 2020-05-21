@@ -4,6 +4,7 @@ import { Rate } from 'antd'
 import './ListingCard.scss'
 
 class ListingCard extends Component {
+
   render() {
     const parkingTypeProp = this.props.listing.properties.parking_type
     let parkingTypeClass
@@ -59,7 +60,7 @@ class ListingCard extends Component {
                 </div>
               </div>
 
-              <div class={parkingTypeClass}>
+              <div className={parkingTypeClass}>
                 {this.props.listing.properties.parking_type}
               </div>
             </div>

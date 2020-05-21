@@ -6,36 +6,15 @@ import { DatePicker } from 'antd'
 import './Filter.scss'
 
 class FilterHourly extends Component {
-  // state = {
-  //   filterHoulyFromDateTime: null,
-  //   filterHourlyToDateTime: null,
+
+  // handleFromDateTime(value, dateString) {
+  //   console.log('Selected Time: ', value)
+  //   console.log('Formatted Selected Time: ', dateString)
   // }
 
-  handleFromDateTime(value, dateString) {
-    console.log('Selected Time: ', value)
-    console.log('Formatted Selected Time: ', dateString)
-  }
-
-  // handleOnOkFrom = (value) => {
-  //   // set state then converts momentjs object to
-  //   //  unix time in milliseconds by using valueOf()
-  //   console.log('handleOnOkFrom: ', value.valueOf())
-  //   this.setState({
-  //     filterHoulyFromDateTime: value.valueOf(),
-  //   })
-  // }
-
-  handleToDateTime(value, dateString) {
-    console.log('Selected Time: ', value)
-    console.log('Formatted Selected Time: ', dateString)
-  }
-
-  // handleOnOkTo = (value) => {
-  //   // set state then converts momentjs object to unix time
-  //   console.log('handleOnOkTo: ', value.valueOf())
-  //   this.setState({
-  //     filterHourlyToDateTime: value.valueOf(),
-  //   })
+  // handleToDateTime(value, dateString) {
+  //   console.log('Selected Time: ', value)
+  //   console.log('Formatted Selected Time: ', dateString)
   // }
 
   render() {
@@ -49,7 +28,7 @@ class FilterHourly extends Component {
             minuteStep={15}
             use12Hours
             placeholder='Select Date and Time'
-            // onChange={this.handleFromDateTime}
+            onChange={this.props.handleOnChangeHourlyFromDateTime}
             onOk={this.props.handleFilterHourlyFromDatetime}
           />
         </div>
@@ -61,7 +40,7 @@ class FilterHourly extends Component {
             minuteStep={15}
             use12Hours
             placeholder='Select Date and Time'
-            // onChange={this.handleToDateTime}
+            onChange={this.props.handleOnChangeHourlyToDateTime}
             onOk={this.props.handleFilterHourlyToDateTime}
           />
         </div>
@@ -74,8 +53,6 @@ class FilterHourly extends Component {
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
-
-        
 
         {/* </form> */}
       </section>

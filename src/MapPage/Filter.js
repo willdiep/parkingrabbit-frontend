@@ -70,6 +70,9 @@ class Filter extends Component {
             filterAndRenderHourlyDateTime={
               this.props.filterAndRenderHourlyDateTime
             }
+            handleOnChangeHourlyFromDateTime={this.props.handleOnChangeHourlyFromDateTime}
+
+            handleOnChangeHourlyToDateTime={this.props.handleOnChangeHourlyToDateTime}
           />
         ) : null}
 

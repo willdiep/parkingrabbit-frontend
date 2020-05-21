@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ListingHeader from './ListingHeader'
 
-function ListingContainer(props) {
-  return (
-    <article class='ListingContainer'>
-      <ListingHeader spotsAvailable={props.spotsAvailable}
-      parkingSpotsNear={props.parkingSpotsNear}
-      />
-      {props.children}
-    </article>
-  )
+class ListingContainer extends Component {
+
+  render() {
+    return (
+      <article className='ListingContainer'>
+        <ListingHeader
+          spotsAvailable={this.props.spotsAvailable}
+          parkingSpotsNear={this.props.parkingSpotsNear}
+        />
+        {this.props.children}
+      </article>
+    )
+  }
 }
 
 export default ListingContainer
