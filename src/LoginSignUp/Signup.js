@@ -24,7 +24,7 @@ class Signup extends Component {
         <main className='login__modal'>
           <article className='login__container'>
             <section className='login__header'>
-              <p>Sign Up</p>
+              <div className='login__headerText'>Sign Up</div>
             </section>
 
             <br></br>
