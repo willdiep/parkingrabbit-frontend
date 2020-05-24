@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Login.scss'
-import facebookBtn from '../assets/facebook-btn.png'
-import googleBtn from '../assets/google-btn.png'
+import googleSigninBtn from '../images/sign-in-google.png'
+import facebookContinueBtn from '../images/continue-with-facebook-btn.png'
 
 class Login extends Component {
 
@@ -22,22 +22,23 @@ class Login extends Component {
         <main className='login__modal'>
           <article className='login__container'>
             <section className='login__header'>
-              <div className='login__headerText'>Login</div>
+              <p>Login</p>
             </section>
 
+            <br></br>
             <br></br>
 
             <section className='login__socialmedia'>
               <img
-                className='login__googleBtn'
-                src={googleBtn}
+                className='login__google'
+                src={googleSigninBtn}
                 alt='google sign in button'
               />
               <br></br>
               <br></br>
               <img
-                className='login__facebookBtn'
-                src={facebookBtn}
+                className='login__google'
+                src={facebookContinueBtn}
                 alt='continue with facebook button'
               />
             </section>
@@ -108,7 +109,6 @@ class Login extends Component {
               <section className='login__register'></section>
             </div>
 
-            <br></br>
             <br></br>
 
             <section className='login__new center'>

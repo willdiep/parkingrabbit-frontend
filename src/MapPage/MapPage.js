@@ -45,6 +45,9 @@ class MapPage extends Component {
 
       renderFilterHourly: true, // set default to true to render first
       renderFilterMonthly: false,
+
+      renderDisplayStore: true,
+      // renderAllStores: false
     }
   }
 
@@ -213,7 +216,7 @@ class MapPage extends Component {
   }
 
   /* ----------------------------------
-   * RENDER FILTER HOURLY AND MONTHLY
+   * RENDER FILTER HOURLY AND MONTHLY BUTTONS
   ------------------------------------*/
   handleRenderFilterHourly = (e) => {
     this.setState({
@@ -230,7 +233,7 @@ class MapPage extends Component {
   }
 
   /* ----------------------------------
-   * FTILER HOUYLY
+   * FTILER HOURLY
   ------------------------------------*/
   handleFilterHourlyFromDatetime = (value) => {
     // set state then converts momentjs object to
@@ -250,8 +253,6 @@ class MapPage extends Component {
   }
 
   filterAndRenderHourlyDateTime = () => {
-    // console.log('from filterAndRenderHourlyDateTime')
-
     const filterHourlyListings = this.state.allStores.features.filter(
       (listing) => {
         return (
@@ -298,8 +299,6 @@ class MapPage extends Component {
     }
   }
 
-
-
   handleOnChangeHourlyToDateTime = (value, dateString) => {
     // console.log('Selected Time: ', value)
     // console.log('Formatted Selected Time: ', dateString)
@@ -322,6 +321,8 @@ class MapPage extends Component {
       })
     }
   }
+
+  // render
 
   /* ----------------------------------
    * FTILER MONTHLY
@@ -489,9 +490,12 @@ class MapPage extends Component {
               filterAndRenderHourlyDateTime={this.filterAndRenderHourlyDateTime}
               handleRenderFilterHourly={this.handleRenderFilterHourly}
               handleRenderFilterMonthly={this.handleRenderFilterMonthly}
-              handleOnChangeHourlyFromDateTime={this.handleOnChangeHourlyFromDateTime}
-              handleOnChangeHourlyToDateTime={this.handleOnChangeHourlyToDateTime}
-
+              handleOnChangeHourlyFromDateTime={
+                this.handleOnChangeHourlyFromDateTime
+              }
+              handleOnChangeHourlyToDateTime={
+                this.handleOnChangeHourlyToDateTime
+              }
               filterHourlyState={this.state.renderFilterHourly}
               filterMonthlyState={this.state.renderFilterMonthly}
               handleSetLocationText={this.props.handleSetLocationText}
@@ -518,7 +522,7 @@ class MapPage extends Component {
                     spotsAvailable={this.state.displayStores.features.length}
                     parkingSpotsNear={this.props.parkingSpotsNear}
                   >
-                    {this.state.allStores.features.map((listing) => {
+                    {this.state.displayStores.features.map((listing) => {
                       return (
                         <ListingCard
                           key={listing.properties.id}

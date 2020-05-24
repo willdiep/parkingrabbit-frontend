@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-// import './Signup.scss'
-import googleSigninBtn from '../images/sign-in-google.png'
-import facebookContinueBtn from '../images/continue-with-facebook-btn.png'
+import './Login.scss'
+import facebookBtn from '../assets/facebook-btn.png'
+import googleBtn from '../assets/google-btn.png'
 
 class Signup extends Component {
   state = {
@@ -28,19 +28,18 @@ class Signup extends Component {
             </section>
 
             <br></br>
-            <br></br>
 
             <section className='login__socialmedia'>
               <img
-                className='login__google'
-                src={googleSigninBtn}
+                className='login__googleBtn'
+                src={googleBtn}
                 alt='google sign in button'
               />
               <br></br>
               <br></br>
               <img
-                className='login__google'
-                src={facebookContinueBtn}
+                className='login__facebookBtn'
+                src={facebookBtn}
                 alt='continue with facebook button'
               />
             </section>

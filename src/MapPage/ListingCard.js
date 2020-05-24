@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import listingImg from '../assets/listing.webp'
 import { Rate } from 'antd'
 import './ListingCard.scss'
 
