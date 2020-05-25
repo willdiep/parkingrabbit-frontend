@@ -46,8 +46,7 @@ class MapPage extends Component {
       renderFilterHourly: true, // set default to true to render first
       renderFilterMonthly: false,
 
-      renderDisplayStore: true,
-      // renderAllStores: false
+      renderDisplayStores: true,
     }
   }
 
@@ -287,6 +286,7 @@ class MapPage extends Component {
       this.setState(
         {
           filterHourlyFromDateTime: '',
+          renderDisplayStores: false,
         },
         this.renderAllStores()
       )
@@ -295,6 +295,7 @@ class MapPage extends Component {
       //  unix time in milliseconds by using valueOf()
       this.setState({
         filterHourlyFromDateTime: value.valueOf(),
+        renderDisplayStores: true,
       })
     }
   }
@@ -310,6 +311,7 @@ class MapPage extends Component {
       this.setState(
         {
           filterHourlyToDateTime: '',
+          renderDisplayStores: false,
         },
         this.renderAllStores()
       )
@@ -318,11 +320,10 @@ class MapPage extends Component {
       //  unix time in milliseconds by using valueOf()
       this.setState({
         filterHourlyToDateTime: value.valueOf(),
+        renderDisplayStores: true,
       })
     }
   }
-
-  // render
 
   /* ----------------------------------
    * FTILER MONTHLY
@@ -519,24 +520,48 @@ class MapPage extends Component {
                   />
                 ) : (
                   <ListingContainer
-                    spotsAvailable={this.state.displayStores.features.length}
+                    spotsAvailable={
+                      this.state.renderDisplayStores
+                        ? this.state.displayStores.features.length
+                        : this.state.allStores.features.length
+                    }
                     parkingSpotsNear={this.props.parkingSpotsNear}
                   >
-                    {this.state.displayStores.features.map((listing) => {
-                      return (
-                        <ListingCard
-                          key={listing.properties.id}
-                          id={listing.properties.id}
-                          listing={listing}
-                          handleMouseOver={this.handleMouseOver}
-                          handleListingCardDetails={
-                            this.handleListingCardDetails
-                          }
-                          filterHourlyState={this.state.renderFilterHourly}
-                          filterMonthlyState={this.state.renderFilterMonthly}
-                        />
-                      )
-                    })}
+                    {this.state.renderDisplayStores
+                      ? this.state.displayStores.features.map((listing) => {
+                          return (
+                            <ListingCard
+                              key={listing.properties.id}
+                              id={listing.properties.id}
+                              listing={listing}
+                              handleMouseOver={this.handleMouseOver}
+                              handleListingCardDetails={
+                                this.handleListingCardDetails
+                              }
+                              filterHourlyState={this.state.renderFilterHourly}
+                              filterMonthlyState={
+                                this.state.renderFilterMonthly
+                              }
+                            />
+                          )
+                        })
+                      : this.state.allStores.features.map((listing) => {
+                          return (
+                            <ListingCard
+                              key={listing.properties.id}
+                              id={listing.properties.id}
+                              listing={listing}
+                              handleMouseOver={this.handleMouseOver}
+                              handleListingCardDetails={
+                                this.handleListingCardDetails
+                              }
+                              filterHourlyState={this.state.renderFilterHourly}
+                              filterMonthlyState={
+                                this.state.renderFilterMonthly
+                              }
+                            />
+                          )
+                        })}
                   </ListingContainer>
                 )}
               </div>

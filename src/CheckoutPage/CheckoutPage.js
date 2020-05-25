@@ -5,6 +5,8 @@ import DriverInformation from './DriverInformation'
 import PaymentInformation from './PaymentInformation'
 import BookingConfimation from './BookingConfimation'
 
+import Test from './Test'
+
 import 'antd/dist/antd.css'
 import './CheckoutPage.scss'
 
@@ -13,6 +15,16 @@ const { Step } = Steps
 class Checkout extends Component {
   state = {
     current: 1,
+    // initialValues: {
+    //   driverName: '',
+    //   driverLicense: '',
+    //   driverContactNum: '',
+    //   vehicleLicensePlate: '',
+    //   carMake: '',
+    //   carYear: '',
+    // }
+
+    value: ''
   }
 
   next() {
@@ -26,11 +38,16 @@ class Checkout extends Component {
   }
 
   // handleDriverName = (e) => {
-  //   console.log('it works!')
-  //   this.setState({
-  //     driverName: e.target.value
-  //   })
+    // console.log('it works!')
+    // this.setState({
+    //   driverName: e.target.value
+    // })
   // }
+
+  handleChange = (event) => {
+    console.log(event)
+    // this.setState({ value: event.target.value })
+  }
 
   render() {
     const { current } = this.state
@@ -41,8 +58,10 @@ class Checkout extends Component {
       },
       {
         title: 'Driver Information',
-        content: <DriverInformation
-        // handleDriverName={this.handleDriverName} diverName={this.state.driverName} 
+        content: <Test
+        handleChange={this.handleChange}
+        valueState={this.state.value}
+        // handleDriverName={this.handleDriverName} driverName={this.state.driverName} 
         />,
       },
       {

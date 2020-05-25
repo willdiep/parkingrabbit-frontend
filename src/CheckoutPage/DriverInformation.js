@@ -50,12 +50,13 @@ const validate = (values) => {
   return errors
 }
 
-const Test = () => {
+const DriverInformation = () => {
   // Notice that we have to initialize ALL of fields with values. These
   // could come from props, but since we don't want to prefill this form,
   // we just use an empty string. If you don't do this, React will yell
   // at you.
-  const formik = useFormik({
+  const formik = useFormik(
+    {
     initialValues: {
       driverName: '',
       driverLicense: '',
@@ -64,7 +65,7 @@ const Test = () => {
       carMake: '',
       carYear: '',
     },
-    validate,
+    // validate,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2))
     },
@@ -250,4 +251,4 @@ const Test = () => {
   )
 }
 
-export default Test
+export default DriverInformation
