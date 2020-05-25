@@ -1,7 +1,7 @@
 .ListingConfirmation {
   // background-color: green;
   border-radius: 2px;
-//   width: 100%;
+  //   width: 100%;
   height: 522px;
   box-shadow: 0 4px 14px 0 rgba(191, 191, 191, 0.5);
 
@@ -9,15 +9,40 @@
     width: 100%;
   }
 
+  &__ChangeSpotLink {
+    color: var(--almost-black);
+  }
+
+  &__Address {
+    color: var(--almost-black);
+  }
+
   &__Divider {
     width: 100%;
     height: 1px;
-    border: solid 1px red;
+    border: solid 1px var(--light-grey);
   }
 
+  &__SpotPriceText,
+  &__SpotPriceCost {
+    color: var(--secondary-color);
+  }
 
+  &__TotalText,
+  &__TotalCost {
+    color: var(--almost-black);
+    font-weight: bold;
+  }
 
-  &__Total, &__Spot {
-      margin: 3rem;
+  &__Total,
+  &__SpotPrice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.75rem;
+  }
+
+  &__Details,
+  &__SpotPriceAndTotal {
+    margin: 3rem;
   }
 }

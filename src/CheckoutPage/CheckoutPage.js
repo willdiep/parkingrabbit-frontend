@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Steps, Button, message } from 'antd'
+
 import DriverInformation from './DriverInformation'
 import PaymentInformation from './PaymentInformation'
 import BookingConfimation from './BookingConfimation'
+
 import 'antd/dist/antd.css'
 import './CheckoutPage.scss'
 
@@ -11,8 +13,6 @@ const { Step } = Steps
 class Checkout extends Component {
   state = {
     current: 1,
-    driverName: null,
-
   }
 
   next() {
@@ -25,12 +25,12 @@ class Checkout extends Component {
     this.setState({ current })
   }
 
-  handleDriverName = (e) => {
-    console.log('it works!')
-    this.setState({
-      driverName: e.target.value
-    })
-  }
+  // handleDriverName = (e) => {
+  //   console.log('it works!')
+  //   this.setState({
+  //     driverName: e.target.value
+  //   })
+  // }
 
   render() {
     const { current } = this.state
@@ -38,11 +38,12 @@ class Checkout extends Component {
     const steps = [
       {
         title: 'Find A Parking Spot',
-        content: '',
       },
       {
         title: 'Driver Information',
-        content: <DriverInformation handleDriverName={this.handleDriverName} diverName={this.state.driverName} />,
+        content: <DriverInformation
+        // handleDriverName={this.handleDriverName} diverName={this.state.driverName} 
+        />,
       },
       {
         title: 'Payment Information',

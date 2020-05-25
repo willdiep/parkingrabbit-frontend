@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import { Rate } from 'antd'
 import './ListingCard.scss'
 
