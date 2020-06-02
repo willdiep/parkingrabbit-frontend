@@ -44,7 +44,7 @@ const MobileApp = () => {
       </section>
 
       <section className='mobile-app__phone-img'>
-        <img class='mobile-app__iphone-mockup' src={iphoneMockup} alt='iphone mockup of parking rabbit' />
+        <img className='mobile-app__iphone-mockup' src={iphoneMockup} alt='iphone mockup of parking rabbit' />
       </section>
 
     </article>

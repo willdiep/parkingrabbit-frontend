@@ -56,29 +56,31 @@ class Signup extends Component {
 
             <section className='login__form'>
               <form>
-                <label className='login__form-label'>First Name</label>
-                <input
-                  onChange={this.handleChange}
-                  className='login__form-input'
-                  name='first_name'
-                  value={this.state.first_name}
-                  type='text'
-                />
-                {this.state.firstNameError}
+                <div className='login__twocolumns'>
+                  <div>
+                    <label className='login__form-label'>First Name</label>
+                    <input
+                      onChange={this.handleChange}
+                      className='login__form-input'
+                      name='first_name'
+                      value={this.state.first_name}
+                      type='text'
+                    />
+                    {this.state.firstNameError}
+                  </div>
 
-                <br></br>
-                <br></br>
+                  <div>
+                    <label className='login__form-label'>Last Name</label>
+                    <input
+                      onChange={this.handleChange}
+                      className='login__form-input'
+                      name='last_name'
+                      value={this.state.last_name}
+                      type='text'
+                    />
+                  </div>
+                </div>
 
-                <label className='login__form-label'>Last Name</label>
-                <input
-                  onChange={this.handleChange}
-                  className='login__form-input'
-                  name='last_name'
-                  value={this.state.last_name}
-                  type='text'
-                />
-
-                <br></br>
                 <br></br>
 
                 <label className='login__form-label'>Email</label>

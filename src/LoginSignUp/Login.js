@@ -43,7 +43,6 @@ class Login extends Component {
             </section>
 
             <br></br>
-            <br></br>
 
             <section className='login__horizontalruler'>
               <div className='login__line'></div>
@@ -51,7 +50,6 @@ class Login extends Component {
               <div className='login__line'></div>
             </section>
 
-            <br></br>
             <br></br>
 
             <section className='login__form'>
@@ -65,7 +63,6 @@ class Login extends Component {
                 <label className='login__form-label'>Password</label>
                 <input className='login__form-input' type='text' name='password' value={this.state.password} onChange={this.handleInput}/>
 
-                <br></br>
                 <br></br>
                 <br></br>
 
@@ -109,7 +106,6 @@ class Login extends Component {
               <section className='login__register'></section>
             </div>
 
-            <br></br>
             <br></br>
 
             <section className='login__new center'>

@@ -13,6 +13,7 @@ import Login from './LoginSignup/Login'
 import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
+import LoginSignup from './LoginSignup/LoginSignup'
 import './App.scss'
 
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
   handleSignUp = (signUpInfo) => {
     // console.log(signUpInfo)
 
+    // CHECK IF ALL INPUT FIELDS ARE FILLED
     for (let key in signUpInfo) {
       // console.log(!signUpInfo[key].length)
 
@@ -202,22 +204,27 @@ class App extends Component {
             exact
             path='/login'
             render={(props) => (
-              <Login
-                {...props}
-                handleLogin={this.handleLogin}
-                loginError={this.state.loginError}
-              />
+              <LoginSignup>
+                <Login
+                  {...props}
+                  handleLogin={this.handleLogin}
+                  loginError={this.state.loginError}
+                />
+              </LoginSignup>
             )}
           />
+          
           <Route
             exact
             path='/signup'
             render={(props) => (
-              <Signup
-                {...props}
-                handleSignUp={this.handleSignUp}
-                loginError={this.state.loginError}
-              />
+              <LoginSignup>
+                <Signup
+                  {...props}
+                  handleSignUp={this.handleSignUp}
+                  loginError={this.state.loginError}
+                />
+              </LoginSignup>
             )}
           />
 
