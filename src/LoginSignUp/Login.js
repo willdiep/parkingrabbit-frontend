@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Login.scss'
 import facebookBtn from '../assets/facebook-btn.png'
 import googleBtn from '../assets/google-btn.png'
+import './LoginSignup.scss'
 
 class Login extends Component {
 
@@ -103,6 +103,7 @@ class Login extends Component {
             <div className='center'>
               <section className='login__login-btn'>
                 <div className='login__login-text' onClick={() => this.props.handleLogin(this.state)}>Login</div>
+                {this.props.loginError && <p>Wrong credentials</p>}
               </section>
 
               <section className='login__register'></section>

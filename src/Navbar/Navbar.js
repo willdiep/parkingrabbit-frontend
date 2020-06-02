@@ -4,6 +4,7 @@ import './Navbar.scss'
 
 class Navbar extends Component {
   render() {
+    // console.log(this.props.history)
     return (
       <div>
         <nav
@@ -24,21 +25,52 @@ class Navbar extends Component {
           </Link>
           {/* <a className='nav__item nav__logo' href='#'><strong>Parking</strong>Rabbit</a> */}
 
-          <Link
-            exact
-            to='/login'
-            className='nav__item nav__item--right nav__login'
-          >
-            Login
-          </Link>
+          {!localStorage.getItem('jwt') ? (
+            <>
+              <Link
+                exact
+                to='/login'
+                className='nav__item nav__item--right nav__login'
+              >
+                Login
+              </Link>
 
-          <Link
-            exact
-            to='/signup'
-            className='nav__item nav__item--right nav__signup'
-          >
-            Sign Up
-          </Link>
+              <Link
+                exact
+                to='/signup'
+                className='nav__item nav__item--right nav__signup'
+              >
+                Sign Up
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                exact
+                to='/'
+                className='nav__item nav__item--right nav__login'
+              >
+                My Reservations
+              </Link>
+              <Link
+                exact
+                to='/signup'
+                className='nav__item nav__item--right nav__signup'
+              >
+                Account
+              </Link>
+              <div
+                onClick={() => { 
+                  localStorage.clear();
+                  // console.log(history);
+                  this.props.history.push('/') 
+                }}
+                className='nav__item nav__item--right nav__signup'
+              >
+                Logoff
+              </div>
+            </>
+          )}
 
           {/* <a className='nav__item nav__item--right nav__login' 
             href='#'>Login</a> */}

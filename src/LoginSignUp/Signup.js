@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Login.scss'
 import facebookBtn from '../assets/facebook-btn.png'
 import googleBtn from '../assets/google-btn.png'
+import './LoginSignup.scss'
 
 class Signup extends Component {
   state = {
@@ -12,9 +12,9 @@ class Signup extends Component {
     password_confirmation: '',
   }
 
-  handleChange = (event) => {
+  handleChange = (e) => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -45,7 +45,6 @@ class Signup extends Component {
             </section>
 
             <br></br>
-            <br></br>
 
             <section className='login__horizontalruler'>
               <div className='login__line'></div>
@@ -53,7 +52,6 @@ class Signup extends Component {
               <div className='login__line'></div>
             </section>
 
-            <br></br>
             <br></br>
 
             <section className='login__form'>
@@ -66,6 +64,7 @@ class Signup extends Component {
                   value={this.state.first_name}
                   type='text'
                 />
+                {this.state.firstNameError}
 
                 <br></br>
                 <br></br>
@@ -116,8 +115,6 @@ class Signup extends Component {
                 />
 
                 <br></br>
-                <br></br>
-                <br></br>
 
                 <section className='login__checkbox-container'>
                   <div>
@@ -153,8 +150,8 @@ class Signup extends Component {
             <div className='center'>
               <section className='login__login-btn'>
                 <div
-                  onClick={() => this.props.handleSignUp(this.state)}
                   className='login__login-text'
+                  onClick={() => this.props.handleSignUp(this.state)}
                 >
                   Sign Up
                 </div>
@@ -162,8 +159,7 @@ class Signup extends Component {
 
               <section className='login__register'></section>
             </div>
-
-            <br></br>
+            {this.props.loginError && <p>Missing Field(s)</p>}
 
             {/* <section className='login__new center'>
             <p className='login__new-text'>

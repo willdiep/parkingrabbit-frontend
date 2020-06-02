@@ -1,35 +1,36 @@
 .login {
   display: flex;
   justify-content: center;
+  // background-image: url('../images/hero-image.png');
+  // background-position: center;
 
   &__modal {
-    width: 660px;
-    height: 869px;
-    border-radius: 3px;
+    width: 550px;
+    // height: 850px;
+    // border-radius: 50px;
     box-shadow: -5px 5px 31px -2px rgba(189, 189, 189, 0.5);
     background-color: #ffffff;
   }
 
   &__container {
-    margin: 0 60px;
+    margin: 35px 50px;
+    // base font size: 14px. Statically add due to no ant design style
+    font-size: 14px;
   }
 
   &__form {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin: 0 50px;
   }
 
   &__form-label {
-    height: 19px;
-    font-family: Helvetica;
-    font-size: 16px;
+    font-size: inherit;
     color: var(--secondary-color);
-    // margin-bottom: 1em;
   }
 
   &__form-input {
     width: 100%;
     height: 40px;
+    margin-top: 0.25rem;
     border-radius: 3px;
     border: solid 1px var(--third-color);
     background-color: #ffffff;
@@ -43,11 +44,12 @@
     // margin-left: 60px;
     // margin-right: 60px;
     // width: 117px;
-    height: 47px;
-    font-family: Helvetica;
-    font-size: 39px;
+  }
+
+  &__headerText {
+    font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--almost-black);
   }
 
   &__socialmedia {
@@ -58,6 +60,11 @@
     // width: 100%;
   }
 
+  &__googleBtn,
+  &__facebookBtn {
+    width: 12rem;
+  }
+
   &__horizontalruler {
     display: flex;
     justify-content: center;
@@ -65,8 +72,7 @@
   }
 
   &__line {
-    width: 241px;
-    // height: 1px;
+    width: 100%;
     border: solid 2px var(--third-color);
   }
 
@@ -87,14 +93,13 @@
   }
 
   &__checkbox-label {
-    font-family: Helvetica;
-    font-size: 18px;
+    font-size: inherit;
+    margin-left: 0.5rem;
     color: var(--third-color);
   }
 
   &__checkbox-password {
-    font-family: Helvetica;
-    font-size: 18px;
+    font-size: inherit;
     text-align: right;
     color: var(--carrot-color);
   }
@@ -104,34 +109,29 @@
   // }
 
   &__disclosure-text {
-    font-family: Helvetica;
-    font-size: 16px;
+    font-size: inherit;
     text-align: center;
     color: var(--third-color);
   }
 
   &__login-btn {
-    width: 162px;
-    height: 57px;
+    width: 125px;
+    height: 50px;
     border-radius: 28.5px;
-    background-color: var(--primary-color);
+    background-color: var(--almost-black);
     // text-align: center;
   }
 
   &__login-text {
-    line-height: 57px;
-    font-family: Helvetica;
-    font-size: 26px;
-    letter-spacing: normal;
+    line-height: 50px;
+    font-size: inherit;
+    font-weight: bold;
     text-align: center;
     color: #ffffff;
   }
 
   &__new-text {
-    font-size: 26px;
+    font-size: 1.25rem;
     color: var(--third-color);
   }
-
-  
 }
-

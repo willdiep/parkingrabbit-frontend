@@ -27,6 +27,7 @@ class App extends Component {
       // listingCollection: {}
       user: null,
       userLocationText: '',
+      loginError: false,
     }
   }
 
@@ -43,36 +44,74 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((userInfo) => {
-        console.log(userInfo)
-        localStorage.setItem('jwt', userInfo.token)
-        this.setState({ user: userInfo.user })
+        // console.log(userInfo.error)
+
+        if (userInfo.error) {
+          throw userInfo.error
+        } else {
+          // console.log(userInfo.user)
+          localStorage.setItem('jwt', userInfo.token)
+          this.setState(
+            {
+              user: userInfo.user,
+              // loginError: true
+            },
+            () => {
+              this.props.history.push('/mappage')
+            }
+          )
+        }
       })
-      .then(() => {
-        this.props.history.push('/mappage')
+      .catch((data) => {
+        // console.log(data)
+        this.setState({
+          loginError: true,
+        })
       })
   }
 
   handleSignUp = (signUpInfo) => {
     // console.log(signUpInfo)
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: signUpInfo,
-      }),
-    })
-      .then((response) => response.json())
-      .then((userInfo) => {
-        console.log(userInfo)
-        localStorage.setItem('jwt', userInfo.token)
-        this.setState({ user: userInfo.user })
-      })
-      .then(() => {
-        this.props.history.push('/mappage')
-      })
+
+    for (let key in signUpInfo) {
+      // console.log(!signUpInfo[key].length)
+
+      if (!signUpInfo[key].length) {
+        this.setState({
+          loginError: true,
+        })
+        break
+      } else {
+        fetch('http://localhost:3000/users', {
+          method: 'POST',
+          headers: {
+            accept: 'application/json',
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            user: signUpInfo,
+          }),
+        })
+          .then((response) => response.json())
+          .then((userInfo) => {
+            // if (userInfo.error) {
+            //   throw userInfo.error
+            // } else {
+            // console.log(userInfo)
+            localStorage.setItem('jwt', userInfo.token)
+            this.setState({ user: userInfo.user }, () => {
+              this.props.history.push('/mappage')
+            })
+            // }
+          })
+          .catch((data) => {
+            // console.log(data)
+            this.setState({
+              loginError: true,
+            })
+          })
+      }
+    }
   }
 
   // handleSetLocationInput = e => {
@@ -150,6 +189,7 @@ class App extends Component {
                 // stateLocation={this.state.userLocationInput}
                 handleSetLatLng={this.handleSetLatLng}
                 handleSetLocationText={this.handleSetLocationText}
+                user={this.state.user}
 
                 // setUserLocationInput={this.handleSetLocationInput}
                 // setSubmitListingCollection={
@@ -162,14 +202,22 @@ class App extends Component {
             exact
             path='/login'
             render={(props) => (
-              <Login {...props} handleLogin={this.handleLogin} />
+              <Login
+                {...props}
+                handleLogin={this.handleLogin}
+                loginError={this.state.loginError}
+              />
             )}
           />
           <Route
             exact
             path='/signup'
             render={(props) => (
-              <Signup {...props} handleSignUp={this.handleSignUp} />
+              <Signup
+                {...props}
+                handleSignUp={this.handleSignUp}
+                loginError={this.state.loginError}
+              />
             )}
           />
 
@@ -184,6 +232,7 @@ class App extends Component {
                 handleSetLatLng={this.handleSetLatLng}
                 handleSetLocationText={this.handleSetLocationText}
                 parkingSpotsNear={this.state.userLocationText}
+                user={this.state.user}
               />
             )}
           />

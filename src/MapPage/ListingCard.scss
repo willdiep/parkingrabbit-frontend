@@ -54,6 +54,9 @@
     border: solid 1px var(--very-light-pink);
     background-color: var(--almost-black);
     color: var(--white-color);
+    &:hover {
+      background-color: var(--carrot-color);
+    }
   }
 
   &__BookingDetailsRate {

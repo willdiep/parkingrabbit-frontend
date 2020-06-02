@@ -78,12 +78,12 @@
     height: 60px;
     border-radius: 37.5px;
     color: var(--white-color);
-    background-color: var(--primary-color);
+    background-color: var(--almost-black);
     margin-left: 2rem;
-    // &:hover {
-    //   color: var(--white-color);
-    //   background-color: var(--carrot-color);
-    // }
+    &:hover {
+      color: var(--white-color);
+      background-color: var(--carrot-color);
+    }
   }
 
   // &__Monthly {

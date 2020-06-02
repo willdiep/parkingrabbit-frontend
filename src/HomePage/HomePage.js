@@ -14,11 +14,12 @@ import './HomePage.scss'
 
 class HomePage extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className='homepage'>
         <div className='homepage__container'>
           <header>
-            <Navbar className='homepage__navbar' homePage={true} />
+            <Navbar {...this.props} className='homepage__navbar' homePage={true} />
 
             <article className='homepage__banner'>
               <section className='homepage__heroimage'>

@@ -1,150 +1,187 @@
-import React, { Component } from 'react'
-import ListingConfirmation from './ListingConfirmation'
-import './PaymentInformation.scss'
+import React from 'react'
+import './CheckoutPage.scss'
 
-class PaymentInformation extends Component {
-  render() {
-    return (
-      <div className='PaymentInformation'>
-        <header className='PaymentInformation__Header'>
-          Payment Information
-        </header>
-        <article className='PaymentInformation__Container'>
-          <form className='PaymentInformation__Form'>
-            <fieldset>
-              <legend>Billing Information</legend>
+const PaymentInformation = (props) => {
+  return (
+    <div className='Checkout'>
+      <header className='Checkout__Header'>Payment Information</header>
+      <article className='Checkout__Container'>
+        <form className='Checkout__Form'>
+          <fieldset>
+            <legend className='Checkout__FormHeader'>
+              Billing Information
+            </legend>
 
+            <p>
+              <label className='Checkout__FormLabel' htmlFor='size_1'>
+                Driver Name
+              </label>
+              <br></br>
+              <input
+                className='Checkout__FormInput'
+                type='text'
+                name='driverName'
+                value='driverName'
+                placeholder=''
+                onChange={props.handleChange}
+                value={props.driverName}
+              />
+            </p>
+
+            <p>
+              <label className='Checkout__FormLabel' htmlFor='size_1'>
+                Address
+              </label>
+              <br></br>
+              <input
+                className='Checkout__FormInput'
+                type='text'
+                name='driverAddress'
+                value='driverAddress'
+                placeholder=''
+                onChange={props.handleChange}
+                value={props.driverAddress}
+              />
+            </p>
+
+            <div className='Checkout__ThreeColumns'>
               <p>
-                <label htmlFor='size_1'>Driver Name</label>
+                <label className='Checkout__FormLabel' htmlFor='size_1'>
+                  City
+                </label>
                 <br></br>
                 <input
-                  className='PaymentInformation__FormDriverLabel'
+                  className='Checkout__FormInput'
                   type='text'
-                  name=''
-                  value=''
+                  name='driverCity'
+                  value='driverCity'
                   placeholder=''
+                  onChange={props.handleChange}
+                  value={props.driverCity}
                 />
               </p>
-
               <p>
-                <label htmlFor='size_1'>Address</label>
+                <label className='Checkout__FormLabel' htmlFor='size_1'>
+                  State
+                </label>
                 <br></br>
                 <input
-                  className='PaymentInformation__FormDriverLabel'
+                  className='Checkout__FormInput'
                   type='text'
-                  name=''
-                  value=''
+                  name='driverState'
+                  value='driverState'
                   placeholder=''
+                  onChange={props.handleChange}
+                  value={props.driverState}
                 />
               </p>
-
-              <div className='PaymentInformation__FormDriverColumns'>
-                <p>
-                  <label htmlFor='size_1'>City</label>
-                  <br></br>
-                  <input
-                    className='PaymentInformation__FormDriverLabel'
-                    type='text'
-                    name=''
-                    value=''
-                    placeholder=''
-                  />
-                </p>
-                <p>
-                  <label htmlFor='size_1'>State</label>
-                  <br></br>
-                  <input
-                    className='PaymentInformation__FormDriverLabel'
-                    type='text'
-                    name=''
-                    value=''
-                    placeholder=''
-                  />
-                </p>
-                <p>
-                  <label htmlFor='size_1'>Zipcode</label>
-                  <br></br>
-                  <input
-                    className='PaymentInformation__FormDriverLabel'
-                    type='text'
-                    name=''
-                    value=''
-                    placeholder=''
-                  />
-                </p>
-              </div>
-
               <p>
-                <label htmlFor='size_1'>Contact Number</label>
+                <label className='Checkout__FormLabel' htmlFor='size_1'>
+                  Zipcode
+                </label>
                 <br></br>
                 <input
-                  className='PaymentInformation__FormDriverInput'
+                  className='Checkout__FormInput'
                   type='text'
-                  name=''
-                  value=''
+                  name='driverZipcode'
+                  value='driverZipcode'
                   placeholder=''
+                  onChange={props.handleChange}
+                  value={props.driverZipcode}
                 />
               </p>
-            </fieldset>
+            </div>
 
-            <fieldset>
-              <legend>Card Information</legend>
+            <p>
+              <label className='Checkout__FormLabel' htmlFor='size_1'>
+                Contact Number
+              </label>
+              <br></br>
+              <input
+                className='Checkout__FormInput'
+                type='text'
+                name='driverContactNum'
+                value='driverContactNum'
+                placeholder=''
+                onChange={props.handleChange}
+                value={props.driverContactNum}
+              />
+            </p>
+          </fieldset>
 
+          <fieldset>
+            <legend className='Checkout__FormHeader'>Card Information</legend>
+
+            <p>
+              <label className='Checkout__FormLabel' htmlFor='size_1'>
+                Cardholder Name
+              </label>
+              <br></br>
+              <input
+                className='Checkout__FormInput'
+                type='text'
+                name='cardholderName'
+                value='cardholderName'
+                placeholder=''
+                onChange={props.handleChange}
+                value={props.cardholderName}
+              />
+            </p>
+
+            <div className='Checkout__ThreeColumns'>
               <p>
-                <label htmlFor='size_1'>Cardholder Name</label>
+                <label className='Checkout__FormLabel' htmlFor='size_1'>
+                  Card Number
+                </label>
                 <br></br>
                 <input
-                  className='PaymentInformation__FormDriverLabel'
-                  type='text'
-                  name=''
-                  value=''
+                  className='Checkout__FormInput'
+                  type='number'
+                  name='cardholderNumber'
+                  value='cardholderNumber'
                   placeholder=''
+                  onChange={props.handleChange}
+                  value={props.cardholderNumber}
                 />
               </p>
+              <p>
+                <label className='Checkout__FormLabel' htmlFor='size_1'>
+                  Exp. Date (MM/YY)
+                </label>
+                <br></br>
+                <input
+                  className='Checkout__FormInput'
+                  type='number'
+                  name='cardExpDate'
+                  value='cardExpDate'
+                  placeholder=''
+                  onChange={props.handleChange}
+                  value={props.cardExpDate}
+                />
+              </p>
+              <p>
+                <label className='Checkout__FormLabel' htmlFor='size_1'>
+                  CVV
+                </label>
+                <br></br>
+                <input
+                  className='Checkout__FormInput'
+                  type='text'
+                  name='cardCVV'
+                  value='cardCVV'
+                  placeholder=''
+                  onChange={props.handleChange}
+                  value={props.cardCVV}
+                />
+              </p>
+            </div>
+          </fieldset>
+        </form>
 
-              <div className='PaymentInformation__FormDriverColumns'>
-                <p>
-                  <label htmlFor='size_1'>Card Number</label>
-                  <br></br>
-                  <input
-                    className='PaymentInformation__FormDriverLabel'
-                    type='number'
-                    name=''
-                    value=''
-                    placeholder=''
-                  />
-                </p>
-                <p>
-                  <label htmlFor='size_1'>Exp. Date (MM/YY)</label>
-                  <br></br>
-                  <input
-                    className='PaymentInformation__FormDriverLabel'
-                    type='number'
-                    name=''
-                    value=''
-                    placeholder=''
-                  />
-                </p>
-                <p>
-                  <label htmlFor='size_1'>CVV</label>
-                  <br></br>
-                  <input
-                    className='PaymentInformation__FormDriverLabel'
-                    type='number'
-                    name=''
-                    value=''
-                    placeholder=''
-                  />
-                </p>
-              </div>
-            </fieldset>
-          </form>
-
-          <ListingConfirmation />
-        </article>
-      </div>
-    )
-  }
+        {props.listingConfirmationComp}
+      </article>
+    </div>
+  )
 }
 
 export default PaymentInformation

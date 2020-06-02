@@ -1,7 +1,70 @@
 .Checkout {
   max-width: 1200px;
-  margin:  50px auto 0 auto;
+  margin: 0 auto;
+
+  &__Container {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-column-gap: 1rem;
+  }
+
+  &__Header {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__Form {
+    padding: 50px;
+    border-radius: 2px;
+    // height: 600px;
+    box-shadow: 0 4px 14px 0 rgba(191, 191, 191, 0.5);
+  }
+
+  &__FormHeader {
+    font-size: 1rem;
+    color: var(--almost-black);
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  &__FormLabel {
+    color: var(--secondary-color);
+    &:before {
+      color: var(--carrot-color);
+      content: '* ';
+    }
+  }
+
+  &__FormInput {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    border: solid 1px var(--light-grey);
+    &:focus {
+      border: 2px solid var(--carrot-color);
+    }
+  }
+
+  &__TwoColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+
+  &__ThreeColumns {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+
+  &__FormError {
+    margin-top: 0.5rem;
+    color: red;
+  }
 }
+
+// OVERRIDE
 
 .ant-steps {
   margin-bottom: 60px;
@@ -10,6 +73,5 @@
 .steps-content {
   display: grid;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 50px;
 }
-
