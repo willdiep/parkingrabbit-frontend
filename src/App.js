@@ -30,8 +30,6 @@ class App extends Component {
       user: null,
       userLocationText: '',
       loginError: false,
-
-      // bookMySpotBtnClicked: false
     }
   }
 
@@ -178,16 +176,6 @@ class App extends Component {
     })
   }
 
-  handleBookMySpotBtn = () => {
-    this.setState(
-      {
-        bookMySpotBtnClicked: true,
-      },
-      () => {
-        console.log('from handleBookMySpotBtn')
-      }
-    )
-  }
 
   render() {
     // console.log(this.props.history)
@@ -255,7 +243,6 @@ class App extends Component {
                 handleSetLocationText={this.handleSetLocationText}
                 parkingSpotsNear={this.state.userLocationText}
                 user={this.state.user}
-                // handleBookMySpotBtn={this.handleBookMySpotBtn}
               />
             )}
           />

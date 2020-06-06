@@ -18,7 +18,6 @@ class ListingCard extends Component {
         )
       )
       
-      // this.props.handleBookMySpotBtn()
       localStorage.setItem('bookMySpotBtnClicked', true)
 
       // console.log(localStorage)

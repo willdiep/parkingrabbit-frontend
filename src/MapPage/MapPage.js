@@ -542,9 +542,6 @@ class MapPage extends Component {
                               filterMonthlyState={
                                 this.state.renderFilterMonthly
                               }
-                              handleBookMySpotBtn={
-                                this.props.handleBookMySpotBtn
-                              }
                             />
                           )
                         })
@@ -562,9 +559,6 @@ class MapPage extends Component {
                               filterMonthlyState={
                                 this.state.renderFilterMonthly
                               }
-                              // handleBookMySpotBtn={
-                              //   this.props.handleBookMySpotBtn
-                              // }
                             />
                           )
                         })}
