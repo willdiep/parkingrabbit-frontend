@@ -1,9 +1,32 @@
 import React, { Component } from 'react'
-
 import { Rate } from 'antd'
 import './ListingCard.scss'
 
+import { withRouter } from "react-router";
+
 class ListingCard extends Component {
+  handleBtn = (e) => {
+    // debugger;
+    if (!localStorage.jwt) {
+      console.log('Please sign-up or login')
+    } else {
+      localStorage.setItem(
+        'listingId',
+        // retrieve listing id of the card component
+        e.target.parentElement.parentElement.parentElement.parentElement.id.slice(
+          -1
+        )
+      )
+      
+      // this.props.handleBookMySpotBtn()
+      localStorage.setItem('bookMySpotBtnClicked', true)
+
+      // console.log(localStorage)
+      // console.log(this.props.history)
+
+        this.props.history.push('/checkout')
+    }
+  }
 
   render() {
     const parkingTypeProp = this.props.listing.properties.parking_type
@@ -87,7 +110,13 @@ class ListingCard extends Component {
 
           <div className='ListingCard__BookingDetailsRate'>
             <div className='ListingCard__BookingDetails'>
-              <button className='ListingCard__BookingBtn'>Book My Spot</button>
+              <button
+                // onClick={this.handleBtn}
+                onClick={this.handleBtn}
+                className='ListingCard__BookingBtn'
+              >
+                Book My Spot
+              </button>
 
               <div
                 className='ListingCard__Details'
@@ -107,4 +136,4 @@ class ListingCard extends Component {
   }
 }
 
-export default ListingCard
+export default withRouter(ListingCard)

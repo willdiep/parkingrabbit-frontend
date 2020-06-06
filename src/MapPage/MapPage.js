@@ -477,11 +477,10 @@ class MapPage extends Component {
   }
 
   render() {
-    
     return (
       <div className='Map'>
         <main className='Map__container'>
-          <NavBar mapPage={true} {...this.props}/>
+          <NavBar mapPage={true} {...this.props} />
           <article className='Map__filter'>
             <Filter
               handleSetLatLng={this.props.handleSetLatLng}
@@ -543,6 +542,9 @@ class MapPage extends Component {
                               filterMonthlyState={
                                 this.state.renderFilterMonthly
                               }
+                              handleBookMySpotBtn={
+                                this.props.handleBookMySpotBtn
+                              }
                             />
                           )
                         })
@@ -560,6 +562,9 @@ class MapPage extends Component {
                               filterMonthlyState={
                                 this.state.renderFilterMonthly
                               }
+                              // handleBookMySpotBtn={
+                              //   this.props.handleBookMySpotBtn
+                              // }
                             />
                           )
                         })}

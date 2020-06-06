@@ -14,6 +14,7 @@ import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import LoginSignup from './LoginSignup/LoginSignup'
+import NoMatch404 from './NoMatch404'
 import './App.scss'
 
 class App extends Component {
@@ -29,6 +30,8 @@ class App extends Component {
       user: null,
       userLocationText: '',
       loginError: false,
+
+      // bookMySpotBtnClicked: false
     }
   }
 
@@ -45,12 +48,13 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((userInfo) => {
-        // console.log(userInfo.error)
+        // console.log(userInfo)
 
         if (userInfo.error) {
           throw userInfo.error
         } else {
           // console.log(userInfo.user)
+          localStorage.setItem('email', userInfo.user.email)
           localStorage.setItem('jwt', userInfo.token)
           this.setState(
             {
@@ -174,6 +178,17 @@ class App extends Component {
     })
   }
 
+  handleBookMySpotBtn = () => {
+    this.setState(
+      {
+        bookMySpotBtnClicked: true,
+      },
+      () => {
+        console.log('from handleBookMySpotBtn')
+      }
+    )
+  }
+
   render() {
     // console.log(this.props.history)
     return (
@@ -183,7 +198,7 @@ class App extends Component {
         {/* <Navbar /> */}
         <Switch>
           <Route
-            exact
+            exact={true}
             path='/'
             render={(props) => (
               <HomePage
@@ -201,7 +216,7 @@ class App extends Component {
             )}
           />
           <Route
-            exact
+            exact={true}
             path='/login'
             render={(props) => (
               <LoginSignup>
@@ -213,9 +228,9 @@ class App extends Component {
               </LoginSignup>
             )}
           />
-          
+
           <Route
-            exact
+            exact={true}
             path='/signup'
             render={(props) => (
               <LoginSignup>
@@ -229,7 +244,7 @@ class App extends Component {
           />
 
           <Route
-            exact
+            exact={true}
             path='/mappage'
             render={(props) => (
               <MapPage
@@ -240,12 +255,17 @@ class App extends Component {
                 handleSetLocationText={this.handleSetLocationText}
                 parkingSpotsNear={this.state.userLocationText}
                 user={this.state.user}
+                // handleBookMySpotBtn={this.handleBookMySpotBtn}
               />
             )}
           />
 
-          {/* TEMPORARY CHECKOUTPAGE ROUTE */}
-          <Route exact path='/checkout' component={CheckoutPage} />
+          {localStorage.hasOwnProperty('email') &&
+            localStorage.hasOwnProperty('bookMySpotBtnClicked') && (
+              <Route exact path='/checkout' component={CheckoutPage} />
+            )}
+
+          <Route component={NoMatch404} />
         </Switch>
         {/* </Router> */}
       </div>
