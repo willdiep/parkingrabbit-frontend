@@ -1,0 +1,16 @@
+.CheckoutFooter {
+  background-color: var(--almost-black);
+  color: var(--white-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  
+  &__Left {
+    margin-left: 100px;
+  }
+  
+  &__Right {
+    margin-right: 100px;
+  }
+}

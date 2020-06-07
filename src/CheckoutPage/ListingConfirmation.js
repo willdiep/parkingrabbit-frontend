@@ -8,7 +8,7 @@ class ListingConfirmation extends Component {
   }
 
   render() {
-    const listingImg = localStorage.getItem('parkingImg')
+    const listingImg = localStorage.getItem('listingImg')
     const listingAddress = localStorage.getItem('listingAddress')
     const listingZipcode = localStorage.getItem('listingZipcode')
 

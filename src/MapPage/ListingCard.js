@@ -10,6 +10,7 @@ class ListingCard extends Component {
     if (!localStorage.jwt) {
       console.log('Please sign-up or login')
     } else {
+
       const listingIdProp = this.props.id
       localStorage.setItem('listingId', listingIdProp)
 
@@ -31,7 +32,10 @@ class ListingCard extends Component {
       const extractNums = +listingPriceString.match(/\d+/g)[0]
       localStorage.setItem('listingPrice', extractNums)
 
-      // console.log(localStorage.listingPrice)
+      // console.log(localStorage.listingId)
+      // console.log(localStorage.listingImg)
+      // console.log(localStorage)
+
       this.props.history.push('/checkout')
     }
   }

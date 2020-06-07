@@ -1,29 +1,27 @@
 .BookingConfirmation {
   &__Container {
-    // background-color: orange;
-    // width: 1000px;
-    // margin: 0 auto;
     width: 1000px;
     display: grid;
-    grid-template-columns: 3fr 1fr;
-
+    grid-template-columns: 2fr 1fr;
+    box-shadow: 0 4px 14px 0 rgba(191, 191, 191, 0.5);
+    font-size: 1rem;
     grid-column-gap: 1rem;
     color: var(--almost-black);
   }
 
   &__Header {
     font-size: 1.5rem;
-    font-weight: bold;
+    // font-weight: bold;
   }
 
   &__Summary {
     border-radius: 2px;
-    box-shadow: 0 4px 14px 0 rgba(191, 191, 191, 0.5);
     padding: 50px;
   }
 
   &__SummaryHeader {
     font-size: 1.5rem;
+    font-weight: bold;
   }
 
   &__Divider {
@@ -42,7 +40,52 @@
   }
 
   &__Title {
-    font-size: 1rem;
+    // font-size: 1rem;
+    // font-weight: bold;
+  }
+
+  &__Timeline {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  &__Arrow {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--third-color);
+  }
+
+  &__ListingImg {
+    width: 100%;
+  }
+
+  &__Address {
+    padding: 1rem 3rem 3rem 3rem;
+    text-align: center;
     font-weight: bold;
   }
+
+  &__TotalPrice {
+    width: 200px;
+  }
+
+  &__Flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__Total {
+    font-size: 1.25rem;
+  }
+
+  &__EnterAfter,
+  &__ExitBefore {
+    color: var(--third-color);
+  }
+}
+
+.text-bold {
+  font-weight: bold;
 }

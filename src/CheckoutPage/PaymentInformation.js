@@ -92,7 +92,7 @@ const PaymentInformation = (props) => {
               </p>
             </div>
 
-            <p>
+            {/* <p>
               <label className='Checkout__FormLabel' htmlFor='size_1'>
                 Contact Number
               </label>
@@ -106,7 +106,7 @@ const PaymentInformation = (props) => {
                 onChange={props.handleChange}
                 value={props.driverContactNum}
               />
-            </p>
+            </p> */}
           </fieldset>
 
           <fieldset>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Steps, Button, message } from 'antd'
 import { withRouter } from 'react-router'
-
+import { Steps, Button, message } from 'antd'
+import Navbar from '../Navbar/Navbar'
 import DriverInformation from './DriverInformation'
 import PaymentInformation from './PaymentInformation'
 import BookingConfirmation from './BookingConfirmation'
 import ListingConfirmation from './ListingConfirmation'
+import CheckoutFooter from './CheckoutFooter'
 
 import 'antd/dist/antd.css'
 import './CheckoutPage.scss'
@@ -15,7 +16,7 @@ const { Step } = Steps
 
 class Checkout extends Component {
   state = {
-    current: 3,
+    current: 1,
 
     driverName: '',
     driverLicense: '',
@@ -124,10 +125,6 @@ class Checkout extends Component {
         <BookingConfirmation
           listingConfirmationComp={listingConfirmationComp}
 
-
-
-
-
           driverName={driverName}
           driverAddress={driverAddress}
           driverCity={driverCity}
@@ -152,6 +149,10 @@ class Checkout extends Component {
     }
 
     return (
+      <>
+      <Navbar />
+      <br></br>
+      <br></br>
       <div className='Checkout'>
         <Steps current={current}>
           {steps.map((item) => (
@@ -188,6 +189,13 @@ class Checkout extends Component {
           )}
         </div>
       </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      
+      <CheckoutFooter />
+      </>
     )
   }
 }
