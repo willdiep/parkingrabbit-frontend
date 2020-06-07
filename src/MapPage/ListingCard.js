@@ -2,28 +2,37 @@ import React, { Component } from 'react'
 import { Rate } from 'antd'
 import './ListingCard.scss'
 
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router'
 
 class ListingCard extends Component {
   handleBtn = (e) => {
-    // debugger;
+    // debugger
     if (!localStorage.jwt) {
       console.log('Please sign-up or login')
     } else {
-      localStorage.setItem(
-        'listingId',
-        // retrieve listing id of the card component
-        e.target.parentElement.parentElement.parentElement.parentElement.id.slice(
-          -1
-        )
-      )
-      
+      const listingIdProp = this.props.id
+      localStorage.setItem('listingId', listingIdProp)
+
+      const listingImgProp = this.props.listing.properties.listing_image
+      localStorage.setItem('listingImg', listingImgProp)
+
+      const listingAddressProp = this.props.listing.properties.address
+      localStorage.setItem('listingAddress', listingAddressProp)
+
+      const lisingZipcodeProp = this.props.listing.properties.zipcode
+      localStorage.setItem('listingZipcode', lisingZipcodeProp)
+
       localStorage.setItem('bookMySpotBtnClicked', true)
 
-      // console.log(localStorage)
-      // console.log(this.props.history)
+      const listingPriceString =
+        e.target.parentElement.nextElementSibling.innerText
+      //  match() returns an array
+      // Grab first element in array & convert to numbers
+      const extractNums = +listingPriceString.match(/\d+/g)[0]
+      localStorage.setItem('listingPrice', extractNums)
 
-        this.props.history.push('/checkout')
+      // console.log(localStorage.listingPrice)
+      this.props.history.push('/checkout')
     }
   }
 
@@ -48,8 +57,10 @@ class ListingCard extends Component {
     let listingPrice
     if (this.props.filterHourlyState) {
       listingPrice = `$${this.props.listing.properties.hourly_price} total`
+      // localStorage.setItem('listingPrice', listingPrice)
     } else if (this.props.filterMonthlyState) {
       listingPrice = `$${this.props.listing.properties.monthly_price}/month`
+      // localStorage.setItem('listingPrice', listingPrice)
     }
 
     return (

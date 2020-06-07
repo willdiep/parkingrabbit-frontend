@@ -1,17 +1,48 @@
 .BookingConfirmation {
   &__Container {
-    background-color: orange;
+    // background-color: orange;
     // width: 1000px;
     // margin: 0 auto;
-    width: 900px;
+    width: 1000px;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    border-radius: 2px;
-    box-shadow: 0 4px 14px 0 rgba(191, 191, 191, 0.5);
+
     grid-column-gap: 1rem;
+    color: var(--almost-black);
+  }
+
+  &__Header {
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
   &__Summary {
+    border-radius: 2px;
+    box-shadow: 0 4px 14px 0 rgba(191, 191, 191, 0.5);
     padding: 50px;
+  }
+
+  &__SummaryHeader {
+    font-size: 1.5rem;
+  }
+
+  &__Divider {
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  &__SummarySubheader,
+  &__Input {
+    font-size: 1rem;
+    color: var(--third-color);
+  }
+
+  &__TwoColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__Title {
+    font-size: 1rem;
+    font-weight: bold;
   }
 }

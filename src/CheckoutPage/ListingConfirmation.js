@@ -1,26 +1,43 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import './ListingConfirmation.scss'
 
 class ListingConfirmation extends Component {
+  backToMappage = () => {
+    this.props.history.push('/mappage')
+  }
+
   render() {
+    const listingImg = localStorage.getItem('parkingImg')
+    const listingAddress = localStorage.getItem('listingAddress')
+    const listingZipcode = localStorage.getItem('listingZipcode')
+
+    const listingPrice = localStorage.getItem('listingPrice')
+
+    const totalPrice = +listingPrice + 0.5
+
     return (
       <aside className='ListingConfirmation'>
-        <figure className='ListingConfirmation__ListingFigure'>
           <img
             className='ListingConfirmation__ListingImg'
-            src='https://res.cloudinary.com/dobz3lasb/image/upload/v1589870717/4_sv4f9t.jpg'
+            src={listingImg}
             alt='parking listing'
           />
-        </figure>
 
         <section className='ListingConfirmation__Details'>
-          <p className='ListingConfirmation__ChangeSpotLink'>Change My Spot</p>
+          <p
+            className='ListingConfirmation__ChangeSpotLink'
+            onClick={this.backToMappage}
+          >
+            Change My Spot
+          </p>
+
+          <br></br>
+
           <p className='ListingConfirmation__Address'>
-            998 Jessie St.
+            {listingAddress}
             <br></br>
-            San Francisco, CA
-            <br></br>
-            94103
+            San Francisco, CA {listingZipcode}
           </p>
         </section>
 
@@ -28,13 +45,22 @@ class ListingConfirmation extends Component {
 
         <section className='ListingConfirmation__SpotPriceAndTotal'>
           <div className='ListingConfirmation__SpotPrice'>
-            <p className='ListingConfirmation__SpotPriceText'>Spot Price: </p>
-            <p className='ListingConfirmation__SpotPriceCost'>$00.00</p>
+            <p className='ListingConfirmation__SpotPriceText'>Subtotal: </p>
+            <p className='ListingConfirmation__SpotPriceCost'>
+              ${listingPrice}.00
+            </p>
+          </div>
+
+          <div className='ListingConfirmation__SpotPrice'>
+            <p className='ListingConfirmation__SpotPriceText'>Service Fee: </p>
+            <p className='ListingConfirmation__SpotPriceCost'>$00.50</p>
           </div>
 
           <div className='ListingConfirmation__Total'>
             <p className='ListingConfirmation__TotalText'>Total:</p>
-            <p className='ListingConfirmation__TotalCost'>$00.00</p>
+            <div className='ListingConfirmation__TotalCost'>
+              ${totalPrice.toFixed(2)}
+            </div>
           </div>
         </section>
       </aside>
@@ -42,4 +68,4 @@ class ListingConfirmation extends Component {
   }
 }
 
-export default ListingConfirmation
+export default withRouter(ListingConfirmation)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Steps, Button, message } from 'antd'
+import { withRouter } from 'react-router'
 
 import DriverInformation from './DriverInformation'
 import PaymentInformation from './PaymentInformation'
@@ -33,14 +34,18 @@ class Checkout extends Component {
     cardCVV: '',
   }
 
-  next() {
+  next = () => {
     const current = this.state.current + 1
     this.setState({ current })
   }
 
-  prev() {
+  prev = () => {
     const current = this.state.current - 1
     this.setState({ current })
+  }
+
+  backToMap() {
+    this.props.history.push('/mappage')
   }
 
   handleChange = (e) => {
@@ -118,6 +123,30 @@ class Checkout extends Component {
       content = (
         <BookingConfirmation
           listingConfirmationComp={listingConfirmationComp}
+
+
+
+
+
+          driverName={driverName}
+          driverAddress={driverAddress}
+          driverCity={driverCity}
+          driverState={driverState}
+          driverZipcode={driverZipcode}
+          driverContactNum={driverContactNum}
+          
+          
+          cardholderName={cardholderName}
+          cardholderNumber={cardholderNumber}
+          cardExpDate={cardExpDate}
+          cardCVV={cardCVV}
+
+
+          driverLicense={driverLicense}
+          vehicleLicensePlate={vehicleLicensePlate}
+          carMake={carMake}
+          carYear={carYear}
+
         />
       )
     }
@@ -131,7 +160,13 @@ class Checkout extends Component {
         </Steps>
         <div className='steps-content'>{content}</div>
         <div className='steps-action'>
-          {current > 0 && (
+          {current === 1 && (
+            <Button style={{ margin: 8 }} onClick={() => this.backToMap()}>
+              Back to Map
+            </Button>
+          )}
+
+          {current > 1 && (
             <Button style={{ margin: 8 }} onClick={() => this.prev()}>
               Previous
             </Button>
@@ -157,4 +192,4 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout
+export default withRouter(Checkout)
