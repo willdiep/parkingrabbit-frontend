@@ -10,7 +10,6 @@ class ListingCard extends Component {
     if (!localStorage.jwt) {
       console.log('Please sign-up or login')
     } else {
-
       const listingIdProp = this.props.id
       localStorage.setItem('listingId', listingIdProp)
 
@@ -32,10 +31,14 @@ class ListingCard extends Component {
       const extractNums = +listingPriceString.match(/\d+/g)[0]
       localStorage.setItem('listingPrice', extractNums)
 
-      const hourlyFromDateTimeState = this.props.hourlyFromDateTimeState
+      const hourlyFromDateTimeState = this.props.hourlyFromDateTimeState.format(
+        'ddd, MMM, D H:mm A'
+      )
       localStorage.setItem('hourlyFromDateTimeState', hourlyFromDateTimeState)
 
-      const hourlyToDateTimeState = this.props.hourlyToDateTimeState
+      const hourlyToDateTimeState = this.props.hourlyToDateTimeState.format(
+        'ddd, MMM, D H:mm A'
+      )
       localStorage.setItem('hourlyToDateTimeState', hourlyToDateTimeState)
 
       // console.log(localStorage.hourlyFromDateTimeState)

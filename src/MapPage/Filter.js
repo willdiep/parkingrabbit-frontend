@@ -74,6 +74,12 @@ class Filter extends Component {
 
             handleOnChangeHourlyToDateTime={this.props.handleOnChangeHourlyToDateTime}
 
+            hourlyFromDateTimeState={
+              this.props.hourlyFromDateTimeState
+            }
+            hourlyToDateTimeState={
+              this.props.hourlyToDateTimeState
+            }
           />
         )}
 

@@ -23,8 +23,10 @@ dayjs.extend(isBetween)
 dayjs.extend(utc)
 
 const currentDate = dayjs()
+const datePlus4Hours = currentDate.add(4, 'hour')
+
 const currentDateUTC = currentDate.utc().format()
-const datePlus4HoursUTC = currentDate.add(4, 'day').utc().format()
+const datePlus4HoursUTC = currentDate.add(4, 'hour').utc().format()
 
 class MapPage extends Component {
   constructor() {
@@ -50,8 +52,8 @@ class MapPage extends Component {
 
       // filterHourlyFromDateTime: '',
       // filterHourlyToDateTime: '',
-      filterHourlyFromDateTime: currentDateUTC,
-      filterHourlyToDateTime: datePlus4HoursUTC,
+      filterHourlyFromDateTime: currentDate,
+      filterHourlyToDateTime: datePlus4Hours,
 
       // filterMonthly: null,
 
@@ -247,22 +249,23 @@ class MapPage extends Component {
    * FTILER HOURLY
   ------------------------------------*/
   handleFilterHourlyFromDatetime = (value) => {
-    console.log('handleFilterHourlyFromDatetime: ', value.toString())
+    console.log('handleFilterHourlyFromDatetime: ', value)
 
     this.setState({
-      filterHourlyFromDateTime: value.toString(),
+      filterHourlyFromDateTime: value,
     })
   }
 
   handleFilterHourlyToDateTime = (value) => {
-    console.log('handleFilterHourlyToDateTime: ', value.toString())
+    console.log('handleFilterHourlyToDateTime: ', value)
 
     this.setState({
-      filterHourlyToDateTime: value.toString(),
+      filterHourlyToDateTime: value
     })
   }
 
   filterAndRenderHourlyDateTime = () => {
+    // console.log(this.state.filterHourlyFromDateTime)
     const filterHourlyListings = this.state.allStores.features.filter(
       (listing) => {
         return (
@@ -314,7 +317,7 @@ class MapPage extends Component {
       this.setState(
         {
           // filterHourlyFromDateTime: '',
-          filterHourlyFromDateTime: currentDateUTC,
+          filterHourlyFromDateTime: currentDate,
           renderDisplayStores: false,
         },
         () => {
@@ -325,7 +328,7 @@ class MapPage extends Component {
       // set state then converts momentjs object to
       //  unix time
       this.setState({
-        filterHourlyFromDateTime: value.utc().format(),
+        filterHourlyFromDateTime: value,
         renderDisplayStores: true,
       })
     }
@@ -341,7 +344,7 @@ class MapPage extends Component {
     if (value === null) {
       this.setState(
         {
-          filterHourlyToDateTime: datePlus4HoursUTC,
+          filterHourlyToDateTime: datePlus4Hours,
           renderDisplayStores: false,
         },
         this.renderAllStores()
@@ -350,7 +353,7 @@ class MapPage extends Component {
       // set state then converts momentjs object to
       //  unix time
       this.setState({
-        filterHourlyToDateTime: value.utc().format(),
+        filterHourlyToDateTime: value,
         renderDisplayStores: true,
       })
     }
@@ -531,6 +534,13 @@ class MapPage extends Component {
               filterHourlyState={this.state.renderFilterHourly}
               filterMonthlyState={this.state.renderFilterMonthly}
               handleSetLocationText={this.props.handleSetLocationText}
+              
+              // hourlyFromDateTimeState={
+              //   this.state.filterHourlyFromDateTime
+              // }
+              // hourlyToDateTimeState={
+              //   this.state.filterHourlyToDateTime
+              // }
             />
           </article>
 

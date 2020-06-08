@@ -14,6 +14,12 @@ const BookingConfirmation = (props) => {
   const hourlyFromDateTime = localStorage.getItem('hourlyFromDateTimeState')
   const hourlyToDateTime = localStorage.getItem('hourlyToDateTimeState')
 
+  const hourlyFromDateTimeFormat = hourlyFromDateTime
+
+  const hourlyToDateTimeFormat = hourlyToDateTime
+
+console.log('hourlyFromDateTime', hourlyFromDateTime)
+
   return (
     <div className='BookingConfirmation'>
       <header className='BookingConfirmation__Header text-bold'>
@@ -77,24 +83,6 @@ const BookingConfirmation = (props) => {
           <br></br>
           <br></br>
 
-          <article className='BookingConfirmation__TotalPrice'>
-            <section className='BookingConfirmation__Flex'>
-              <p className='BookingConfirmation__'>Subtotal:</p>
-              <p className='BookingConfirmation__'>${listingPrice}.00</p>
-            </section>
-
-            <section className='BookingConfirmation__Flex'>
-              <p className='BookingConfirmation__'>Service Fee:</p>
-              <p className='BookingConfirmation__'>$0.50</p>
-            </section>
-
-            <p className='BookingConfirmation__Divider'></p>
-
-            <section className='BookingConfirmation__Flex'>
-              <p className='BookingConfirmation__Total text-bold'>Total:</p>
-              <p className='BookingConfirmation__ text-bold'>${totalPrice}</p>
-            </section>
-          </article>
         </section>
 
         <aside>
@@ -107,7 +95,7 @@ const BookingConfirmation = (props) => {
           <section className='BookingConfirmation__Timeline'>
             <div>
               <div className='BookingConfirmation__EnterAfter'>Enter After</div>
-              <div>{hourlyFromDateTime}</div>
+              <div>{hourlyFromDateTimeFormat}</div>
               {/* <div>Sat, Jun 6,</div>
               <div>6:00 PM</div> */}
             </div>
@@ -116,9 +104,9 @@ const BookingConfirmation = (props) => {
               <FontAwesomeIcon icon={faLongArrowAltRight} />
             </span>
 
-            <div>
+            <div className='BookingConfirmation__ExitBeforeContainer'>
               <div className='BookingConfirmation__ExitBefore'>Exit Before</div>
-              <div>{hourlyToDateTime}</div>
+              <div>{hourlyToDateTimeFormat}</div>
 
               {/* <div>Sun, Jun 7,</div>
               <div>12:00 AM</div> */}
@@ -129,7 +117,30 @@ const BookingConfirmation = (props) => {
             {listingAddress}
             <br></br>
             San Francisco, CA {listingZipcode}
+            <br></br>
+            <br></br>
+          <p className='BookingConfirmation__Divider'></p>
           </div>
+
+
+          <article className='BookingConfirmation__TotalPrice'>
+            <section className='BookingConfirmation__Flex'>
+              <p className='BookingConfirmation__'>Subtotal:</p>
+              <p className='BookingConfirmation__'>${listingPrice}.00</p>
+            </section>
+
+            <section className='BookingConfirmation__Flex'>
+              <p className='BookingConfirmation__'>Service Fee:</p>
+              <p className='BookingConfirmation__'>$0.50</p>
+            </section>
+
+            <p className='BookingConfirmation__DividerTotal'></p>
+
+            <section className='BookingConfirmation__Flex'>
+              <p className='BookingConfirmation__Total text-bold'>Total:</p>
+              <p className='BookingConfirmation__ text-bold'>${totalPrice}</p>
+            </section>
+          </article>
         </aside>
       </article>
     </div>

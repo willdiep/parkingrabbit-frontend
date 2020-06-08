@@ -24,9 +24,15 @@
     font-weight: bold;
   }
 
-  &__Divider {
-    border-bottom: 1px solid #d9d9d9;
+  &__Divider{
+    border-bottom: 1.25px solid var(--third-color);
+    width: 232px;
   }
+
+  &__DividerTotal {
+    border-bottom: 1px solid var(--light-grey);
+  }
+  
 
   &__SummarySubheader,
   &__Input {
@@ -47,7 +53,7 @@
   &__Timeline {
     display: flex;
     justify-content: space-evenly;
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 2rem 3rem 2rem 2rem;
   }
 
   &__Arrow {
@@ -55,6 +61,8 @@
     align-items: center;
     font-size: 1.5rem;
     color: var(--third-color);
+    width: 50px;
+    justify-content: center;
   }
 
   &__ListingImg {
@@ -62,13 +70,14 @@
   }
 
   &__Address {
-    padding: 1rem 3rem 3rem 3rem;
+    padding: 1rem 3rem 1rem 3rem;
     text-align: center;
     font-weight: bold;
   }
 
   &__TotalPrice {
     width: 200px;
+    margin: 0rem auto 2rem auto
   }
 
   &__Flex {
@@ -83,6 +92,10 @@
   &__EnterAfter,
   &__ExitBefore {
     color: var(--third-color);
+  }
+
+  &__ExitBeforeContainer {
+    text-align: right;
   }
 }
 

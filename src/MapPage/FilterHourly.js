@@ -20,12 +20,15 @@ class FilterHourly extends Component {
   // }
 
   render() {
+    // const hourlyFromDateTimeStateProp = this.props.hourlyFromDateTimeState
+    // const hourlyToDateTimeProp = this.props.hourlyToDateTimeState
+    // const currentDate = hourlyFromDateTimeStateProp.format('M/D/YYYY H:mm A')
+    // const datePlus4Hours = hourlyToDateTimeProp.format('M/D/YYYY H:mm A')
+   
     const currentDate = dayjs().format('M/D/YYYY H:mm A')
-    const datePlus4Hours = dayjs()
-      .add(4, 'day')
-      .format('M/D/YYYY H:mm A')
+    const datePlus4Hours = dayjs().add(4, 'hour').format('M/D/YYYY H:mm A')
 
-      const dateFormat = 'YYYY/MM/DD';
+    // const dateFormat = 'YYYY/MM/DD';
 
     return (
       <section className='Filter__Hourly'>
@@ -33,7 +36,7 @@ class FilterHourly extends Component {
         <div className='Filter__HourlyFrom'>
           <div className='Filter__HourlyText'>From</div>
           <DatePicker
-          // defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat}
+            // defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat}
             size='large'
             showTime
             minuteStep={15}
