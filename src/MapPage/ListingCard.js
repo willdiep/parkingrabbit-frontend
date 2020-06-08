@@ -32,8 +32,14 @@ class ListingCard extends Component {
       const extractNums = +listingPriceString.match(/\d+/g)[0]
       localStorage.setItem('listingPrice', extractNums)
 
-      // console.log(localStorage.listingId)
-      // console.log(localStorage.listingImg)
+      const hourlyFromDateTimeState = this.props.hourlyFromDateTimeState
+      localStorage.setItem('hourlyFromDateTimeState', hourlyFromDateTimeState)
+
+      const hourlyToDateTimeState = this.props.hourlyToDateTimeState
+      localStorage.setItem('hourlyToDateTimeState', hourlyToDateTimeState)
+
+      // console.log(localStorage.hourlyFromDateTimeState)
+      // console.log(localStorage.hourlyToDateTimeState)
       // console.log(localStorage)
 
       this.props.history.push('/checkout')

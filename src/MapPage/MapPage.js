@@ -323,7 +323,7 @@ class MapPage extends Component {
       )
     } else {
       // set state then converts momentjs object to
-      //  unix time 
+      //  unix time
       this.setState({
         filterHourlyFromDateTime: value.utc().format(),
         renderDisplayStores: true,
@@ -573,6 +573,12 @@ class MapPage extends Component {
                               filterMonthlyState={
                                 this.state.renderFilterMonthly
                               }
+                              hourlyFromDateTimeState={
+                                this.state.filterHourlyFromDateTime
+                              }
+                              hourlyToDateTimeState={
+                                this.state.filterHourlyToDateTime
+                              }
                             />
                           )
                         })
@@ -589,6 +595,12 @@ class MapPage extends Component {
                               filterHourlyState={this.state.renderFilterHourly}
                               filterMonthlyState={
                                 this.state.renderFilterMonthly
+                              }
+                              hourlyFromDateTimeState={
+                                this.state.filterHourlyFromDateTime
+                              }
+                              hourlyToDateTimeState={
+                                this.state.filterHourlyToDateTime
                               }
                             />
                           )

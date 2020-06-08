@@ -9,8 +9,10 @@ const BookingConfirmation = (props) => {
   const listingZipcode = localStorage.getItem('listingZipcode')
 
   const listingPrice = localStorage.getItem('listingPrice')
-
   const totalPrice = (+listingPrice + 0.5).toFixed(2)
+
+  const hourlyFromDateTime = localStorage.getItem('hourlyFromDateTimeState')
+  const hourlyToDateTime = localStorage.getItem('hourlyToDateTimeState')
 
   return (
     <div className='BookingConfirmation'>
@@ -105,8 +107,9 @@ const BookingConfirmation = (props) => {
           <section className='BookingConfirmation__Timeline'>
             <div>
               <div className='BookingConfirmation__EnterAfter'>Enter After</div>
-              <div>Sat, Jun 6,</div>
-              <div>6:00 PM</div>
+              <div>{hourlyFromDateTime}</div>
+              {/* <div>Sat, Jun 6,</div>
+              <div>6:00 PM</div> */}
             </div>
 
             <span className='BookingConfirmation__Arrow'>
@@ -115,8 +118,10 @@ const BookingConfirmation = (props) => {
 
             <div>
               <div className='BookingConfirmation__ExitBefore'>Exit Before</div>
-              <div>Sun, Jun 7,</div>
-              <div>12:00 AM</div>
+              <div>{hourlyToDateTime}</div>
+
+              {/* <div>Sun, Jun 7,</div>
+              <div>12:00 AM</div> */}
             </div>
           </section>
 
