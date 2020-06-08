@@ -6,6 +6,7 @@ import ListingCard from './ListingCard'
 import ListingInfo from './ListingInfo'
 import ListingContainer from './ListingContainer'
 import mapboxgl from 'mapbox-gl'
+import dayjs from 'dayjs'
 import './MapPage.scss'
 
 const styleLink = document.createElement('link')
@@ -15,6 +16,15 @@ styleLink.href =
 document.head.appendChild(styleLink)
 
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API_KEY}`
+
+const utc = require('dayjs/plugin/utc')
+var isBetween = require('dayjs/plugin/isBetween')
+dayjs.extend(isBetween)
+dayjs.extend(utc)
+
+const currentDate = dayjs()
+const currentDateUTC = currentDate.utc().format()
+const datePlus4HoursUTC = currentDate.add(4, 'day').utc().format()
 
 class MapPage extends Component {
   constructor() {
@@ -38,8 +48,10 @@ class MapPage extends Component {
       },
       currentListingInfo: null,
 
-      filterHourlyFromDateTime: '',
-      filterHourlyToDateTime: '',
+      // filterHourlyFromDateTime: '',
+      // filterHourlyToDateTime: '',
+      filterHourlyFromDateTime: currentDateUTC,
+      filterHourlyToDateTime: datePlus4HoursUTC,
 
       // filterMonthly: null,
 
@@ -201,8 +213,8 @@ class MapPage extends Component {
         description: listing.attributes.description,
         hourly_price: listing.attributes.hourly_price,
         monthly_price: listing.attributes.monthly_price,
-        available_start: Date.parse(listing.attributes.available_start),
-        available_end: Date.parse(listing.attributes.available_end),
+        available_start: listing.attributes.available_start,
+        available_end: listing.attributes.available_end,
         parking_type: listing.attributes.parking_type,
         contact_name: listing.attributes.contact_name,
         contact_number: listing.attributes.contact_number,
@@ -235,19 +247,18 @@ class MapPage extends Component {
    * FTILER HOURLY
   ------------------------------------*/
   handleFilterHourlyFromDatetime = (value) => {
-    // set state then converts momentjs object to
-    //  unix time in milliseconds by using valueOf()
-    console.log('handleFilterHourlyFromDatetime: ', value.valueOf())
+    console.log('handleFilterHourlyFromDatetime: ', value.toString())
+
     this.setState({
-      filterHourlyFromDateTime: value.valueOf(),
+      filterHourlyFromDateTime: value.toString(),
     })
   }
 
   handleFilterHourlyToDateTime = (value) => {
-    // set state then converts momentjs object to unix time
-    console.log('handleFilterHourlyToDateTime: ', value.valueOf())
+    console.log('handleFilterHourlyToDateTime: ', value.toString())
+
     this.setState({
-      filterHourlyToDateTime: value.valueOf(),
+      filterHourlyToDateTime: value.toString(),
     })
   }
 
@@ -255,9 +266,22 @@ class MapPage extends Component {
     const filterHourlyListings = this.state.allStores.features.filter(
       (listing) => {
         return (
-          this.state.filterHourlyFromDateTime >=
-            listing.properties.available_start &&
-          this.state.filterHourlyToDateTime <= listing.properties.available_end
+          // this.state.filterHourlyFromDateTime >=
+          //   listing.properties.available_start &&
+          // this.state.filterHourlyToDateTime <= listing.properties.available_end
+
+          dayjs(this.state.filterHourlyFromDateTime).isBetween(
+            listing.properties.available_start,
+            listing.properties.available_end,
+            null,
+            '[]'
+          ) &&
+          dayjs(this.state.filterHourlyToDateTime).isBetween(
+            listing.properties.available_start,
+            listing.properties.available_end,
+            null,
+            '[]'
+          )
         )
       }
     )
@@ -269,10 +293,12 @@ class MapPage extends Component {
           features: filterHourlyListings,
         },
       },
-      this.removeListingMarkers(),
-      this.addListingMarkers()
+      () => {
+        this.removeListingMarkers()
+        this.addListingMarkers()
+      }
     )
-    console.log(filterHourlyListings)
+    // console.log(filterHourlyListings)
   }
 
   handleOnChangeHourlyFromDateTime = (value, dateString) => {
@@ -280,21 +306,26 @@ class MapPage extends Component {
     // console.log('Formatted Selected Time: ', dateString)
     // console.log('typeof: ', typeof dateString)
 
+    // console.log('handleOnChangeHourlyFromDateTime', value.utc().format())
+
     // if the user clicks on the X cancel button, it will
     // return a null
     if (value === null) {
       this.setState(
         {
-          filterHourlyFromDateTime: '',
+          // filterHourlyFromDateTime: '',
+          filterHourlyFromDateTime: currentDateUTC,
           renderDisplayStores: false,
         },
-        this.renderAllStores()
+        () => {
+          this.renderAllStores()
+        }
       )
     } else {
       // set state then converts momentjs object to
-      //  unix time in milliseconds by using valueOf()
+      //  unix time 
       this.setState({
-        filterHourlyFromDateTime: value.valueOf(),
+        filterHourlyFromDateTime: value.utc().format(),
         renderDisplayStores: true,
       })
     }
@@ -310,16 +341,16 @@ class MapPage extends Component {
     if (value === null) {
       this.setState(
         {
-          filterHourlyToDateTime: '',
+          filterHourlyToDateTime: datePlus4HoursUTC,
           renderDisplayStores: false,
         },
         this.renderAllStores()
       )
     } else {
       // set state then converts momentjs object to
-      //  unix time in milliseconds by using valueOf()
+      //  unix time
       this.setState({
-        filterHourlyToDateTime: value.valueOf(),
+        filterHourlyToDateTime: value.utc().format(),
         renderDisplayStores: true,
       })
     }

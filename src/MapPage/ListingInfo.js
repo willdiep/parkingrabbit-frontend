@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import CommentTextBox from './CommentTextBox'
 import { Rate } from 'antd'
 import './ListingInfo.scss'
+import CommentTextBox from './CommentTextBox'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
 import evChargingIcon from '../assets/parking-features-icons/ev-charging.png'
 import handicapIcon from '../assets/parking-features-icons/handicap.png'
 import inAndOutIcon from '../assets/parking-features-icons/in-and-out.png'
@@ -19,6 +21,7 @@ import valetIcon from '../assets/parking-features-icons/valet.png'
 class ListingInfo extends Component {
   
   render() {
+
     const parkingTypeProp = this.props.currentListing.properties.parking_type
     let parkingTypeClass
 
@@ -97,6 +100,9 @@ class ListingInfo extends Component {
         </section>
 
         <div className='ListingInfo__Divider'></div>
+
+        {/* {this.props.currentListing.properties.available_start} */}
+
 
         <section className='ListingInfo__AddressContact'>
           <div className='ListingInfo__AddressContainer'>

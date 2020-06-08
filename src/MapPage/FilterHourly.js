@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
+import dayjs from 'dayjs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-
 import { DatePicker } from 'antd'
 import './Filter.scss'
 
-class FilterHourly extends Component {
+const isToday = require('dayjs/plugin/isToday')
+dayjs.extend(isToday)
 
+class FilterHourly extends Component {
   // handleFromDateTime(value, dateString) {
   //   console.log('Selected Time: ', value)
   //   console.log('Formatted Selected Time: ', dateString)
@@ -18,16 +20,25 @@ class FilterHourly extends Component {
   // }
 
   render() {
+    const currentDate = dayjs().format('M/D/YYYY H:mm A')
+    const datePlus4Hours = dayjs()
+      .add(4, 'day')
+      .format('M/D/YYYY H:mm A')
+
+      const dateFormat = 'YYYY/MM/DD';
+
     return (
       <section className='Filter__Hourly'>
         {/* <form> */}
         <div className='Filter__HourlyFrom'>
           <div className='Filter__HourlyText'>From</div>
           <DatePicker
+          // defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat}
+            size='large'
             showTime
             minuteStep={15}
             use12Hours
-            placeholder='Select Date and Time'
+            placeholder={currentDate}
             onChange={this.props.handleOnChangeHourlyFromDateTime}
             onOk={this.props.handleFilterHourlyFromDatetime}
           />
@@ -36,10 +47,11 @@ class FilterHourly extends Component {
         <div className='Filter__HourlyTo'>
           <div className='Filter__HourlyText'>To</div>
           <DatePicker
+            size='large'
             showTime
             minuteStep={15}
             use12Hours
-            placeholder='Select Date and Time'
+            placeholder={datePlus4Hours}
             onChange={this.props.handleOnChangeHourlyToDateTime}
             onOk={this.props.handleFilterHourlyToDateTime}
           />

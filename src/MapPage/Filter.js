@@ -59,7 +59,7 @@ class Filter extends Component {
           }
         />
 
-        {this.props.filterHourlyState ? (
+        {this.props.filterHourlyState && (
           <FilterHourly
             handleFilterHourlyFromDatetime={
               this.props.handleFilterHourlyFromDatetime
@@ -73,10 +73,11 @@ class Filter extends Component {
             handleOnChangeHourlyFromDateTime={this.props.handleOnChangeHourlyFromDateTime}
 
             handleOnChangeHourlyToDateTime={this.props.handleOnChangeHourlyToDateTime}
-          />
-        ) : null}
 
-        {this.props.filterMonthlyState ? <FilterMonthly /> : null}
+          />
+        )}
+
+        {this.props.filterMonthlyState && <FilterMonthly />}
       </article>
     )
   }
