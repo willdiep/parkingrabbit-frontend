@@ -5,7 +5,7 @@ import Header from './Header'
 import Process from './Process'
 import MobileApp from './MobileApp'
 import heroimage from '../images/hero-image.png'
-import Footer from './Footer'
+import Footer from '../Footer/Footer'
 import './HomePage.scss'
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

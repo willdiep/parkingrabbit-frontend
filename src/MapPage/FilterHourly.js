@@ -26,7 +26,7 @@ class FilterHourly extends Component {
     // const datePlus4Hours = hourlyToDateTimeProp.format('M/D/YYYY H:mm A')
    
     const currentDate = dayjs().format('M/D/YYYY H:mm A')
-    const datePlus4Hours = dayjs().add(4, 'hour').format('M/D/YYYY H:mm A')
+    const datePlus4Hours = dayjs().add(4, 'hour').format('M/D/YYYY h:m A')
 
     // const dateFormat = 'YYYY/MM/DD';
 

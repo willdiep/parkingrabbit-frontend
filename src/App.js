@@ -14,6 +14,8 @@ import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import LoginSignup from './LoginSignup/LoginSignup'
+import MyReservations from './MyReservations/MyReservations'
+import Account from './Account/Account'
 import NoMatch404 from './NoMatch404'
 import './App.scss'
 
@@ -119,30 +121,30 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.reAuth();
+    this.reAuth()
   }
 
   reAuth = () => {
-    fetch("http://localhost:3000/reauth", {
-      method: "GET",
+    fetch('http://localhost:3000/reauth', {
+      method: 'GET',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('jwt')
-      }
+        Authorization: localStorage.getItem('jwt'),
+      },
     })
-    .then(resObj => resObj.json())
-    .then((data) => {
-      if (data.error) {
-        throw Error
-      } else {
-        this.setState({user: data.user})
-      }
-    })
-    .catch((err) => {
-      // feel free to remove this once it's in production
-      console.log(err)
-    })
+      .then((resObj) => resObj.json())
+      .then((data) => {
+        if (data.error) {
+          throw Error
+        } else {
+          this.setState({ user: data.user })
+        }
+      })
+      .catch((err) => {
+        // feel free to remove this once it's in production
+        console.log(err)
+      })
   }
 
   // handleSetLocationInput = e => {
@@ -273,13 +275,28 @@ class App extends Component {
             )}
           />
 
+          <Route
+            exact={true}
+            path='/myreservations'
+            render={(props) => <MyReservations {...props} />}
+          />
+
+          <Route
+            exact={true}
+            path='/account'
+            render={(props) => <Account {...props} />}
+          />
+
           {localStorage.hasOwnProperty('email') &&
             localStorage.hasOwnProperty('bookMySpotBtnClicked') && (
               <Route
                 exact
                 path='/checkout'
                 render={(props) => (
-                  <CheckoutPage {...props} userId={this.state.user ? this.state.user.id : 1} />
+                  <CheckoutPage
+                    {...props}
+                    userId={this.state.user ? this.state.user.id : 1}
+                  />
                 )}
               />
             )}

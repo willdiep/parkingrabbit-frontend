@@ -1,0 +1,18 @@
+.MyReservation {
+  &__Content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__Text {
+    font-size: 2rem;
+  }
+
+  &__GoBack {
+    text-decoration: underline;
+    color: var(--carrot-color);
+  }
+}

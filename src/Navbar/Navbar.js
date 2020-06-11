@@ -48,14 +48,14 @@ class Navbar extends Component {
             <>
               <Link
                 exact
-                to='/'
+                to='/myreservations'
                 className='nav__item nav__item--right nav__login'
               >
                 My Reservations
               </Link>
               <Link
                 exact
-                to='/signup'
+                to='/account'
                 className='nav__item nav__item--right nav__signup'
               >
                 Account
