@@ -37,6 +37,7 @@ class FilterHourly extends Component {
           <div className='Filter__HourlyText'>From</div>
           <DatePicker
             // defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat}
+            format={'M/D/YYYY hh:mm A'}
             size='large'
             showTime
             minuteStep={15}
@@ -52,6 +53,7 @@ class FilterHourly extends Component {
           <DatePicker
             size='large'
             showTime
+            format={'M/D/YYYY hh:mm A'}
             minuteStep={15}
             use12Hours
             placeholder={datePlus4Hours}
