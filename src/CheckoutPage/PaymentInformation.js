@@ -36,11 +36,11 @@ const PaymentInformation = (props) => {
               <input
                 className='Checkout__FormInput'
                 type='text'
-                name='driverAddress'
-                value='driverAddress'
+                name='billingAddress'
+                value='billingAddress'
                 placeholder=''
                 onChange={props.handleChange}
-                value={props.driverAddress}
+                value={props.billingAddress}
               />
             </p>
 
@@ -53,11 +53,11 @@ const PaymentInformation = (props) => {
                 <input
                   className='Checkout__FormInput'
                   type='text'
-                  name='driverCity'
-                  value='driverCity'
+                  name='billingCity'
+                  value='billingCity'
                   placeholder=''
                   onChange={props.handleChange}
-                  value={props.driverCity}
+                  value={props.billingCity}
                 />
               </p>
               <p>
@@ -68,11 +68,11 @@ const PaymentInformation = (props) => {
                 <input
                   className='Checkout__FormInput'
                   type='text'
-                  name='driverState'
-                  value='driverState'
+                  name='billingState'
+                  value='billingState'
                   placeholder=''
                   onChange={props.handleChange}
-                  value={props.driverState}
+                  value={props.billingState}
                 />
               </p>
               <p>
@@ -83,11 +83,11 @@ const PaymentInformation = (props) => {
                 <input
                   className='Checkout__FormInput'
                   type='text'
-                  name='driverZipcode'
-                  value='driverZipcode'
+                  name='billingZipcode'
+                  value='billingZipcode'
                   placeholder=''
                   onChange={props.handleChange}
-                  value={props.driverZipcode}
+                  value={props.billingZipcode}
                 />
               </p>
             </div>

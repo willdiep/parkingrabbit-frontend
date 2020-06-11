@@ -23,7 +23,7 @@ console.log('hourlyFromDateTime', hourlyFromDateTime)
   return (
     <div className='BookingConfirmation'>
       <header className='BookingConfirmation__Header text-bold'>
-        Booking Summary
+        Booking Confirmation
       </header>
       <article className='BookingConfirmation__Container'>
         <section className='BookingConfirmation__Summary'>
@@ -52,9 +52,9 @@ console.log('hourlyFromDateTime', hourlyFromDateTime)
               <br></br>
               <div className='BookingConfirmation__Input'>
                 <div>{props.driverName}</div>
-                <div>{props.driverAddress}</div>
+                <div>{props.billingAddress}</div>
                 <div>
-                  {props.driverCity}, {props.driverState} {props.driverZipcode}
+                  {props.billingCity}, {props.billingState} {props.billingZipcode}
                 </div>
                 <div>{props.driverContactNum}</div>
               </div>

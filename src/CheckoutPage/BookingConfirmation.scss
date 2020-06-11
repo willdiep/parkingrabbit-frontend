@@ -26,7 +26,7 @@
 
   &__Divider{
     border-bottom: 1.25px solid var(--third-color);
-    width: 232px;
+    // width: 232px;
   }
 
   &__DividerTotal {
@@ -53,7 +53,7 @@
   &__Timeline {
     display: flex;
     justify-content: space-evenly;
-    padding: 2rem 3rem 2rem 2rem;
+    padding: 3rem 3rem 1rem 2rem;
   }
 
   &__Arrow {

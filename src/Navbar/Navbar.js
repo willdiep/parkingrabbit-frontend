@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
 
@@ -82,4 +83,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar
+export default withRouter(Navbar)

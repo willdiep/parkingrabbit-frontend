@@ -118,6 +118,33 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.reAuth();
+  }
+
+  reAuth = () => {
+    fetch("http://localhost:3000/reauth", {
+      method: "GET",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('jwt')
+      }
+    })
+    .then(resObj => resObj.json())
+    .then((data) => {
+      if (data.error) {
+        throw Error
+      } else {
+        this.setState({user: data.user})
+      }
+    })
+    .catch((err) => {
+      // feel free to remove this once it's in production
+      console.log(err)
+    })
+  }
+
   // handleSetLocationInput = e => {
   //   // console.log(e)
   //   this.setState({
@@ -175,7 +202,6 @@ class App extends Component {
       userLocationText: locationName,
     })
   }
-
 
   render() {
     // console.log(this.props.history)
@@ -249,7 +275,13 @@ class App extends Component {
 
           {localStorage.hasOwnProperty('email') &&
             localStorage.hasOwnProperty('bookMySpotBtnClicked') && (
-              <Route exact path='/checkout' component={CheckoutPage} />
+              <Route
+                exact
+                path='/checkout'
+                render={(props) => (
+                  <CheckoutPage {...props} userId={this.state.user ? this.state.user.id : 1} />
+                )}
+              />
             )}
 
           <Route component={NoMatch404} />
