@@ -18,10 +18,15 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
     - [ParkingRabbit Back-end Repo](#parkingrabbit-back-end-repo)
   - [Table Of Content](#table-of-content)
     - [1. Technologies](#1-technologies)
-    - [2. React Component Hierarchy](#2-react-component-hierarchy)
-    - [3. Domain Model](#3-domain-model)
-    - [4. User Flow Diagram](#4-user-flow-diagram)
-    - [5. Design Documents Wiki](#5-design-documents-wiki)
+    - [2. Design Documents Wiki](#2-design-documents-wiki)
+      - [MVP List](#mvp-list)
+      - [Schema](#schema)
+      - [Sample State](#sample-state)
+      - [Backend Routes](#backend-routes)
+      - [Frontend Routes](#frontend-routes)
+    - [3. React Component Hierarchy](#3-react-component-hierarchy)
+    - [4. Domain Model](#4-domain-model)
+    - [5. User Flow Diagram](#5-user-flow-diagram)
     - [6. Key features](#6-key-features)
       - [User Authentication](#user-authentication)
       - [Listings + Search](#listings--search)
@@ -54,9 +59,16 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 * Algolia Places API
 
 
+### 2. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+  
+#### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+#### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+#### [Sample State](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+#### [Backend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+#### [Frontend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+  
 
-
-### 2. React Component Hierarchy
+### 3. React Component Hierarchy
 (Click to enlarge)
 ![app component](./readme/app-component.jpg)
 
@@ -67,7 +79,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-### 3. Domain Model
+### 4. Domain Model
 (Click to enlarge)
 
 ![domain model](./readme/domain-model.jpg)
@@ -75,21 +87,11 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-### 4. User Flow Diagram
+### 5. User Flow Diagram
 (Click to enlarge)
 ![user flow diagram](./readme/user-flow-diagram.jpg)
 
 
-
-
-### 5. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-  
-- #### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-- #### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-- #### [Sample State](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-- #### [Backend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-- #### [Frontend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-  
 
 
 ### 6. Key features
