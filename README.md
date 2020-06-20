@@ -24,6 +24,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 * Algolia Places API
 
 ## React Component Hierarchy
+(Click to enlarge)
 ![app component](./readme/app-component.jpg)
 
 ![map page component](./readme/mappage-component.jpg)
@@ -31,10 +32,12 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 ![checkout page component](./readme/checkoutpage-component.jpg)
 
 ## Domain Model
+(Click to enlarge)
 
 ![domain model](./readme/domain-model.jpg)
 
 ## User Flow Diagram
+(Click to enlarge)
 ![user flow diagram](./readme/user-flow-diagram.jpg)
 
 
