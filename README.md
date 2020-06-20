@@ -21,7 +21,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
     - [2. React Component Hierarchy](#2-react-component-hierarchy)
     - [3. Domain Model](#3-domain-model)
     - [4. User Flow Diagram](#4-user-flow-diagram)
-    - [5. Design Documents Wiki:](#5-design-documents-wiki)
+    - [5. Design Documents Wiki](#5-design-documents-wiki)
     - [6. Key features](#6-key-features)
       - [User Authentication](#user-authentication)
       - [Listings + Search](#listings--search)
@@ -82,13 +82,13 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-### 5. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki):
+### 5. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   
-- MVP List
-- Schema
-- Sample State
-- Backend Routes
-- Frontend Routes
+- #### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+- #### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+- #### [Sample State](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+- #### [Backend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+- #### [Frontend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   
 
 
