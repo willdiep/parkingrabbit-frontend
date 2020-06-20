@@ -26,9 +26,8 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
     - [3. Design Documents Wiki](#3-design-documents-wiki)
       - [MVP List](#mvp-list)
       - [Schema](#schema)
-      - [Sample State](#sample-state)
-      - [Backend Routes](#backend-routes)
       - [Frontend Routes](#frontend-routes)
+      - [Backend Routes](#backend-routes)
     - [4. React Component Hierarchy](#4-react-component-hierarchy)
     - [5. Domain Model](#5-domain-model)
     - [6. User Flow Diagram](#6-user-flow-diagram)
@@ -83,11 +82,10 @@ Navigate to the web address of your Node server http://localhost:4000
 
 ### 3. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   
-#### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-#### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-#### [Sample State](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-#### [Backend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-#### [Frontend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+#### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki/MVP-List)
+#### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki/Schema)
+#### [Frontend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki/Frontend-Routes)
+#### [Backend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki/Backend-Routes)
   
 
 ### 4. React Component Hierarchy
