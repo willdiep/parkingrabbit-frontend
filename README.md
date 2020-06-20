@@ -11,6 +11,8 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 ![Splash Page](./readme/splash-page.png)
 
+![Login Page](./readme/login-page.png)
+
 ![Map Page](./readme/map-page.png)
 
 ![Checkout Page](./readme/checkout-page.png)
