@@ -11,12 +11,16 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 ![](app/assets/images/readme/solobnb-demo.gif)
 
 ## Table Of Content
-1. [ Technologies ](#Technologies)
-2. [ Usage tips. ](#usage)
+1. [ Technologies ](#technologies)
+2. [ React Component Hierarchy ](#react-component-hierarchy)
+3. [ Domain Model ](#domain-model)
+4. [ User Flow Diagram ](#user-flow-diagram)
+5. [ Key Features ](#key-features)
 
 
 <a name="technologies"></a>
-## 1. Technologies
+
+### 1. Technologies
 
 * React
 * Ruby on Rails
@@ -29,7 +33,11 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 * Mapbox API
 * Algolia Places API
 
-## React Component Hierarchy
+
+
+<a name="react-component-hierarchy"></a>
+
+### 2. React Component Hierarchy
 (Click to enlarge)
 ![app component](./readme/app-component.jpg)
 
@@ -37,20 +45,29 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 ![checkout page component](./readme/checkoutpage-component.jpg)
 
-## Domain Model
+
+
+<a name="domain-model"></a>
+
+### 3. Domain Model
 (Click to enlarge)
 
 ![domain model](./readme/domain-model.jpg)
 
-## User Flow Diagram
+
+
+<a name="user-flow-diagram"></a>
+
+### 4. User Flow Diagram
 (Click to enlarge)
 ![user flow diagram](./readme/user-flow-diagram.jpg)
 
 
 
 
+<a name="key-features"></a>
 
-## Key features
+### 5. Key features
 
 #### [ParkingRabbit Design Documents](https://github.com/willdiep/parkingrabbit-frontend/wiki)
 
