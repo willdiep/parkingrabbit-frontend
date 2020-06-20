@@ -1,8 +1,9 @@
 # Parking Rabbit
 
-## [Visit the live site](https://parkingrabbit.herokuapp.com/)
+### [Visit the live site](https://parkingrabbit.herokuapp.com/)
 
 ### [x] [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
+
 ### [ParkingRabbit Back-end Repo](https://github.com/willdiep/parkingrabbit-backend)
 
 
@@ -11,14 +12,33 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 ![](app/assets/images/readme/solobnb-demo.gif)
 
 ## Table Of Content
-1. [ Technologies ](#technologies)
-2. [ React Component Hierarchy ](#react-component-hierarchy)
-3. [ Domain Model ](#domain-model)
-4. [ User Flow Diagram ](#user-flow-diagram)
-5. [ Key Features ](#key-features)
+- [Parking Rabbit](#parking-rabbit)
+    - [Visit the live site](#visit-the-live-site)
+    - [[x] ParkingRabbit Front-end Repo](#x-parkingrabbit-front-end-repo)
+    - [ParkingRabbit Back-end Repo](#parkingrabbit-back-end-repo)
+  - [Table Of Content](#table-of-content)
+    - [1. Technologies](#1-technologies)
+    - [2. React Component Hierarchy](#2-react-component-hierarchy)
+    - [3. Domain Model](#3-domain-model)
+    - [4. User Flow Diagram](#4-user-flow-diagram)
+    - [5. Design Documents Wiki:](#5-design-documents-wiki)
+    - [6. Key features](#6-key-features)
+      - [User Authentication](#user-authentication)
+      - [Listings + Search](#listings--search)
+      - [Bookings](#bookings)
+      - [Reviews](#reviews)
+      - [User Profiles + Messaging](#user-profiles--messaging)
+  - [Available Scripts](#available-scripts)
+    - [`yarn start`](#yarn-start)
+    - [`yarn test`](#yarn-test)
+    - [`yarn build`](#yarn-build)
+    - [`yarn eject`](#yarn-eject)
+  - [Learn More](#learn-more)
+    - [Deployment](#deployment)
+    - [`yarn build` fails to minify](#yarn-build-fails-to-minify)
 
+***
 
-<a name="technologies"></a>
 
 ### 1. Technologies
 
@@ -35,7 +55,6 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-<a name="react-component-hierarchy"></a>
 
 ### 2. React Component Hierarchy
 (Click to enlarge)
@@ -47,7 +66,6 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-<a name="domain-model"></a>
 
 ### 3. Domain Model
 (Click to enlarge)
@@ -56,7 +74,6 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-<a name="user-flow-diagram"></a>
 
 ### 4. User Flow Diagram
 (Click to enlarge)
@@ -65,12 +82,17 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-<a name="key-features"></a>
+### 5. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki):
+  
+- MVP List
+- Schema
+- Sample State
+- Backend Routes
+- Frontend Routes
+  
 
-### 5. Key features
 
-#### [ParkingRabbit Design Documents](https://github.com/willdiep/parkingrabbit-frontend/wiki)
-
+### 6. Key features
 
 #### User Authentication
 
@@ -257,7 +279,7 @@ class BookingIndexItem extends React.Component {
 }
 ```
 
-### Reviews
+#### Reviews
 * Users are able to write reviews for past bookings and also provide ratings in the form of stars, from one to five.
 * Users are able to rate bookings across six categories — accuracy, communication, cleanliness, location, check-in, and value.
 
@@ -407,26 +429,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
 
