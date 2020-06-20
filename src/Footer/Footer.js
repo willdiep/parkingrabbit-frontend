@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './Footer.scss'
-import facebookIcon from '../images/facebook-icon.svg'
-import twitterIcon from '../images/twitter-icon.svg'
-import mailIcon from '../images/mail-icon.svg'
-import instagramIcon from '../images/instagram-icon.svg'
+import facebookIcon from '../assets/images/facebook-icon.svg'
+import twitterIcon from '../assets/images/twitter-icon.svg'
+import mailIcon from '../assets/images/mail-icon.svg'
+import instagramIcon from '../assets/images/instagram-icon.svg'
 
 class Footer extends Component {
   render() {

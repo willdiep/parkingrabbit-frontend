@@ -1,9 +1,9 @@
 import React from 'react'
 import LineBreak from '../GLOBAL/LineBreak'
+import appleAppBadge from '../assets/images/apple-app-badge.svg'
+import googleAppBadge from '../assets/images/google-play-badge.png'
+import iphoneMockup from '../assets/images/iphone-10-mockup.png'
 import './MobileApp.scss'
-import appleAppBadge from '../images/apple-app-badge.svg'
-import googleAppBadge from '../images/google-play-badge.png'
-import iphoneMockup from '../images/iphone-10-mockup.png'
 
 const MobileApp = () => {
   return (

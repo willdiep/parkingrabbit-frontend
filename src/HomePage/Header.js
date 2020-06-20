@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 // import AlgoliaPlaces from 'algolia-places-react'
 import SearchBtn from '../SearchBtn/SearchBtn'
 import LineBreak from '../GLOBAL/LineBreak'
-// import heroimage from '../images/hero-image.png'
 import './Header.scss'
 
 // const styleLink = document.createElement('link')

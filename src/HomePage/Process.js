@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import searchIcon from '../images/search-icon.png'
-import bookIcon from '../images/book-icon.png'
-import parkIcon from '../images/park-icon.png'
+import searchIcon from '../assets/images/search-icon.png'
+import bookIcon from '../assets/images/book-icon.png'
+import parkIcon from '../assets/images/park-icon.png'
 import './Process.scss'
 
 class Process extends Component {

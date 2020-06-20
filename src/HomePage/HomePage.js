@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import Header from './Header'
 import Process from './Process'
 import MobileApp from './MobileApp'
-import heroimage from '../images/hero-image.png'
+import heroimage from '../assets/images/hero-image.png'
 import Footer from '../Footer/Footer'
 import './HomePage.scss'
 

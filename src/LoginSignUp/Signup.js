@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import facebookBtn from '../assets/facebook-btn.png'
-import googleBtn from '../assets/google-btn.png'
+import facebookBtn from '../assets/images/facebook-btn.png'
+import googleBtn from '../assets/images/google-btn.png'
 import './LoginSignup.scss'
 
 class Signup extends Component {
