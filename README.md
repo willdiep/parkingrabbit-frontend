@@ -10,7 +10,13 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 ![](app/assets/images/readme/solobnb-demo.gif)
 
-## Technologies
+## Table Of Content
+1. [ Technologies ](#Technologies)
+2. [ Usage tips. ](#usage)
+
+
+<a name="technologies"></a>
+## 1. Technologies
 
 * React
 * Ruby on Rails
