@@ -1,4 +1,4 @@
-# Parking Rabbit
+# ParkingRabbit v1.0
 
 ### [Visit the live site](https://parkingrabbit.herokuapp.com/)
 
@@ -12,35 +12,31 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 ![](app/assets/images/readme/solobnb-demo.gif)
 
 ## Table Of Content
-- [Parking Rabbit](#parking-rabbit)
+- [ParkingRabbit v1.0](#parkingrabbit-v10)
     - [Visit the live site](#visit-the-live-site)
     - [[x] ParkingRabbit Front-end Repo](#x-parkingrabbit-front-end-repo)
     - [ParkingRabbit Back-end Repo](#parkingrabbit-back-end-repo)
   - [Table Of Content](#table-of-content)
     - [1. Technologies](#1-technologies)
-    - [2. Design Documents Wiki](#2-design-documents-wiki)
+    - [2. Setup](#2-setup)
+    - [Prerequisites](#prerequisites)
+    - [Backend Setup](#backend-setup)
+    - [Frontend Setup](#frontend-setup)
+    - [In Your Browser](#in-your-browser)
+    - [3. Design Documents Wiki](#3-design-documents-wiki)
       - [MVP List](#mvp-list)
       - [Schema](#schema)
       - [Sample State](#sample-state)
       - [Backend Routes](#backend-routes)
       - [Frontend Routes](#frontend-routes)
-    - [3. React Component Hierarchy](#3-react-component-hierarchy)
-    - [4. Domain Model](#4-domain-model)
-    - [5. User Flow Diagram](#5-user-flow-diagram)
-    - [6. Key features](#6-key-features)
+    - [4. React Component Hierarchy](#4-react-component-hierarchy)
+    - [5. Domain Model](#5-domain-model)
+    - [6. User Flow Diagram](#6-user-flow-diagram)
+    - [7. Key features](#7-key-features)
       - [User Authentication](#user-authentication)
       - [Listings + Search](#listings--search)
       - [Bookings](#bookings)
       - [Reviews](#reviews)
-      - [User Profiles + Messaging](#user-profiles--messaging)
-  - [Available Scripts](#available-scripts)
-    - [`yarn start`](#yarn-start)
-    - [`yarn test`](#yarn-test)
-    - [`yarn build`](#yarn-build)
-    - [`yarn eject`](#yarn-eject)
-  - [Learn More](#learn-more)
-    - [Deployment](#deployment)
-    - [`yarn build` fails to minify](#yarn-build-fails-to-minify)
 
 ***
 
@@ -59,7 +55,30 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 * Algolia Places API
 
 
-### 2. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+### 2. Setup
+
+### Prerequisites
+- React
+- Rails v5.1.4
+- PostgreSQL 10
+
+
+### Backend Setup
+1. Clone this repo - https://github.com/lindsaycriswell/kitchen-sync-backend
+1. Install Gems bundle install
+1. Set up Database rake db:create, then run rake db:migrate
+1. Seed Database rake db:seed
+1. Start your server rails s
+
+### Frontend Setup
+1. Clone this repo - https://github.com/lindsaycriswell/kitchen-sync-frontend
+1. Install dependencies `npm install` or `yarn add`
+1. Start your server `npm start` or `yarn start`
+
+### In Your Browser
+Navigate to the web address of your Node server http://localhost:4000
+
+### 3. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   
 #### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki)
 #### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki)
@@ -68,7 +87,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 #### [Frontend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   
 
-### 3. React Component Hierarchy
+### 4. React Component Hierarchy
 (Click to enlarge)
 ![app component](./readme/app-component.jpg)
 
@@ -79,7 +98,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-### 4. Domain Model
+### 5. Domain Model
 (Click to enlarge)
 
 ![domain model](./readme/domain-model.jpg)
@@ -87,14 +106,14 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 
-### 5. User Flow Diagram
+### 6. User Flow Diagram
 (Click to enlarge)
 ![user flow diagram](./readme/user-flow-diagram.jpg)
 
 
 
 
-### 6. Key features
+### 7. Key features
 
 #### User Authentication
 
@@ -105,7 +124,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 * Logged in users can access features such as viewing parking listings based on location, filtering listings by date and time, leaving reviews, 
   and booking parking spaces.
-* Users not logged in cannot leave reviews or book parkkng spaces
+* Users not logged in cannot leave reviews or book parking spaces
 * Only logged out users can view the splash page. Logged in users are redirected to the listing index page.
 
 ```
@@ -323,119 +342,3 @@ class ReviewIndex extends React.Component {
   //...
 }
 ```
-
-#### User Profiles + Messaging
-* Users are able to access their own profile under the "Profile" section of the navigational bar dropdown.
-* Users can visit a host's profile by clicking on the host's name on the listing page.
-* Profiles display a short text description as well as the user's listings. If the user has no listings, it will say that the user has no listings at this time.
-* Users are able to send live messages to each other with a button accessible on every user's profile page.
-
-<!-- ![](app/assets/images/readme/solobnb-messaging.gif) -->
-
-```
-class ChatChannel < ApplicationCable::Channel
-  def subscribed 
-    @chat_channel = Channel.first
-    stream_for @chat_channel
-  end
-
-  def speak(data)
-    message_data = data["message"]
-    @message = @chat_channel.messages.new(body: message_data['body'])
-    @message.author_id = current_user.id
-    @message.channel_id = @chat_channel.id
-    if @message.save 
-      socket = { message: @message, type: "message" }
-      ChatChannel.broadcast_to(@chat_channel, socket)
-    end
-  end 
-
-  def load 
-    messages = Message.all.collect(&:body)
-    socket = { messages: messages, type: "messages" }
-    ChatChannel.broadcast_to(@chat_channel, socket)
-  end
-end
-```
-
-
-```
-class ChatRoom extends React.Component {
-  //...
-
-  componentDidMount() {
-    App.cable.subscriptions.create(
-      { channel: 'ChatChannel' }, 
-      {
-        received: data => {
-          if (!this.props.users[data.message.author_id]) {
-            this.props.fetchUser(data.message.author_id).then(() => this.props.receiveMessage(data.message))
-          } else {
-            this.props.receiveMessage(data.message)
-          }
-        },
-        speak: function(data) {
-          return this.perform('speak', data)
-        }
-      }
-    )
-    this.props.fetchMessages(1);
-  }
-  
-  //...
-}
-```
-
-
-
-
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
