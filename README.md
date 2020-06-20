@@ -66,17 +66,16 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 - PostgreSQL 10
 
 #### Frontend Setup
-1. Clone this repo - https://github.com/willdiep/parkingrabbit-frontend
-1. Install dependencies `npm install` or `yarn add`
-1. Start your server `npm start` or `yarn start`
+1. Clone current repo 
+2. Install dependencies `npm install` or `yarn add`
+3. Start your server `npm start` or `yarn start`
 
 #### Backend Setup
-1. Clone this repo - https://github.com/willdiep/parkingrabbit-backend
-1. Install Gems bundle install
-1. Set up Database rake db:create, then run rake db:migrate
-1. Seed Database rake db:seed
-1. Start your server rails s
-
+2. Clone this repo - https://github.com/willdiep/parkingrabbit-backend
+3. Install Gems `bundle install`
+4. Set up database `rails db:create`, then migrate database`rails db:migrate`
+5. Seed database `rails db:seed`
+6. Start your server `rails s`
 
 #### In Your Browser
 Navigate to the web address of your Node server http://localhost:4000
