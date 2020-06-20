@@ -9,7 +9,9 @@
 
 ParkingRabbit is a single-page, full-stack application to reserve parking spots in San Francisco. It uses React on the front-end as well as Ruby on Rails with a PostgresSQl database on the back-end. 
 
-![](app/assets/images/readme/solobnb-demo.gif)
+![Splash Page](./readme/splash-page.png)
+
+![Map Page](./readme/map-page.png)
 
 ## Table Of Content
 - [ParkingRabbit v1.0](#parkingrabbit-v10)
