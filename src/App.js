@@ -13,7 +13,7 @@ import HomePage from './HomePage/HomePage'
 // import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
-import LoginSignup from './LoginSignup/LoginSignup'
+// import LoginSignup from './LoginSignup/LoginSignup'
 import MyReservations from './MyReservations/MyReservations'
 import Account from './Account/Account'
 import NoMatch404 from './NoMatch404'
@@ -231,7 +231,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             exact={true}
             path='/login'
             render={(props) => (
@@ -243,9 +243,9 @@ class App extends Component {
                 />
               </LoginSignup>
             )}
-          />
+          /> */}
 
-          <Route
+          {/* <Route
             exact={true}
             path='/signup'
             render={(props) => (
@@ -257,7 +257,7 @@ class App extends Component {
                 />
               </LoginSignup>
             )}
-          />
+          /> */}
 
           <Route
             exact={true}
