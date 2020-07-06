@@ -9,7 +9,7 @@ import {
 // import Navbar from './Navbar/Navbar'
 // import logo from './logo.svg';
 import HomePage from './HomePage/HomePage'
-import Login from './LoginSignup/Login'
+// import Login from './LoginSignup/Login'
 import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
@@ -231,7 +231,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             exact={true}
             path='/login'
             render={(props) => (
@@ -243,7 +243,7 @@ class App extends Component {
                 />
               </LoginSignup>
             )}
-          />
+          /> */}
 
           <Route
             exact={true}
