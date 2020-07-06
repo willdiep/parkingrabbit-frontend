@@ -11,9 +11,9 @@ import {
 import HomePage from './HomePage/HomePage'
 // import Login from './LoginSignup/Login'
 // import Signup from './LoginSignup/Signup'
+import LoginSignup from './LoginSignup/LoginSignup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
-import LoginSignup from './src/LoginSignup/LoginSignup'
 import MyReservations from './MyReservations/MyReservations'
 import Account from './Account/Account'
 import NoMatch404 from './NoMatch404'
@@ -215,34 +215,6 @@ class App extends Component {
         <Switch>
           <Route
             // exact={true}
-            path='/login'
-            render={(props) => (
-              <LoginSignup>
-                {/* <Login
-                  {...props}
-                  handleLogin={this.handleLogin}
-                  loginError={this.state.loginError}
-                /> */}
-              </LoginSignup>
-            )}
-          />
-
-          <Route
-            // exact={true}
-            path='/signup'
-            render={(props) => (
-              <LoginSignup>
-                {/* <Signup
-                  {...props}
-                  handleSignUp={this.handleSignUp}
-                  loginError={this.state.loginError}
-                /> */}
-              </LoginSignup>
-            )}
-          />
-
-          <Route
-            // exact={true}
             path='/mappage'
             render={(props) => (
               <MapPage
@@ -282,6 +254,34 @@ class App extends Component {
                 )}
               />
             )}
+
+          <Route
+            // exact={true}
+            path='/login'
+            render={(props) => (
+              <LoginSignup>
+                {/* <Login
+                  {...props}
+                  handleLogin={this.handleLogin}
+                  loginError={this.state.loginError}
+                /> */}
+              </LoginSignup>
+            )}
+          />
+
+          <Route
+            // exact={true}
+            path='/signup'
+            render={(props) => (
+              <LoginSignup>
+                {/* <Signup
+                  {...props}
+                  handleSignUp={this.handleSignUp}
+                  loginError={this.state.loginError}
+                /> */}
+              </LoginSignup>
+            )}
+          />
 
           <Route
             // exact={true}
