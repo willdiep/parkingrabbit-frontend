@@ -9,7 +9,7 @@ import {
 // import Navbar from './Navbar/Navbar'
 // import logo from './logo.svg';
 import HomePage from './HomePage/HomePage'
-// import Login from './LoginSignup/Login'
+import Login from './LoginSignup/Login'
 import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
@@ -214,25 +214,7 @@ class App extends Component {
         {/* <Navbar /> */}
         <Switch>
           <Route
-            exact={true}
-            path='/'
-            render={(props) => (
-              <HomePage
-                {...props}
-                // stateLocation={this.state.userLocationInput}
-                handleSetLatLng={this.handleSetLatLng}
-                handleSetLocationText={this.handleSetLocationText}
-                user={this.state.user}
-
-                // setUserLocationInput={this.handleSetLocationInput}
-                // setSubmitListingCollection={
-                // this.handleSubmitListingCollection
-                // }
-              />
-            )}
-          />
-          {/* <Route
-            exact={true}
+            // exact={true}
             path='/login'
             render={(props) => (
               <LoginSignup>
@@ -243,10 +225,10 @@ class App extends Component {
                 />
               </LoginSignup>
             )}
-          /> */}
+          />
 
           <Route
-            exact={true}
+            // exact={true}
             path='/signup'
             render={(props) => (
               <LoginSignup>
@@ -260,7 +242,7 @@ class App extends Component {
           />
 
           <Route
-            exact={true}
+            // exact={true}
             path='/mappage'
             render={(props) => (
               <MapPage
@@ -276,13 +258,13 @@ class App extends Component {
           />
 
           <Route
-            exact={true}
+            // exact={true}
             path='/myreservations'
             render={(props) => <MyReservations {...props} />}
           />
 
           <Route
-            exact={true}
+            // exact={true}
             path='/account'
             render={(props) => <Account {...props} />}
           />
@@ -300,6 +282,25 @@ class App extends Component {
                 )}
               />
             )}
+
+          <Route
+            // exact={true}
+            path='/'
+            render={(props) => (
+              <HomePage
+                {...props}
+                // stateLocation={this.state.userLocationInput}
+                handleSetLatLng={this.handleSetLatLng}
+                handleSetLocationText={this.handleSetLocationText}
+                user={this.state.user}
+
+                // setUserLocationInput={this.handleSetLocationInput}
+                // setSubmitListingCollection={
+                // this.handleSubmitListingCollection
+                // }
+              />
+            )}
+          />
 
           <Route component={NoMatch404} />
         </Switch>
