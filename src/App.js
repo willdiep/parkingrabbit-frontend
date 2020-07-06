@@ -11,7 +11,7 @@ import {
 import HomePage from './HomePage/HomePage'
 // import Login from './LoginSignup/Login'
 // import Signup from './LoginSignup/Signup'
-// import LoginSignup from './LoginSignup/LoginSignup'
+import LoginSignup from './HomePage/LoginSignup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import MyReservations from './MyReservations/MyReservations'
@@ -256,11 +256,11 @@ class App extends Component {
             )}
 
 
-          {/* <Route
+          <Route
             // exact={true}
             path='/login'
             render={(props) => <LoginSignup />}
-          /> */}
+          />
 
           {/* <Route
             // exact={true}
