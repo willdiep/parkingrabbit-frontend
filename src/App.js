@@ -9,8 +9,8 @@ import {
 // import Navbar from './Navbar/Navbar'
 // import logo from './logo.svg';
 import HomePage from './HomePage/HomePage'
-import Login from './LoginSignup/Login'
-import Signup from './LoginSignup/Signup'
+// import Login from './LoginSignup/Login'
+// import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import LoginSignup from './LoginSignup/LoginSignup'
