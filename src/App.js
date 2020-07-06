@@ -11,7 +11,7 @@ import {
 import HomePage from './HomePage/HomePage'
 // import Login from './LoginSignup/Login'
 // import Signup from './LoginSignup/Signup'
-import LoginSignup from './LoginSignup/LoginSignup'
+import Main from './LoginSignup/Main'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import MyReservations from './MyReservations/MyReservations'
@@ -258,7 +258,7 @@ class App extends Component {
           <Route
             // exact={true}
             path='/login'
-            render={(props) => <LoginSignup />}
+            render={(props) => <Main />}
           />
 
           {/* <Route

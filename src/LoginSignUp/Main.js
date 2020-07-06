@@ -4,7 +4,7 @@ import heroimage from '../assets/images/hero-image.png'
 import './LoginSignup.scss'
 
 
-class LoginSignup extends Component {
+class Main extends Component {
   render() {
     return (
       <>
@@ -22,4 +22,4 @@ class LoginSignup extends Component {
   }
 }
 
-export default LoginSignup
+export default Main
