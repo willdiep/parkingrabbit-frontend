@@ -9,8 +9,8 @@ import {
 // import Navbar from './Navbar/Navbar'
 // import logo from './logo.svg';
 import HomePage from './HomePage/HomePage'
-import Login from './LoginSignup/Login'
-import Signup from './LoginSignup/Signup'
+// import Login from './LoginSignup/Login'
+// import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import LoginSignup from './LoginSignup/LoginSignup'
@@ -218,11 +218,11 @@ class App extends Component {
             path='/login'
             render={(props) => (
               <LoginSignup>
-                <Login
+                {/* <Login
                   {...props}
                   handleLogin={this.handleLogin}
                   loginError={this.state.loginError}
-                />
+                /> */}
               </LoginSignup>
             )}
           />
@@ -232,11 +232,11 @@ class App extends Component {
             path='/signup'
             render={(props) => (
               <LoginSignup>
-                <Signup
+                {/* <Signup
                   {...props}
                   handleSignUp={this.handleSignUp}
                   loginError={this.state.loginError}
-                />
+                /> */}
               </LoginSignup>
             )}
           />
