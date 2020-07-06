@@ -15,7 +15,7 @@ class LoginSignup extends Component {
               <img className='homepage__carrotcar' src={heroimage} alt='hero' />
             </figure>
           </section>
-          {/* <section className='LoginSignup__Panel'>{this.props.children}</section> */}
+          <section className='LoginSignup__Panel'>{this.props.children}</section>
         </article>
       </>
     )

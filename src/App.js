@@ -256,25 +256,25 @@ class App extends Component {
             )}
 
 
-          <Route
+          {/* <Route
             // exact={true}
             path='/login'
             render={(props) => <LoginSignup />}
-          />
+          /> */}
 
-          {/* <Route
+          <Route
             // exact={true}
             path='/login'
             render={(props) => (
               <LoginSignup>
-                <Login
+                {/* <Login
                   {...props}
                   handleLogin={this.handleLogin}
                   loginError={this.state.loginError}
-                />
+                /> */}
               </LoginSignup>
             )}
-          /> */}
+          />
 
           {/* <Route
             // exact={true}
