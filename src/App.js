@@ -9,9 +9,9 @@ import {
 // import Navbar from './Navbar/Navbar'
 // import logo from './logo.svg';
 import HomePage from './HomePage/HomePage'
-// import Login from './LoginSignup/Login'
-// import Signup from './LoginSignup/Signup'
 import LoginSignup from './HomePage/LoginSignup'
+import Login from './HomePage/Login'
+// import Signup from './LoginSignup/Signup'
 import MapPage from './MapPage/MapPage'
 import CheckoutPage from './CheckoutPage/CheckoutPage'
 import MyReservations from './MyReservations/MyReservations'
@@ -267,11 +267,11 @@ class App extends Component {
             path='/login'
             render={(props) => (
               <LoginSignup>
-                {/* <Login
+                <Login
                   {...props}
                   handleLogin={this.handleLogin}
                   loginError={this.state.loginError}
-                /> */}
+                />
               </LoginSignup>
             )}
           />
