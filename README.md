@@ -2,6 +2,10 @@
 
 ### [Visit the live site](https://www.parkingrabbit.me/)
 
+**Demo Login Credentials:**  
+Email: demo@demo.com  
+Password: demo
+
 ### [x] [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
 
 ### [ ] [ParkingRabbit Back-end Repo](https://github.com/willdiep/parkingrabbit-backend)
@@ -102,10 +106,11 @@ Please send a pull request if you have any question regarding setting up. I will
 
 ### 3. Upcoming Features For Version 2
 
+1. oAuth using Google and Facebook
 1. My Reservation component to view and edit reservations
-2. Account component to update email, password, and terminate account
-3. Additional Square payment option
-4. Email confirmation and SMS booking reminder via Twilio API
+1. Account component to update email, password, and terminate account
+1. Additional Square payment option
+1. Email confirmation and SMS booking reminder via Twilio API
 
 
 
