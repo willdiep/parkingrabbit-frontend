@@ -4,7 +4,7 @@
 
 ### [x] [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
 
-### [ParkingRabbit Back-end Repo](https://github.com/willdiep/parkingrabbit-backend)
+### [ ] [ParkingRabbit Back-end Repo](https://github.com/willdiep/parkingrabbit-backend)
 
 
 ParkingRabbit is a single-page, full-stack application to reserve parking spots in San Francisco. It uses React on the front-end and Ruby on Rails with a PostgresSQl database on the back-end. 
@@ -21,7 +21,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 - [ParkingRabbit v1.0](#parkingrabbit-v10)
     - [Visit the live site](#visit-the-live-site)
     - [[x] ParkingRabbit Front-end Repo](#x-parkingrabbit-front-end-repo)
-    - [ParkingRabbit Back-end Repo](#parkingrabbit-back-end-repo)
+    - [[ ] ParkingRabbit Back-end Repo](#--parkingrabbit-back-end-repo)
   - [Table Of Content](#table-of-content)
     - [1. Technologies](#1-technologies)
     - [2. Setup](#2-setup)
