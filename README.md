@@ -58,7 +58,6 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 * BEM methodology 
 * Mapbox API
 * Algolia Places API
-* Momentjs
 
 
 ### 2. Setup
