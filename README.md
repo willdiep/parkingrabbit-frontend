@@ -28,15 +28,16 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
       - [Prerequisites](#prerequisites)
       - [Frontend Setup](#frontend-setup)
       - [Backend Setup](#backend-setup)
-    - [3. Design Documents Wiki](#3-design-documents-wiki)
+    - [3. Upcoming Features For Version 2](#3-upcoming-features-for-version-2)
+    - [4. Design Documents Wiki](#4-design-documents-wiki)
       - [MVP List](#mvp-list)
       - [Schema](#schema)
       - [Frontend Routes](#frontend-routes)
       - [Backend Routes](#backend-routes)
-    - [4. React Component Hierarchy](#4-react-component-hierarchy)
-    - [5. Domain Model](#5-domain-model)
-    - [6. User Flow Diagram](#6-user-flow-diagram)
-    - [7. Key features](#7-key-features)
+    - [5. React Component Hierarchy](#5-react-component-hierarchy)
+    - [6. Domain Model](#6-domain-model)
+    - [7. User Flow Diagram](#7-user-flow-diagram)
+    - [8. Key features](#8-key-features)
       - [User Authentication](#user-authentication)
       - [Listings + Search](#listings--search)
       - [Bookings](#bookings)
@@ -69,11 +70,11 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 #### Frontend Setup
 1. Clone current repo -> https://github.com/willdiep/parkingrabbit-frontend
 2. Install dependencies `npm install` or `yarn add`
-3. Create an `.env` file on the root directory. Add three variable:
+3. Create an `.env` file on the root directory. Add three variables:
    * REACT_APP_MAPBOX_API_KEY
    * REACT_APP_ALGOLIA_PLACES_APP_ID
    * REACT_APP_ALGOLIA_PLACES_APP_KEY
-4. Navigate to [Mapbox](www.mapbox.com) and [Algolia](https://www.algolia.com/) to create accounts and generate free Mapbox GL JS and Algolia Places API keys. Paste the API keys after each respective variables in string formats such as:
+4. Navigate to [Mapbox](www.mapbox.com) and [Algolia](https://www.algolia.com/) to create accounts and generate free Mapbox GL JS and Algolia Places API keys. Paste the API keys after each respective variable in string formats such as:
 
 .env
 ```
@@ -84,7 +85,7 @@ REACT_APP_ALGOLIA_PLACES_APP_ID = '[ENTER API ID HERE]'
 REACT_APP_ALGOLIA_PLACES_APP_KEY = '[ENTER API KEY HERE]'
 ```
 5. Start your server `npm start` or `yarn start`
-6. Navigate to the web address `http://localhost:4000`
+6. Navigate to the web address `http://localhost:3000`
 
 #### Backend Setup
 2. Clone this repo -> https://github.com/willdiep/parkingrabbit-backend
@@ -96,7 +97,18 @@ REACT_APP_ALGOLIA_PLACES_APP_KEY = '[ENTER API KEY HERE]'
 
 Please send a pull request if you have any question regarding setting up. I will try to reply within 48 hours.
 
-### 3. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
+
+
+### 3. Upcoming Features For Version 2
+
+1. My Reservation component
+2. Account component to update email, password, and terminate account
+3. Additional Square payment option
+4. Email confirmation and SMS booking reminder via Twilio API
+
+
+
+### 4. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   
 #### [MVP List](https://github.com/willdiep/parkingrabbit-frontend/wiki/MVP-List)
 #### [Schema](https://github.com/willdiep/parkingrabbit-frontend/wiki/Schema)
@@ -104,7 +116,7 @@ Please send a pull request if you have any question regarding setting up. I will
 #### [Backend Routes](https://github.com/willdiep/parkingrabbit-frontend/wiki/Backend-Routes)
   
 
-### 4. React Component Hierarchy
+### 5. React Component Hierarchy
 (Click to enlarge)
 ![app component](./readme/app-component.jpg)
 
@@ -115,7 +127,7 @@ Please send a pull request if you have any question regarding setting up. I will
 
 
 
-### 5. Domain Model
+### 6. Domain Model
 (Click to enlarge)
 
 ![domain model](./readme/domain-model.jpg)
@@ -123,14 +135,14 @@ Please send a pull request if you have any question regarding setting up. I will
 
 
 
-### 6. User Flow Diagram
+### 7. User Flow Diagram
 (Click to enlarge)
 ![user flow diagram](./readme/user-flow-diagram.jpg)
 
 
 
 
-### 7. Key features
+### 8. Key features
 
 #### User Authentication
 
