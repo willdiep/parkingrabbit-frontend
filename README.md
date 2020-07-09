@@ -58,6 +58,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 * BEM methodology 
 * Mapbox API
 * Algolia Places API
+* Momentjs
 
 
 ### 2. Setup
@@ -85,7 +86,7 @@ REACT_APP_ALGOLIA_PLACES_APP_ID = '[ENTER API ID HERE]'
 REACT_APP_ALGOLIA_PLACES_APP_KEY = '[ENTER API KEY HERE]'
 ```
 5. Start your server `npm start` or `yarn start`
-6. Navigate to the web address `http://localhost:3000`
+6. Navigate to the web address `http://localhost:4000`
 
 #### Backend Setup
 2. Clone this repo -> https://github.com/willdiep/parkingrabbit-backend
@@ -94,7 +95,7 @@ REACT_APP_ALGOLIA_PLACES_APP_KEY = '[ENTER API KEY HERE]'
 5. Set up database `rails db:create`, then migrate database `rails db:migrate`
 6. Seed database `rails db:seed`
 7. Start your server `rails s`
-8. Navigate to the web address `http://localhost:4000`
+8. Navigate to the web address `http://localhost:3000`
 
 Please send a pull request if you have any question regarding setting up. I will try to reply within 48 hours.
 
@@ -102,7 +103,7 @@ Please send a pull request if you have any question regarding setting up. I will
 
 ### 3. Upcoming Features For Version 2
 
-1. My Reservation component
+1. My Reservation component to view and edit reservations
 2. Account component to update email, password, and terminate account
 3. Additional Square payment option
 4. Email confirmation and SMS booking reminder via Twilio API
