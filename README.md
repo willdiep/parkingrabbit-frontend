@@ -89,11 +89,12 @@ REACT_APP_ALGOLIA_PLACES_APP_KEY = '[ENTER API KEY HERE]'
 
 #### Backend Setup
 2. Clone this repo -> https://github.com/willdiep/parkingrabbit-backend
-3. Install Gems `bundle install`
-4. Set up database `rails db:create`, then migrate database `rails db:migrate`
-5. Seed database `rails db:seed`
-6. Start your server `rails s`
-7. Navigate to the web address `http://localhost:4000`
+3. Download [postgresql](https://www.postgresql.org/download/) and activate database service
+4. Install Gems `bundle install`
+5. Set up database `rails db:create`, then migrate database `rails db:migrate`
+6. Seed database `rails db:seed`
+7. Start your server `rails s`
+8. Navigate to the web address `http://localhost:4000`
 
 Please send a pull request if you have any question regarding setting up. I will try to reply within 48 hours.
 
