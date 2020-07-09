@@ -1,6 +1,6 @@
 # ParkingRabbit v1.0
 
-### [Visit the live site](https://parkingrabbit.me/)
+### [Visit the live site](https://www.parkingrabbit.me/)
 
 ### [x] [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
 
