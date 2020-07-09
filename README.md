@@ -109,6 +109,7 @@ Please send a pull request if you have any question regarding setting up. I will
 1. oAuth using Google and Facebook
 1. My Reservation component to view and edit reservations
 1. Account component to update email, password, and terminate account
+1. Form validations 
 1. Additional Square payment option
 1. Email confirmation and SMS booking reminder via Twilio API
 
