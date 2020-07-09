@@ -1,6 +1,6 @@
 # ParkingRabbit v1.0
 
-### [Visit the live site](https://parkingrabbit.herokuapp.com/)
+### [Visit the live site](https://parkingrabbit.me/)
 
 ### [x] [ParkingRabbit Front-end Repo](https://github.com/willdiep/parkingrabbit-frontend)
 
@@ -28,7 +28,6 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
       - [Prerequisites](#prerequisites)
       - [Frontend Setup](#frontend-setup)
       - [Backend Setup](#backend-setup)
-      - [In Your Browser](#in-your-browser)
     - [3. Design Documents Wiki](#3-design-documents-wiki)
       - [MVP List](#mvp-list)
       - [Schema](#schema)
@@ -70,20 +69,32 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 #### Frontend Setup
 1. Clone current repo -> https://github.com/willdiep/parkingrabbit-frontend
 2. Install dependencies `npm install` or `yarn add`
-3. Start your server `npm start` or `yarn start`
+3. Create an `.env` file on the root directory. Add three variable:
+   * REACT_APP_MAPBOX_API_KEY
+   * REACT_APP_ALGOLIA_PLACES_APP_ID
+   * REACT_APP_ALGOLIA_PLACES_APP_KEY
+4. Navigate to [Mapbox](www.mapbox.com) and [Algolia](https://www.algolia.com/) to create accounts and generate free Mapbox GL JS and Algolia Places API keys. Paste the API keys after each respective variables in string formats such as:
+
+.env
+```
+REACT_APP_MAPBOX_API_KEY = '[ENTER API KEY HERE]'
+
+REACT_APP_ALGOLIA_PLACES_APP_ID = '[ENTER API ID HERE]'
+
+REACT_APP_ALGOLIA_PLACES_APP_KEY = '[ENTER API KEY HERE]'
+```
+5. Start your server `npm start` or `yarn start`
+6. Navigate to the web address `http://localhost:4000`
 
 #### Backend Setup
 2. Clone this repo -> https://github.com/willdiep/parkingrabbit-backend
 3. Install Gems `bundle install`
-4. Set up database `rails db:create`, then migrate database`rails db:migrate`
+4. Set up database `rails db:create`, then migrate database `rails db:migrate`
 5. Seed database `rails db:seed`
 6. Start your server `rails s`
+7. Navigate to the web address `http://localhost:4000`
 
-#### In Your Browser
-Navigate to the web address of your Node server http://localhost:4000
-
-
-
+Please send a pull request if you have any question regarding setting up. I will try to reply within 48 hours.
 
 ### 3. [Design Documents Wiki](https://github.com/willdiep/parkingrabbit-frontend/wiki)
   

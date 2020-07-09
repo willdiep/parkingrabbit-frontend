@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import AlgoliaPlaces from 'algolia-places-react'
 import './SearchBtn.scss'
 
+
+const algoliaPlacesAppId = `${process.env.REACT_APP_ALGOLIA_PLACES_APP_ID}`
+const algoliaPlacesAppKey = `${process.env.REACT_APP_ALGOLIA_PLACES_APP_KEY}`
+
+console.log(algoliaPlacesAppId)
+
 class SearchBtn extends Component {
 
   handleCoordinates = coordinatesArr => {
@@ -22,8 +28,8 @@ class SearchBtn extends Component {
         className='SearchBtn__Input'
           placeholder='Search Address, Place, District, or Zipcode'
           options={{
-            appId: 'plFF2HVFCYHZ',
-            apiKey: '0b5007eeca59b12374f402743f853d98',
+            appId: algoliaPlacesAppId,
+            apiKey: algoliaPlacesAppKey,
             language: 'en',
             countries: ['us'],
             aroundLatLng: '37.773972, -122.431297',
