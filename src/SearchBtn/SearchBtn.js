@@ -6,7 +6,7 @@ import './SearchBtn.scss'
 const algoliaPlacesAppId = `${process.env.REACT_APP_ALGOLIA_PLACES_APP_ID}`
 const algoliaPlacesAppKey = `${process.env.REACT_APP_ALGOLIA_PLACES_APP_KEY}`
 
-console.log(algoliaPlacesAppId)
+// console.log(algoliaPlacesAppId)
 
 class SearchBtn extends Component {
 
