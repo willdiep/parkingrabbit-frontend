@@ -89,7 +89,8 @@ class App extends Component {
         })
         break
       } else {
-        fetch('https://parkingrabbit-backend.herokuapp.com/users', {
+        // fetch('https://parkingrabbit-backend.herokuapp.com/users', {
+        fetch('http://localhost:3000/users', {
           method: 'POST',
           headers: {
             accept: 'application/json',

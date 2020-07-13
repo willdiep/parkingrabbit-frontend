@@ -30,7 +30,7 @@ const currentDateUTC = currentDate.utc().format()
 const datePlus4HoursUTC = currentDate.add(4, 'hour').utc().format()
 
 const error = () => {
-  message.error('Please Login or Signup')
+  message.error('Please Login or Sign-up')
 }
 
 class MapPage extends Component {
