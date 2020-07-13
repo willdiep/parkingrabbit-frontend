@@ -9,6 +9,7 @@ class ListingCard extends Component {
     // debugger
     if (!localStorage.jwt) {
       console.log('Please sign-up or login')
+      this.props.signupLoginErrorNotification()
     } else {
       const listingIdProp = this.props.id
       localStorage.setItem('listingId', listingIdProp)

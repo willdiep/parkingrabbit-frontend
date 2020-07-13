@@ -36,7 +36,8 @@ class App extends Component {
   }
 
   handleLogin = (loginInfo) => {
-    fetch('https://parkingrabbit-backend.herokuapp.com/auth', {
+    // fetch('https://parkingrabbit-backend.herokuapp.com/auth', {
+    fetch('http://localhost:3000/auth', {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -125,7 +126,8 @@ class App extends Component {
   }
 
   reAuth = () => {
-    fetch('https://parkingrabbit-backend.herokuapp.com/reauth', {
+    // fetch('https://parkingrabbit-backend.herokuapp.com/reauth', {
+    fetch('http://localhost:3000/reauth', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

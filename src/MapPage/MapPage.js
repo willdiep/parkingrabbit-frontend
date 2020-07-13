@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import ReactDOM from 'react-dom'
 import NavBar from '../Navbar/Navbar'
 import Filter from './Filter'
 import ListingCard from './ListingCard'
@@ -8,6 +7,8 @@ import ListingContainer from './ListingContainer'
 import mapboxgl from 'mapbox-gl'
 import dayjs from 'dayjs'
 import './MapPage.scss'
+import { message, Button } from 'antd'
+import 'antd/dist/antd.css'
 
 const styleLink = document.createElement('link')
 styleLink.rel = 'stylesheet'
@@ -27,6 +28,10 @@ const datePlus4Hours = currentDate.add(4, 'hour')
 
 const currentDateUTC = currentDate.utc().format()
 const datePlus4HoursUTC = currentDate.add(4, 'hour').utc().format()
+
+const error = () => {
+  message.error('Please Login or Signup')
+}
 
 class MapPage extends Component {
   constructor() {
@@ -75,7 +80,8 @@ class MapPage extends Component {
   }
 
   fetchListings = () => {
-    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    // const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
@@ -151,7 +157,7 @@ class MapPage extends Component {
                 console.log(`Wrong month`)
             }
 
-            console.log(monthNum)
+            // console.log(monthNum)
           }
         )
       })
@@ -260,7 +266,7 @@ class MapPage extends Component {
     console.log('handleFilterHourlyToDateTime: ', value)
 
     this.setState({
-      filterHourlyToDateTime: value
+      filterHourlyToDateTime: value,
     })
   }
 
@@ -534,7 +540,7 @@ class MapPage extends Component {
               filterHourlyState={this.state.renderFilterHourly}
               filterMonthlyState={this.state.renderFilterMonthly}
               handleSetLocationText={this.props.handleSetLocationText}
-              
+
               // hourlyFromDateTimeState={
               //   this.state.filterHourlyFromDateTime
               // }
@@ -589,6 +595,7 @@ class MapPage extends Component {
                               hourlyToDateTimeState={
                                 this.state.filterHourlyToDateTime
                               }
+                              signupLoginErrorNotification={error}
                             />
                           )
                         })
@@ -612,11 +619,14 @@ class MapPage extends Component {
                               hourlyToDateTimeState={
                                 this.state.filterHourlyToDateTime
                               }
+                              signupLoginErrorNotification={error}
                             />
                           )
                         })}
                   </ListingContainer>
                 )}
+
+                {/* <Button onClick={error}>Error</Button> */}
               </div>
             </aside>
             <section
