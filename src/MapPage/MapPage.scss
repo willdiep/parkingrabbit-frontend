@@ -1,3 +1,17 @@
+@mixin marker-listing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  cursor: pointer;
+}
+
+
 .Map {
   &__content {
     display: grid;
@@ -156,27 +170,43 @@
   // transform: rotateZ(-135deg);
 }
 
-.marker__listing {
-  // width: 0;
-  // height: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+// .marker__listing {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   box-sizing: border-box;
+//   background-image: url(../assets/images/garage-marker.png);
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   width: 100%;
+//   height: 100%;
+//   color: #fff;
+//   cursor: pointer;
+// }
+
+.markerListingGarage {
+  @include marker-listing;
   background-image: url(../assets/images/garage-marker.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  // background: #c50;
-  // border: solid 2px;
-  // border-radius: 0 70% 70%;
-  // box-shadow: 0 0 2px #000;
-  cursor: pointer;
-  // transform-origin: 0 0;
-  // transform: rotateZ(-135deg);
 }
+
+.markerListingValet {
+  @include marker-listing;
+  background-image: url(../assets/images/valet-marker.png);
+}
+
+.markerListingLot {
+  @include marker-listing;
+  background-image: url(../assets/images/lot-marker.png);
+}
+
+.markerListingResident {
+  @include marker-listing;
+  background-image: url(../assets/images/resident-marker.png);
+}
+
+
+
+
 
 .clearfix {
   display: block;

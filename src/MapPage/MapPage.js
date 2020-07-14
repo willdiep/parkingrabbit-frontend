@@ -444,13 +444,28 @@ class MapPage extends Component {
     
     /* For each feature in the GeoJSON object above: */
     this.state.allStores.features.length && this.state.displayStores.features.forEach((marker) => {
-      // console.log(marker.properties.parking_type)
+      console.log(marker.properties.parking_type)
+
+      let CssClassType 
+      let parkingType = marker.properties.parking_type
+      if (parkingType === 'Garage') {
+        CssClassType = 'markerListingGarage'
+      } else if (parkingType === 'Valet') {
+        CssClassType = 'markerListingValet'
+      } else if (parkingType === 'Lot') {
+        CssClassType = 'markerListingLot'
+      } else if (parkingType === 'Resident') {
+        CssClassType = 'markerListingResident'
+      }
+
+
       /* Create a div element for the marker. */
       const el = document.createElement('div')
       /* Assign a unique `id` to the marker. */
       el.id = 'marker__listing--' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
-      el.className = 'marker__listing'
+      // el.className = 'marker__listing'
+      el.className = CssClassType
 
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
