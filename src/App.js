@@ -146,7 +146,7 @@ class App extends Component {
       })
       .catch((err) => {
         // feel free to remove this once it's in production
-        console.log(err)
+        // console.log(err)
       })
   }
 

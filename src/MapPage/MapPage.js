@@ -438,14 +438,20 @@ class MapPage extends Component {
   addListingMarkers = (myComp) => {
     /* For each feature in the GeoJSON object above: */
     this.state.displayStores.features.forEach((marker) => {
+      // console.log(marker.properties.parking_type)
       /* Create a div element for the marker. */
       const el = document.createElement('div')
       /* Assign a unique `id` to the marker. */
       el.id = 'marker__listing--' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
       el.className = 'marker__listing'
+      
+      
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
+      // console.log(el.style)
+      
+      el.style.backgroundImage = 'background-image: url(../assets/images/garage-marker.png);'
 
       /**
        * Create a marker using the div element
