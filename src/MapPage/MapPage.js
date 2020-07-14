@@ -67,6 +67,7 @@ class MapPage extends Component {
 
       renderDisplayStores: true,
       isFetching: false,
+      // completedFirstDataFetch: false
     }
   }
 
@@ -106,6 +107,7 @@ class MapPage extends Component {
             allStores: stores,
             displayStores: stores,
             isFetching: false,
+            completedFirstDataFetch: true
           },
           () => {
             const unixTimeinMs = this.state.allStores.features[0].properties
@@ -439,8 +441,9 @@ class MapPage extends Component {
   }
 
   addListingMarkers = (myComp) => {
+    
     /* For each feature in the GeoJSON object above: */
-    this.state.displayStores.features.forEach((marker) => {
+    this.state.allStores.features.length && this.state.displayStores.features.forEach((marker) => {
       // console.log(marker.properties.parking_type)
       /* Create a div element for the marker. */
       const el = document.createElement('div')
@@ -466,6 +469,7 @@ class MapPage extends Component {
         .setLngLat(marker.geometry.coordinates)
         .addTo(this.map)
     })
+
   }
 
   removeListingMarkers = () => {
