@@ -61,8 +61,8 @@ class Checkout extends Component {
   handleBookingSubmission = () => {
     // console.log('from handleBookingSubmission')
     console.log(this.props.userId)
-    // fetch('https://parkingrabbit-backend.herokuapp.com/bookings', {
-    fetch('http://localhost:3000/bookings', {
+    fetch('https://parkingrabbit-backend.herokuapp.com/bookings', {
+    // fetch('http://localhost:3000/bookings', {
       method: 'POST',
       headers: {
         accept: 'application/json',

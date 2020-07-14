@@ -66,6 +66,7 @@ class MapPage extends Component {
       renderFilterMonthly: false,
 
       renderDisplayStores: true,
+      isFetching: false,
     }
   }
 
@@ -80,8 +81,9 @@ class MapPage extends Component {
   }
 
   fetchListings = () => {
-    // const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
-    const listingsUrl = 'http://localhost:3000/listings'
+    this.setState({ isFetching: true })
+    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    // const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
@@ -103,6 +105,7 @@ class MapPage extends Component {
           {
             allStores: stores,
             displayStores: stores,
+            isFetching: false,
           },
           () => {
             const unixTimeinMs = this.state.allStores.features[0].properties
@@ -445,13 +448,13 @@ class MapPage extends Component {
       el.id = 'marker__listing--' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
       el.className = 'marker__listing'
-      
-      
+
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
       // console.log(el.style)
-      
-      el.style.backgroundImage = 'background-image: url(../assets/images/garage-marker.png);'
+
+      el.style.backgroundImage =
+        'background-image: url(../assets/images/garage-marker.png);'
 
       /**
        * Create a marker using the div element
@@ -522,6 +525,23 @@ class MapPage extends Component {
     })
   }
 
+  renderListingCard = (listing) => {
+    return (
+      <ListingCard
+        key={listing.properties.id}
+        id={listing.properties.id}
+        listing={listing}
+        handleMouseOver={this.handleMouseOver}
+        handleListingCardDetails={this.handleListingCardDetails}
+        filterHourlyState={this.state.renderFilterHourly}
+        filterMonthlyState={this.state.renderFilterMonthly}
+        hourlyFromDateTimeState={this.state.filterHourlyFromDateTime}
+        hourlyToDateTimeState={this.state.filterHourlyToDateTime}
+        signupLoginErrorNotification={error}
+      />
+    )
+  }
+
   render() {
     return (
       <div className='Map'>
@@ -560,9 +580,6 @@ class MapPage extends Component {
 
           <article className='Map__content'>
             <aside className='Map__sidebar'>
-              {/* <div className='Map__header'> */}
-              {/* <h1 className='Map__headerText'>Listings</h1> */}
-              {/* </div> */}
               <div id='listings' className='Map__listings'>
                 {this.state.currentListingInfo ? (
                   <ListingInfo
@@ -580,59 +597,17 @@ class MapPage extends Component {
                     }
                     parkingSpotsNear={this.props.parkingSpotsNear}
                   >
-                    {this.state.renderDisplayStores
+                    {this.state.isFetching
+                      ? 'Fetching data...'
+                      : this.state.renderDisplayStores
                       ? this.state.displayStores.features.map((listing) => {
-                          return (
-                            <ListingCard
-                              key={listing.properties.id}
-                              id={listing.properties.id}
-                              listing={listing}
-                              handleMouseOver={this.handleMouseOver}
-                              handleListingCardDetails={
-                                this.handleListingCardDetails
-                              }
-                              filterHourlyState={this.state.renderFilterHourly}
-                              filterMonthlyState={
-                                this.state.renderFilterMonthly
-                              }
-                              hourlyFromDateTimeState={
-                                this.state.filterHourlyFromDateTime
-                              }
-                              hourlyToDateTimeState={
-                                this.state.filterHourlyToDateTime
-                              }
-                              signupLoginErrorNotification={error}
-                            />
-                          )
+                          return this.renderListingCard(listing)
                         })
                       : this.state.allStores.features.map((listing) => {
-                          return (
-                            <ListingCard
-                              key={listing.properties.id}
-                              id={listing.properties.id}
-                              listing={listing}
-                              handleMouseOver={this.handleMouseOver}
-                              handleListingCardDetails={
-                                this.handleListingCardDetails
-                              }
-                              filterHourlyState={this.state.renderFilterHourly}
-                              filterMonthlyState={
-                                this.state.renderFilterMonthly
-                              }
-                              hourlyFromDateTimeState={
-                                this.state.filterHourlyFromDateTime
-                              }
-                              hourlyToDateTimeState={
-                                this.state.filterHourlyToDateTime
-                              }
-                              signupLoginErrorNotification={error}
-                            />
-                          )
+                          return this.renderListingCard(listing)
                         })}
                   </ListingContainer>
                 )}
-
-                {/* <Button onClick={error}>Error</Button> */}
               </div>
             </aside>
             <section
