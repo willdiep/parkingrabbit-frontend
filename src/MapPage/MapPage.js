@@ -205,9 +205,9 @@ class MapPage extends Component {
     })
 
     // DO WE NEED THIS?
-    // this.map.on('click', function(e) {
-    //   console.log("from this.map.on 'click'")
-    // })
+    this.map.on('click', function(e) {
+      console.log("from this.map.on 'click'")
+    })
   }
 
   convertJSONToGEOJSON = (listing) => {
@@ -443,7 +443,7 @@ class MapPage extends Component {
   addListingMarkers = (myComp) => {
     /* For each feature in the GeoJSON object above: */
     this.state.displayStores.features.forEach((marker) => {
-      console.log(marker.properties.parking_type)
+      // console.log(marker.properties.parking_type)
 
       let CssClassType
       let parkingType = marker.properties.parking_type
