@@ -13,7 +13,7 @@ import 'antd/dist/antd.css'
 const styleLink = document.createElement('link')
 styleLink.rel = 'stylesheet'
 styleLink.href =
-  'https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css'
+  'https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css'
 document.head.appendChild(styleLink)
 
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API_KEY}`
