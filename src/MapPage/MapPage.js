@@ -67,7 +67,7 @@ class MapPage extends Component {
 
       renderDisplayStores: true,
       isFetching: false,
-      // completedFirstDataFetch: false
+      completedFirstDataFetch: false,
     }
   }
 
@@ -83,8 +83,8 @@ class MapPage extends Component {
 
   fetchListings = () => {
     this.setState({ isFetching: true })
-    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
-    // const listingsUrl = 'http://localhost:3000/listings'
+    // const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
@@ -107,7 +107,7 @@ class MapPage extends Component {
             allStores: stores,
             displayStores: stores,
             isFetching: false,
-            completedFirstDataFetch: true
+            completedFirstDataFetch: true,
           },
           () => {
             const unixTimeinMs = this.state.allStores.features[0].properties
@@ -201,7 +201,7 @@ class MapPage extends Component {
       this.map.addControl(new mapboxgl.NavigationControl())
 
       // this.addCurrentLocationMarker()
-      this.addListingMarkers()
+      this.state.completedFirstDataFetch && this.addListingMarkers()
     })
 
     // DO WE NEED THIS?
@@ -441,12 +441,11 @@ class MapPage extends Component {
   }
 
   addListingMarkers = (myComp) => {
-    
     /* For each feature in the GeoJSON object above: */
-    this.state.allStores.features.length && this.state.displayStores.features.forEach((marker) => {
+    this.state.displayStores.features.forEach((marker) => {
       console.log(marker.properties.parking_type)
 
-      let CssClassType 
+      let CssClassType
       let parkingType = marker.properties.parking_type
       if (parkingType === 'Garage') {
         CssClassType = 'markerListingGarage'
@@ -457,7 +456,6 @@ class MapPage extends Component {
       } else if (parkingType === 'Resident') {
         CssClassType = 'markerListingResident'
       }
-
 
       /* Create a div element for the marker. */
       const el = document.createElement('div')
@@ -484,7 +482,6 @@ class MapPage extends Component {
         .setLngLat(marker.geometry.coordinates)
         .addTo(this.map)
     })
-
   }
 
   removeListingMarkers = () => {
