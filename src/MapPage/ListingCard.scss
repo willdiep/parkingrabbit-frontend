@@ -56,6 +56,7 @@
     color: var(--white-color);
     &:hover {
       background-color: var(--carrot-color);
+      cursor: pointer;
     }
   }
 
@@ -77,6 +78,7 @@
     color: var(--carrot-color);
     &:hover {
       color: var(--almost-black);
+      cursor: pointer;
     }
   }
 

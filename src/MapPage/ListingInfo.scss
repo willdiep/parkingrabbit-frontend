@@ -51,6 +51,7 @@
     text-decoration: underline;
     &:hover {
       color: var(--almost-black);
+      cursor: pointer;
     }
   }
 
@@ -81,6 +82,10 @@
   &__LoginToReview {
     font-size: 1rem;
     color: var(--third-color);
+  }
+
+  &__Description {
+    padding: 2rem 1rem;
   }
 
   &__LoginToReview {
@@ -124,6 +129,9 @@
     border: solid 1px var(--very-light-pink);
     background-color: var(--almost-black);
     color: var(--white-color);
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__BookingBtnAndListingPrice {

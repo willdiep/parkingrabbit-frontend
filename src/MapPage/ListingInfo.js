@@ -19,9 +19,7 @@ import selfParkIcon from '../assets/parking-features-icons/selfpark.png'
 import valetIcon from '../assets/parking-features-icons/valet.png'
 
 class ListingInfo extends Component {
-  
   render() {
-
     const parkingTypeProp = this.props.currentListing.properties.parking_type
     let parkingTypeClass
 
@@ -102,7 +100,17 @@ class ListingInfo extends Component {
         <div className='ListingInfo__Divider'></div>
 
         {/* {this.props.currentListing.properties.available_start} */}
+        <section className='ListingInfo__Description'>
+          <div className='ListingInfo__AddressLabel'>Description</div>
 
+
+          <div className='ListingInfo__HostInfo'>
+          <br></br>
+            {this.props.currentListing.properties.description}
+          </div>
+        </section>
+
+        <div className='ListingInfo__Divider'></div>
 
         <section className='ListingInfo__AddressContact'>
           <div className='ListingInfo__AddressContainer'>
@@ -111,7 +119,10 @@ class ListingInfo extends Component {
             <div className='ListingInfo__HostInfo'>
               {this.props.currentListing.properties.address}
             </div>
-            <div className='ListingInfo__HostInfo'>{this.props.currentListing.properties.city} {this.props.currentListing.properties.zipcode}</div>
+            <div className='ListingInfo__HostInfo'>
+              {this.props.currentListing.properties.city}{' '}
+              {this.props.currentListing.properties.zipcode}
+            </div>
             {/* <div className='ListingInfo__HostInfo'>
               {this.props.currentListing.properties.zipcode}
             </div> */}
