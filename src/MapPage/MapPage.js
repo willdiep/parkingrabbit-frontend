@@ -79,6 +79,9 @@ class MapPage extends Component {
 
   componentDidUpdate() {
     this.removeLocationMarker()
+
+    this.addListingMarkers()
+
   }
 
   fetchListings = () => {
@@ -102,6 +105,7 @@ class MapPage extends Component {
 
         // console.log(allStores)
 
+
         this.setState(
           {
             allStores: stores,
@@ -109,6 +113,7 @@ class MapPage extends Component {
             isFetching: false,
             completedFirstDataFetch: true,
           },
+
           () => {
             const unixTimeinMs = this.state.allStores.features[0].properties
               .available_start
@@ -201,11 +206,11 @@ class MapPage extends Component {
       this.map.addControl(new mapboxgl.NavigationControl())
 
       // this.addCurrentLocationMarker()
-      this.state.completedFirstDataFetch && this.addListingMarkers()
+      // this.state.completedFirstDataFetch && this.addListingMarkers()
     })
 
     // DO WE NEED THIS?
-    this.map.on('click', function(e) {
+    this.map.on('click', function (e) {
       console.log("from this.map.on 'click'")
     })
   }
