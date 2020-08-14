@@ -500,8 +500,8 @@ class MapPage extends Component {
       el.textContent = `$${marker.properties.hourly_price}`
       // console.log(el.style)
 
-      el.style.backgroundImage =
-        'background-image: url(../assets/images/garage-marker.png);'
+      // el.style.backgroundImage =
+      //   'background-image: url(../assets/images/garage-marker.png);'
 
       /**
        * Create a marker using the div element
