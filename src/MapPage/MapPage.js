@@ -86,8 +86,8 @@ class MapPage extends Component {
 
   fetchListings = () => {
     this.setState({ isFetching: true })
-    // const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
-    const listingsUrl = 'http://localhost:3000/listings'
+    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    // const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
