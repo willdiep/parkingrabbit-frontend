@@ -217,7 +217,6 @@ class App extends Component {
         {/* <Navbar /> */}
         <Switch>
           <Route
-            // exact={true}
             path='/mappage'
             render={(props) => (
               <MapPage
@@ -233,13 +232,11 @@ class App extends Component {
           />
 
           <Route
-            // exact={true}
             path='/myreservations'
             render={(props) => <MyReservations {...props} />}
           />
 
           <Route
-            // exact={true}
             path='/account'
             render={(props) => <Account {...props} />}
           />
@@ -247,7 +244,6 @@ class App extends Component {
           {localStorage.hasOwnProperty('email') &&
             localStorage.hasOwnProperty('bookMySpotBtnClicked') && (
               <Route
-                exact
                 path='/checkout'
                 render={(props) => (
                   <CheckoutPage
@@ -261,7 +257,6 @@ class App extends Component {
 
 
           <Route
-            // exact={true}
             path='/login'
             render={(props) => (
               <LoginSignup>
@@ -275,7 +270,6 @@ class App extends Component {
           />
 
           <Route
-            // exact={true}
             path='/signup'
             render={(props) => (
               <LoginSignup>
@@ -289,7 +283,6 @@ class App extends Component {
           />
 
           <Route
-            // exact={true}
             path='/'
             render={(props) => (
               <HomePage

@@ -14,7 +14,6 @@ class Navbar extends Component {
           }
         >
           <Link
-            exact
             to='/'
             className={
               this.props.homePage
@@ -29,7 +28,6 @@ class Navbar extends Component {
           {!localStorage.getItem('jwt') ? (
             <>
               <Link
-                exact
                 to='/login'
                 className='nav__item nav__item--right nav__login'
               >
@@ -37,7 +35,6 @@ class Navbar extends Component {
               </Link>
 
               <Link
-                exact
                 to='/signup'
                 className='nav__item nav__item--right nav__signup'
               >
@@ -47,14 +44,12 @@ class Navbar extends Component {
           ) : (
             <>
               <Link
-                exact
                 to='/myreservations'
                 className='nav__item nav__item--right nav__login'
               >
                 My Reservations
               </Link>
               <Link
-                exact
                 to='/account'
                 className='nav__item nav__item--right nav__signup'
               >

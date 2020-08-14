@@ -80,14 +80,14 @@ class MapPage extends Component {
   componentDidUpdate() {
     this.removeLocationMarker()
 
-    this.addListingMarkers()
+    // this.addListingMarkers()
 
   }
 
   fetchListings = () => {
     this.setState({ isFetching: true })
-    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
-    // const listingsUrl = 'http://localhost:3000/listings'
+    // const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
@@ -115,6 +115,9 @@ class MapPage extends Component {
           },
 
           () => {
+
+            this.addListingMarkers()
+
             const unixTimeinMs = this.state.allStores.features[0].properties
               .available_start
 
@@ -338,6 +341,7 @@ class MapPage extends Component {
         },
         () => {
           this.renderAllStores()
+          // this.addListingMarkers()
         }
       )
     } else {
@@ -363,7 +367,11 @@ class MapPage extends Component {
           filterHourlyToDateTime: datePlus4Hours,
           renderDisplayStores: false,
         },
-        this.renderAllStores()
+        () => {
+          this.renderAllStores()
+          // this.addListingMarkers()
+        }
+
       )
     } else {
       // set state then converts momentjs object to
@@ -414,12 +422,28 @@ class MapPage extends Component {
   renderAllStores = () => {
     /* For each feature in the GeoJSON object above: */
     this.state.allStores.features.forEach((marker) => {
+
+      let CssClassType
+      let parkingType = marker.properties.parking_type
+      if (parkingType === 'Garage') {
+        CssClassType = 'markerListingGarage'
+      } else if (parkingType === 'Valet') {
+        CssClassType = 'markerListingValet'
+      } else if (parkingType === 'Lot') {
+        CssClassType = 'markerListingLot'
+      } else if (parkingType === 'Resident') {
+        CssClassType = 'markerListingResident'
+      }
+
       /* Create a div element for the marker. */
       const el = document.createElement('div')
       /* Assign a unique `id` to the marker. */
       el.id = 'marker__listing--' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
-      el.className = 'marker__listing'
+      // el.className = 'marker__listing'
+
+      el.classList.add('marker__listing', CssClassType)
+
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
 
@@ -430,8 +454,8 @@ class MapPage extends Component {
       //  console.log(myComp)
       // console.log(marker.geometry.coordinates)
       new mapboxgl.Marker(el) // { offset: [0, -23] }
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(this.map)
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(this.map)
     })
   }
 
@@ -467,8 +491,10 @@ class MapPage extends Component {
       /* Assign a unique `id` to the marker. */
       el.id = 'marker__listing--' + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
+      
       // el.className = 'marker__listing'
-      el.className = CssClassType
+      // el.className = CssClassType
+      el.classList.add('marker__listing', CssClassType)
 
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
@@ -491,7 +517,7 @@ class MapPage extends Component {
 
   removeListingMarkers = () => {
     const listingMarkers = document.querySelectorAll('.marker__listing')
-    // console.log(listingMarkers.length)
+    console.log(listingMarkers.length)
     for (let i = 0; i < listingMarkers.length; i++) {
       listingMarkers[i].remove()
     }
