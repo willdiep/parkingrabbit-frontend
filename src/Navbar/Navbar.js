@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import './Navbar.scss'
 
 class Navbar extends Component {
@@ -40,6 +42,13 @@ class Navbar extends Component {
               >
                 Sign Up
               </Link>
+              <a
+                target='_blank'
+                href='https://github.com/willdiep/parkingrabbit-frontend'
+                className='nav__item nav__item--right nav__github'
+              >
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
             </>
           ) : (
             <>
@@ -65,6 +74,14 @@ class Navbar extends Component {
               >
                 Logoff
               </div>
+
+              <a
+                target='_blank'
+                href='https://github.com/willdiep/parkingrabbit-frontend'
+                className='nav__item nav__item--right nav__github'
+              >
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
             </>
           )}
 

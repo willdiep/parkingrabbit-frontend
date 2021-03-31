@@ -45,7 +45,8 @@
   }
 
   &__login:hover,
-  &__signup:hover {
+  &__signup:hover,
+  &__github:hover {
     color: var(--primary-color);
   }
 
@@ -66,6 +67,18 @@
     background-color: var(--carrot-color);
     color: white;
     // font-family: Helvetica;
+    font-size: 1.25rem;
+  }
+
+  &__github {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 28.5px;
+    background-color: var(--carrot-color);
+    color: white;
     font-size: 1.25rem;
   }
 }
