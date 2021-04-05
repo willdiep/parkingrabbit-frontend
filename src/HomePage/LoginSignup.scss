@@ -137,6 +137,10 @@
     border-radius: 28.5px;
     background-color: var(--almost-black);
     // text-align: center;
+
+    &:hover {
+      background-color: var(--carrot-color);
+    }
   }
 
   &__login-text {

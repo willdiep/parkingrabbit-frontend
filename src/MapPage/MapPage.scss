@@ -207,8 +207,6 @@
 
 
 
-
-
 .clearfix {
   display: block;
 }
@@ -289,4 +287,15 @@
   z-index: 1000 !important;
   padding: 6px;
   font-weight: bold;
+}
+
+
+.listing__fetchingText {
+  font-size: 3rem;
+font-weight: bold;
+color: var(--almost-black);
+}
+
+.errorMessage {
+  margin-top: 20vh;
 }

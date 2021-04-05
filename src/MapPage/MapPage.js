@@ -7,7 +7,7 @@ import ListingContainer from './ListingContainer'
 import mapboxgl from 'mapbox-gl'
 import dayjs from 'dayjs'
 import './MapPage.scss'
-import { message, Button } from 'antd'
+import { message } from 'antd'
 import 'antd/dist/antd.css'
 
 const styleLink = document.createElement('link')
@@ -30,8 +30,16 @@ const currentDateUTC = currentDate.utc().format()
 const datePlus4HoursUTC = currentDate.add(4, 'hour').utc().format()
 
 const error = () => {
-  message.error('Please Login or Sign-up')
+  // message.error('Please Login or Sign-up')
+  message.error(
+    {
+      content:'Please Login or Sign-up',
+      duration: 60,
+      className: 'errorMessage'
+    }
+    )
 }
+
 
 class MapPage extends Component {
   constructor() {
@@ -41,9 +49,6 @@ class MapPage extends Component {
 
     this.state = {
       active: '',
-      // LONGER WAY
-      // lng: props.setLng,
-      // lat: props.setLat,
       zoom: 13,
       allStores: {
         type: 'FeatureCollection',
@@ -79,10 +84,18 @@ class MapPage extends Component {
 
   componentDidUpdate() {
     this.removeLocationMarker()
+    
+    this.addCurrentLocationMarker()
+    
+    // this.flyToNewLocationMarker()
+    
+  }
 
-    // this.addListingMarkers()
+  componentWillUnmount() {
 
   }
+
+
 
   fetchListings = () => {
     this.setState({ isFetching: true })
@@ -91,19 +104,14 @@ class MapPage extends Component {
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result)
-
         let stores = {
           type: 'FeatureCollection',
           features: [],
         }
 
         result.data.forEach((listing) => {
-          // console.log(listing)
           stores.features.push(this.convertJSONToGEOJSON(listing))
         })
-
-        // console.log(allStores)
 
 
         this.setState(
@@ -530,8 +538,18 @@ class MapPage extends Component {
       locationMarker.remove()
     }
 
-    this.addCurrentLocationMarker()
+
+
   }
+
+  flyToNewLocationMarker = () => {
+    this.map.flyTo({
+      center: [this.props.setLng, this.props.setLat],
+      zoom: 13,
+    })
+  }
+
+
 
   handleMouseOver = (storeInfo, id) => {
     // console.log('from handleClick in parent component')
@@ -552,6 +570,8 @@ class MapPage extends Component {
     document.querySelector(`#listing-${id}`).classList.add('active')
     // this.parentNode.classList.add('active')
     // console.log(document.querySelector(`#listing-${id}`).classList)
+
+
   }
 
   /* ----------------------------------
@@ -645,7 +665,7 @@ class MapPage extends Component {
                     parkingSpotsNear={this.props.parkingSpotsNear}
                   >
                     {this.state.isFetching
-                      ? 'Fetching data...'
+                      ? <div className='listing__fetchingText'>Fetching data...</div>
                       : this.state.renderDisplayStores
                       ? this.state.displayStores.features.map((listing) => {
                           return this.renderListingCard(listing)

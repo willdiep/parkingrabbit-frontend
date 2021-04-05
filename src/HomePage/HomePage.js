@@ -13,23 +13,23 @@ import './HomePage.scss'
 // import mapMarkerIcon from './images/map-marker-alt-solid.svg'
 
 class HomePage extends Component {
-  // state = {
-  //   isFetching: false
-  // }
+  state = {
+    isFetching: false
+  }
 
-  // componentDidMount() {
-  //   this.fetchListings()
-  // }
+  componentDidMount() {
+    this.fetchListings()
+  }
   
-  // fetchListings = () => {
-  //   this.setState({ isFetching: true })
-  //   const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
-  //   fetch(listingsUrl)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result)
-  //     })
-  // }
+  fetchListings = () => {
+    this.setState({ isFetching: true })
+    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    fetch(listingsUrl)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+      })
+  }
   
   render() {
     // console.log(this.props)
