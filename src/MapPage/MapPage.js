@@ -1,44 +1,37 @@
-import React, { Component } from 'react'
-import NavBar from '../Navbar/Navbar'
-import Filter from './Filter'
-import ListingCard from './ListingCard'
-import ListingInfo from './ListingInfo'
-import ListingContainer from './ListingContainer'
-import mapboxgl from 'mapbox-gl'
-import dayjs from 'dayjs'
-import './MapPage.scss'
-import { message } from 'antd'
-import 'antd/dist/antd.css'
+import React, { Component } from "react"
+import NavBar from "../Navbar/Navbar"
+import Filter from "./Filter"
+import ListingCard from "./ListingCard"
+import ListingInfo from "./ListingInfo"
+import ListingContainer from "./ListingContainer"
+import mapboxgl from "mapbox-gl"
+import dayjs from "dayjs"
+import "./MapPage.scss"
+import { message } from "antd"
+import "antd/dist/antd.css"
+import { withRouter } from 'react-router'
 
-const styleLink = document.createElement('link')
-styleLink.rel = 'stylesheet'
+const styleLink = document.createElement("link")
+styleLink.rel = "stylesheet"
 styleLink.href =
-  'https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css'
+  "https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css"
 document.head.appendChild(styleLink)
 
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API_KEY}`
 
-const utc = require('dayjs/plugin/utc')
-var isBetween = require('dayjs/plugin/isBetween')
+const utc = require("dayjs/plugin/utc")
+var isBetween = require("dayjs/plugin/isBetween")
 dayjs.extend(isBetween)
 dayjs.extend(utc)
 
 const currentDate = dayjs()
-const datePlus4Hours = currentDate.add(4, 'hour')
+const datePlus4Hours = currentDate.add(4, "hour")
 
 const currentDateUTC = currentDate.utc().format()
-const datePlus4HoursUTC = currentDate.add(4, 'hour').utc().format()
+const datePlus4HoursUTC = currentDate.add(4, "hour").utc().format()
 
-const error = () => {
-  // message.error('Please Login or Sign-up')
-  message.error(
-    {
-      content:'Please Login or Sign-up',
-      duration: 60,
-      className: 'errorMessage'
-    }
-    )
-}
+
+
 
 
 class MapPage extends Component {
@@ -48,14 +41,14 @@ class MapPage extends Component {
     this.map = undefined
 
     this.state = {
-      active: '',
+      active: "",
       zoom: 13,
       allStores: {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [],
       },
       displayStores: {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [],
       },
       currentListingInfo: null,
@@ -84,35 +77,29 @@ class MapPage extends Component {
 
   componentDidUpdate() {
     this.removeLocationMarker()
-    
+
     this.addCurrentLocationMarker()
-    
+
     // this.flyToNewLocationMarker()
-    
   }
 
-  componentWillUnmount() {
-
-  }
-
-
+  componentWillUnmount() {}
 
   fetchListings = () => {
     this.setState({ isFetching: true })
-    const listingsUrl = 'https://parkingrabbit-backend.herokuapp.com/listings'
+    const listingsUrl = "https://parkingrabbit-backend.herokuapp.com/listings"
     // const listingsUrl = 'http://localhost:3000/listings'
     fetch(listingsUrl)
       .then((response) => response.json())
       .then((result) => {
         let stores = {
-          type: 'FeatureCollection',
+          type: "FeatureCollection",
           features: [],
         }
 
         result.data.forEach((listing) => {
           stores.features.push(this.convertJSONToGEOJSON(listing))
         })
-
 
         this.setState(
           {
@@ -123,7 +110,6 @@ class MapPage extends Component {
           },
 
           () => {
-
             this.addListingMarkers()
 
             const unixTimeinMs = this.state.allStores.features[0].properties
@@ -133,45 +119,45 @@ class MapPage extends Component {
 
             const humanDateFormat = dateObject.toLocaleString()
 
-            const monthName = dateObject.toLocaleString('en-US', {
-              month: 'long',
+            const monthName = dateObject.toLocaleString("en-US", {
+              month: "long",
             })
             let monthNum
             switch (monthName) {
-              case 'January':
+              case "January":
                 monthNum = 1
                 break
-              case 'February':
+              case "February":
                 monthNum = 2
                 break
-              case 'March':
+              case "March":
                 monthNum = 3
                 break
-              case 'April':
+              case "April":
                 monthNum = 4
                 break
-              case 'May':
+              case "May":
                 monthNum = 5
                 break
-              case 'June':
+              case "June":
                 monthNum = 6
                 break
-              case 'July':
+              case "July":
                 monthNum = 7
                 break
-              case 'August':
+              case "August":
                 monthNum = 8
                 break
-              case 'September':
+              case "September":
                 monthNum = 9
                 break
-              case 'October':
+              case "October":
                 monthNum = 10
                 break
-              case 'November':
+              case "November":
                 monthNum = 11
                 break
-              case 'December':
+              case "December":
                 monthNum = 12
                 break
               default:
@@ -187,7 +173,7 @@ class MapPage extends Component {
   loadMapAndMarkers = () => {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: "mapbox://styles/mapbox/streets-v11",
       // PASSING DOWN PROPS IS EASIER THAN PASSING DOWN PROPS TO STATE ON THIS COMPONENTS
       center: [this.props.setLng, this.props.setLat],
 
@@ -197,19 +183,19 @@ class MapPage extends Component {
       zoom: this.state.zoom,
     })
 
-    this.map.on('load', (e) => {
+    this.map.on("load", (e) => {
       /* Add the data to your map as a layer */
       this.map.addLayer({
-        id: 'locations',
-        type: 'symbol',
+        id: "locations",
+        type: "symbol",
         /* Add a GeoJSON source containing place coordinates and information. */
         source: {
-          type: 'geojson',
+          type: "geojson",
           data: this.state.displayStores,
         },
         layout: {
           // 'icon-image': 'restaurant-15',
-          'icon-allow-overlap': true,
+          "icon-allow-overlap": true,
         },
       })
 
@@ -221,16 +207,16 @@ class MapPage extends Component {
     })
 
     // DO WE NEED THIS?
-    this.map.on('click', function (e) {
+    this.map.on("click", function (e) {
       console.log("from this.map.on 'click'")
     })
   }
 
   convertJSONToGEOJSON = (listing) => {
     return {
-      type: 'Feature',
+      type: "Feature",
       geometry: {
-        type: 'Point',
+        type: "Point",
         coordinates: [listing.attributes.long, listing.attributes.lat],
       },
       properties: {
@@ -276,7 +262,7 @@ class MapPage extends Component {
    * FTILER HOURLY
   ------------------------------------*/
   handleFilterHourlyFromDatetime = (value) => {
-    console.log('handleFilterHourlyFromDatetime: ', value)
+    console.log("handleFilterHourlyFromDatetime: ", value)
 
     this.setState({
       filterHourlyFromDateTime: value,
@@ -284,7 +270,7 @@ class MapPage extends Component {
   }
 
   handleFilterHourlyToDateTime = (value) => {
-    console.log('handleFilterHourlyToDateTime: ', value)
+    console.log("handleFilterHourlyToDateTime: ", value)
 
     this.setState({
       filterHourlyToDateTime: value,
@@ -304,13 +290,13 @@ class MapPage extends Component {
             listing.properties.available_start,
             listing.properties.available_end,
             null,
-            '[]'
+            "[]"
           ) &&
           dayjs(this.state.filterHourlyToDateTime).isBetween(
             listing.properties.available_start,
             listing.properties.available_end,
             null,
-            '[]'
+            "[]"
           )
         )
       }
@@ -319,7 +305,7 @@ class MapPage extends Component {
     this.setState(
       {
         displayStores: {
-          type: 'FeatureCollection',
+          type: "FeatureCollection",
           features: filterHourlyListings,
         },
       },
@@ -379,7 +365,6 @@ class MapPage extends Component {
           this.renderAllStores()
           // this.addListingMarkers()
         }
-
       )
     } else {
       // set state then converts momentjs object to
@@ -410,7 +395,7 @@ class MapPage extends Component {
 
   createPopUp = (currentFeature) => {
     // console.log('from createPopUp')
-    var popUps = document.getElementsByClassName('mapboxgl-popup')
+    var popUps = document.getElementsByClassName("mapboxgl-popup")
     // console.log(popUps)
     // /** Check if there is already a popup on the map and if so, remove it */
     if (popUps[0]) popUps[0].remove()
@@ -419,10 +404,10 @@ class MapPage extends Component {
     new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        '<h3>Sweetgreen</h3>' +
-          '<h4>' +
+        "<h3>Sweetgreen</h3>" +
+          "<h4>" +
           currentFeature.properties.address +
-          '</h4>'
+          "</h4>"
       )
       .addTo(this.map)
   }
@@ -430,27 +415,26 @@ class MapPage extends Component {
   renderAllStores = () => {
     /* For each feature in the GeoJSON object above: */
     this.state.allStores.features.forEach((marker) => {
-
       let CssClassType
       let parkingType = marker.properties.parking_type
-      if (parkingType === 'Garage') {
-        CssClassType = 'markerListingGarage'
-      } else if (parkingType === 'Valet') {
-        CssClassType = 'markerListingValet'
-      } else if (parkingType === 'Lot') {
-        CssClassType = 'markerListingLot'
-      } else if (parkingType === 'Resident') {
-        CssClassType = 'markerListingResident'
+      if (parkingType === "Garage") {
+        CssClassType = "markerListingGarage"
+      } else if (parkingType === "Valet") {
+        CssClassType = "markerListingValet"
+      } else if (parkingType === "Lot") {
+        CssClassType = "markerListingLot"
+      } else if (parkingType === "Resident") {
+        CssClassType = "markerListingResident"
       }
 
       /* Create a div element for the marker. */
-      const el = document.createElement('div')
+      const el = document.createElement("div")
       /* Assign a unique `id` to the marker. */
-      el.id = 'marker__listing--' + marker.properties.id
+      el.id = "marker__listing--" + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
       // el.className = 'marker__listing'
 
-      el.classList.add('marker__listing', CssClassType)
+      el.classList.add("marker__listing", CssClassType)
 
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
@@ -462,15 +446,15 @@ class MapPage extends Component {
       //  console.log(myComp)
       // console.log(marker.geometry.coordinates)
       new mapboxgl.Marker(el) // { offset: [0, -23] }
-      .setLngLat(marker.geometry.coordinates)
-      .addTo(this.map)
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(this.map)
     })
   }
 
   addCurrentLocationMarker = (e) => {
     // console.log(e)
-    const el = document.createElement('div')
-    el.className = 'marker__location'
+    const el = document.createElement("div")
+    el.className = "marker__location"
 
     new mapboxgl.Marker(el)
       .setLngLat([this.props.setLng, this.props.setLat])
@@ -484,25 +468,25 @@ class MapPage extends Component {
 
       let CssClassType
       let parkingType = marker.properties.parking_type
-      if (parkingType === 'Garage') {
-        CssClassType = 'markerListingGarage'
-      } else if (parkingType === 'Valet') {
-        CssClassType = 'markerListingValet'
-      } else if (parkingType === 'Lot') {
-        CssClassType = 'markerListingLot'
-      } else if (parkingType === 'Resident') {
-        CssClassType = 'markerListingResident'
+      if (parkingType === "Garage") {
+        CssClassType = "markerListingGarage"
+      } else if (parkingType === "Valet") {
+        CssClassType = "markerListingValet"
+      } else if (parkingType === "Lot") {
+        CssClassType = "markerListingLot"
+      } else if (parkingType === "Resident") {
+        CssClassType = "markerListingResident"
       }
 
       /* Create a div element for the marker. */
-      const el = document.createElement('div')
+      const el = document.createElement("div")
       /* Assign a unique `id` to the marker. */
-      el.id = 'marker__listing--' + marker.properties.id
+      el.id = "marker__listing--" + marker.properties.id
       /* Assign the `marker` class to each marker for styling. */
-      
+
       // el.className = 'marker__listing'
       // el.className = CssClassType
-      el.classList.add('marker__listing', CssClassType)
+      el.classList.add("marker__listing", CssClassType)
 
       // console.log(marker.properties)
       el.textContent = `$${marker.properties.hourly_price}`
@@ -524,7 +508,7 @@ class MapPage extends Component {
   }
 
   removeListingMarkers = () => {
-    const listingMarkers = document.querySelectorAll('.marker__listing')
+    const listingMarkers = document.querySelectorAll(".marker__listing")
     console.log(listingMarkers.length)
     for (let i = 0; i < listingMarkers.length; i++) {
       listingMarkers[i].remove()
@@ -532,14 +516,11 @@ class MapPage extends Component {
   }
 
   removeLocationMarker = () => {
-    const locationMarker = document.querySelector('.marker__location')
+    const locationMarker = document.querySelector(".marker__location")
 
     if (locationMarker) {
       locationMarker.remove()
     }
-
-
-
   }
 
   flyToNewLocationMarker = () => {
@@ -548,8 +529,6 @@ class MapPage extends Component {
       zoom: 13,
     })
   }
-
-
 
   handleMouseOver = (storeInfo, id) => {
     // console.log('from handleClick in parent component')
@@ -561,17 +540,15 @@ class MapPage extends Component {
       active: `listing -${id}`,
     })
 
-    var activeItem = document.getElementsByClassName('active')
+    var activeItem = document.getElementsByClassName("active")
     // console.log(`activeItem: ${activeItem[0]}`)
     if (activeItem[0]) {
-      activeItem[0].classList.remove('active')
+      activeItem[0].classList.remove("active")
       // console.log(activeItem.length)
     }
-    document.querySelector(`#listing-${id}`).classList.add('active')
+    document.querySelector(`#listing-${id}`).classList.add("active")
     // this.parentNode.classList.add('active')
     // console.log(document.querySelector(`#listing-${id}`).classList)
-
-
   }
 
   /* ----------------------------------
@@ -592,6 +569,16 @@ class MapPage extends Component {
     })
   }
 
+
+  notLoginError = () => {
+    // message.error('Please Login or Sign-up')
+    message
+      .loading('Please Login or Sign-up. Redirecting..', 2)
+      // .then(() => message.error('Loading finished', 2.5))
+      .then(() => this.props.history.push('/login') )
+  
+  }
+
   renderListingCard = (listing) => {
     return (
       <ListingCard
@@ -604,17 +591,19 @@ class MapPage extends Component {
         filterMonthlyState={this.state.renderFilterMonthly}
         hourlyFromDateTimeState={this.state.filterHourlyFromDateTime}
         hourlyToDateTimeState={this.state.filterHourlyToDateTime}
-        signupLoginErrorNotification={error}
+        signupLoginErrorNotification={this.notLoginError}
       />
     )
   }
 
+
+
   render() {
     return (
-      <div className='Map'>
-        <main className='Map__container'>
+      <div className="Map">
+        <main className="Map__container">
           <NavBar mapPage={true} {...this.props} />
-          <article className='Map__filter'>
+          <article className="Map__filter">
             <Filter
               handleSetLatLng={this.props.handleSetLatLng}
               handleFilterHourlyFromDatetime={
@@ -643,11 +632,11 @@ class MapPage extends Component {
             />
           </article>
 
-          <div className='Map__Divider'></div>
+          <div className="Map__Divider"></div>
 
-          <article className='Map__content'>
-            <aside className='Map__sidebar'>
-              <div id='listings' className='Map__listings'>
+          <article className="Map__content">
+            <aside className="Map__sidebar">
+              <div id="listings" className="Map__listings">
                 {this.state.currentListingInfo ? (
                   <ListingInfo
                     currentListing={this.state.currentListingInfo}
@@ -664,21 +653,25 @@ class MapPage extends Component {
                     }
                     parkingSpotsNear={this.props.parkingSpotsNear}
                   >
-                    {this.state.isFetching
-                      ? <div className='listing__fetchingText'>Fetching data...</div>
-                      : this.state.renderDisplayStores
-                      ? this.state.displayStores.features.map((listing) => {
-                          return this.renderListingCard(listing)
-                        })
-                      : this.state.allStores.features.map((listing) => {
-                          return this.renderListingCard(listing)
-                        })}
+                    {this.state.isFetching ? (
+                      <div className="listing__fetchingText">
+                        Fetching data...
+                      </div>
+                    ) : this.state.renderDisplayStores ? (
+                      this.state.displayStores.features.map((listing) => {
+                        return this.renderListingCard(listing)
+                      })
+                    ) : (
+                      this.state.allStores.features.map((listing) => {
+                        return this.renderListingCard(listing)
+                      })
+                    )}
                   </ListingContainer>
                 )}
               </div>
             </aside>
             <section
-              className='Map__canvas'
+              className="Map__canvas"
               ref={(el) => (this.mapContainer = el)}
             ></section>
           </article>
@@ -688,4 +681,4 @@ class MapPage extends Component {
   }
 }
 
-export default MapPage
+export default withRouter(MapPage)
