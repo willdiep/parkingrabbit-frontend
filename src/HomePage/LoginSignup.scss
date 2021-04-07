@@ -151,8 +151,12 @@
     color: #ffffff;
   }
 
-  &__new-text {
+  &__new-text a {
     font-size: 1.25rem;
     color: var(--third-color);
+
+    &:hover {
+      color: var(--primary-color);
+    }
   }
 }

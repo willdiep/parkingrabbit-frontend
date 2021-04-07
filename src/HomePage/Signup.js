@@ -18,6 +18,12 @@ class Signup extends Component {
     })
   }
 
+  onKeyUp = (event) => {
+    if (event.charCode === 13) {
+      this.props.handleSignUp(this.state)
+    }
+  }
+
   render() {
     return (
       <div className='login'>
@@ -101,7 +107,7 @@ class Signup extends Component {
                   className='login__form-input'
                   name='password'
                   value={this.state.password}
-                  type='text'
+                  type='password'
                 />
 
                 <br></br>
@@ -113,7 +119,8 @@ class Signup extends Component {
                   className='login__form-input'
                   name='password_confirmation'
                   value={this.state.password_confirmation}
-                  type='text'
+                  type='password'
+                  onKeyPress={this.onKeyUp}
                 />
 
                 <br></br>
