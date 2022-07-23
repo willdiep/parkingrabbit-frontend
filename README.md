@@ -1,6 +1,6 @@
 # ParkingRabbit v1.0
 
-ParkingRabbit is an e-parking service that allows users to book parking spaces in San Francisco before reaching their destinations. It is a single-page full-stack web app built using React on the front-end and Ruby on Rails with a PostgresSQl database on the back-end. 
+ParkingRabbit is an e-parking service that allows users to book parking spaces in San Francisco before reaching their destinations. It is a single-page full-stack web app built using React on the front-end and Ruby on Rails with a PostgresSQL database on the back-end. 
 
 This is a two-week MVP capstone project at Flatiron School
 
